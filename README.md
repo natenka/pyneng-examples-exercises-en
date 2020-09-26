@@ -65,7 +65,7 @@ In addition, there are all auxiliary files (configurations, etc.) that are used 
 > If you can do a task with letters right away, it is better to do it in order.
 
 
-## Тесты
+## Tests
 
 Starting from section "9. Functions" there are automatic tests for checking tasks. They help to check whether is everything done according to the task and also give feedback on what does not match the task. As a rule, after first period of adaptation to tests, it becomes easier to do tasks with tests.
 
