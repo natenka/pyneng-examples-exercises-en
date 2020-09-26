@@ -9,11 +9,11 @@ class Network:
         self._index = 0
 
     def __iter__(self):
-        print('Вызываю __iter__')
+        print("Calling __iter__")
         return self
 
     def __next__(self):
-        print('Вызываю __next__')
+        print("Calling __next__")
         if self._index < len(self.addresses):
             current_address = self.addresses[self._index]
             self._index += 1
@@ -22,19 +22,19 @@ class Network:
             raise StopIteration
 
 
-net1 = Network('10.1.1.192/30')
+net1 = Network("10.1.1.192/30")
 
 for ip in net1:
     print(ip)
 
-'''
-Вызываю __iter__
-Вызываю __next__
+"""
+Calling __iter__
+Calling __next__
 10.1.1.193
-Вызываю __next__
+Calling __next__
 10.1.1.194
-Вызываю __next__
-'''
+Calling __next__
+"""
 
 # Iterable
 class Network:
@@ -46,9 +46,8 @@ class Network:
     def __iter__(self):
         return iter(self.addresses)
 
-net1 = Network('10.1.1.192/30')
+
+net1 = Network("10.1.1.192/30")
 
 for ip in net1:
     print(ip)
-
-
