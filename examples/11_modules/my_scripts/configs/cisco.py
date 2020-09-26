@@ -1,4 +1,4 @@
-print('Import configs/cisco.py')
+print("Import configs/cisco.py")
 
 basic_cfg = """
 service timestamps debug datetime msec localtime show-timezone year

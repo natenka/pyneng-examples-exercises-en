@@ -9,10 +9,10 @@ def check_ip(ip):
         return False
 
 
-if __name__ == '__main__':
-    ip1 = '10.1.1.1'
-    ip2 = '10.1.1'
+if __name__ == "__main__":
+    ip1 = "10.1.1.1"
+    ip2 = "10.1.1"
 
-    print('Проверка IP...')
+    print("IP check...")
     print(ip1, check_ip(ip1))
     print(ip2, check_ip(ip2))

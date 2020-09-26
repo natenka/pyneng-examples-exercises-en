@@ -11,5 +11,4 @@ def filter_file_lines(filename, substring):
 
 
 if __name__ == "__main__":
-    pprint(filter_file_lines('config_r1.txt', 'ip address'))
-
+    pprint(filter_file_lines("config_r1.txt", "ip address"))
