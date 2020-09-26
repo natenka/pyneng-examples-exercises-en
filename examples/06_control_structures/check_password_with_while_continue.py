@@ -1,15 +1,15 @@
-username = input('Введите имя пользователя: ')
-password = input('Введите пароль: ')
+username = input("Enter username: ")
+password = input("Enter password: ")
 
 password_correct = False
 
 while not password_correct:
     if len(password) < 8:
-        print('Пароль слишком короткий\n')
+        print("Password is too short\n")
     elif username in password:
-        print('Пароль содержит имя пользователя\n')
+        print("Password contains username\n")
     else:
-        print('Пароль для пользователя {} установлен'.format(username))
+        print("Password for user {} is set".format(username))
         password_correct = True
         continue
-    password = input('Введите пароль еще раз: ')
+    password = input("Re-enter password: ")

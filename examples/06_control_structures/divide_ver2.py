@@ -1,21 +1,22 @@
 # -*- coding: utf-8 -*-
 
 try:
-    a = input('Введите первое число: ')
-    b = input('Введите второе число: ')
-    print('Результат: ', int(a) / int(b))
+    a = input("Enter first number: ")
+    b = input("Enter second number: ")
+    print("Output: ", int(a) / int(b))
 except (ValueError, ZeroDivisionError):
-    print('Что-то пошло не так...')
-'''
+    print("Something went wrong...")
+
+"""
 Example:
 
 $ python divide_ver2.py
-Введите первое число: wer
-Введите второе число: 4
-Результат:  Что-то пошло не так...
+Enter first number: wer
+Enter second number: 4
+Output:  Something went wrong...
 
 $ python divide_ver2.py
-Введите первое число: 5
-Введите второе число: 0
-Результат:  Что-то пошло не так...
-'''
+Enter first number: 5
+Enter second number: 0
+Output:  Something went wrong...
+"""
