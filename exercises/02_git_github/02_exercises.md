@@ -1,28 +1,7 @@
-# Задания
+# Tasks
 
-### Задание 2.1
+### Task 2.1
 
-Клонировать [репозиторий с заданиями и примерами](https://github.com/natenka/pyneng-examples-exercises).
+Create your repository based on repository template with tasks and examples. To do this, press "Use this template".
 
-Попробовать обновить его (git pull). Должно отобразиться сообщение "Already up-to-date.".
-
-В этом репозитории вы не можете вносить изменения, поэтому он будет использоваться только для получения заданий и примеров.
-Для работы с ними, необходимо создать собственный репозиторий и скопировать туда задания.
-
-
-### Задание 2.2
-
-В этом задании необходимо:
-
-* создать свой репозиторий для выполнения заданий на GitHub
-* клонировать ее на свою виртуалку
-
-В репозитории можно придумать любую структуру каталогов.
-
-Так как задания периодически обновляются, лучше выбрать такой подход к работе:
-
-* обновляете [репозиторий с заданиями и примерами (pyneng-examples-exercises)](https://github.com/natenka/pyneng-examples-exercises)
-* копируете задания одного раздела из репозитория pyneng-examples-exercises в свой репозиторий
-* выполняете задания
-* при переходе к следующему разделу, повторяете все с начала
-
+Created repository will be a copy of pyneng-examples-exercises-en repository, but is not tied to it. It's better to perform tasks in prepared files in exercises directory as tests for tasks depend on created directory structure.

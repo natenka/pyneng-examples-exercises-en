@@ -1,32 +1,29 @@
-# Задания и примеры из книги "Python для сетевых инженеров"
+# Examples and exercises from the book "Python for Network Engineers"
 
 [![Python 3.6](https://img.shields.io/badge/python-3.6-blue.svg)](https://www.python.org/downloads/release/python-360/) [![Python 3.7](https://img.shields.io/badge/python-3.7-blue.svg)](https://www.python.org/downloads/release/python-370/) [![Python 3.8](https://img.shields.io/badge/python-3.8-blue.svg)](https://www.python.org/downloads/release/python-380/) [![Code style: black](https://img.shields.io/badge/code%20style-black-000000.svg)](https://github.com/psf/black)
 
-Все примеры и задания были проверены на Python 3.7 и 3.8.
 
-## Виртуалки
+## Virtual machine
 
-Для курса подготовлены два варианта виртуальных машин: vmware и Vagrant.
-По ссылке есть инструкции для каждого варианта, а также инструкция по выполнению заданий на Windows:
+Two versions of virtual machines are prepared for the course: vmware and Vagrant.
+The link contains instructions for each option, as well as instructions for completing tasks on Windows:
 
 * https://pyneng.github.io/docs/course-vm/
 
 
-## Задания
+## Tasks (exercises)
 
-В каталоге exercises находятся задания к курсу, отсортированные по разделам курса.
-Кроме того, там находятся все вспомогательные файлы (конфигурации и др), которые используются в заданиях.
+The exercises directory contains tasks with numbers corresponding to the sections of the book.
+In addition, there are all auxiliary files (configurations, etc.) that are used in tasks.
 
-> Если в заданиях раздела есть задания с буквами (например, 5.2a), то можно выполнить сначала задания без букв, а затем с буквами. Задания с буквами, как правило, немного сложнее заданий без букв и развивают/усложняют идею в соответствующем задании без буквы.
-> Например, если в разделе есть задания: 5.1, 5.2, 5.2a, 5.2b, 5.3, 5.3a.
-> Сначала, можно выполнить задания 5.1, 5.2, 5.3. А затем 5.2a, 5.2b, 5.3a.
-> Однако, если задания с буквами получается сделать сразу, можно делать их по порядку.
+> If you have tasks with letters (for example, 5.2a) in a section, it is better to do tasks without letters and then with letters. Tasks with letter tend to be slightly more complex than letter-free tasks and they develop or complicate the idea in the respective task without letter.
+> For example, in the section there are tasks 5.1, 5.2, 5.2a, 5.2b, 5.3, 5.3a. First it is better to complete 5.1, 5.2, 5.3 and then 5.2a, 5.2b, 5.3a
+> If you can do a task with letters right away, it is better to do it in order.
 
-## Тесты
 
-Начиная с раздела «9. Функции» для проверки заданий есть автоматические тесты. 
-Они помогают проверить все ли соответствует поставленной задаче, а также дают обратный отклик по тому, 
-что не соответствует задаче. Как правило, после первого периода адаптации к тестам, становится проще делать задания с тестами.
+## Tests
 
-* [Как работать с тестами и основы pytest](https://pyneng.readthedocs.io/ru/latest/book/additional_info/pytest.html)
+Starting from section "9. Functions" there are automatic tests for checking tasks. They help to check whether is everything done according to the task and also give feedback on what does not match the task. As a rule, after first period of adaptation to tests, it becomes easier to do tasks with tests.
+
+[How to work with tests (pytest basics)](https://pyneng.readthedocs.io/en/latest/book/additional_info/pytest.html)
 

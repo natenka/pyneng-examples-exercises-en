@@ -4,6 +4,10 @@
 
 All examples and exercises have been tested in Python 3.7 and 3.8.
 
+> The assignments will be useful even if you are reading another Python book.
+> All tasks are focused on network topics.
+
+
 ## How to create your own repository for tasks
 
 > [Git/Github basics](https://pyneng.readthedocs.io/ru/latest/book/02_git_github/index.html)
