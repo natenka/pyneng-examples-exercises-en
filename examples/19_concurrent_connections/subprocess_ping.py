@@ -6,9 +6,11 @@ def ping_ip_addresses(ip_list):
     unreachable = []
     result = []
     for ip in ip_list:
-        p = subprocess.Popen(['ping', '-c', '3', '-n', ip],
-                             stdout=subprocess.PIPE,
-                             stderr=subprocess.PIPE)
+        p = subprocess.Popen(
+            ["ping", "-c", "3", "-n", ip],
+            stdout=subprocess.PIPE,
+            stderr=subprocess.PIPE,
+        )
         result.append(p)
     for ip, p in zip(ip_list, result):
         returncode = p.wait()
@@ -20,4 +22,4 @@ def ping_ip_addresses(ip_list):
 
 
 if __name__ == "__main__":
-    print(ping_ip_addresses(['8.8.8.8', '192.168.100.22', '192.168.100.1']))
+    print(ping_ip_addresses(["8.8.8.8", "192.168.100.22", "192.168.100.1"]))

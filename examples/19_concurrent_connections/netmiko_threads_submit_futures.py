@@ -11,16 +11,16 @@ from netmiko import ConnectHandler, NetMikoAuthenticationException
 logging.getLogger("paramiko").setLevel(logging.WARNING)
 
 logging.basicConfig(
-    format = '%(threadName)s %(name)s %(levelname)s: %(message)s',
-    level=logging.INFO)
+    format="%(threadName)s %(name)s %(levelname)s: %(message)s", level=logging.INFO
+)
 
 
 def send_show(device_dict, command):
-    start_msg = '===> {} Connection: {}'
-    received_msg = '<=== {} Received: {}'
-    ip = device_dict['ip']
+    start_msg = "===> {} Connection: {}"
+    received_msg = "<=== {} Received: {}"
+    ip = device_dict["ip"]
     logging.info(start_msg.format(datetime.now().time(), ip))
-    if ip == '192.168.100.1':
+    if ip == "192.168.100.1":
         time.sleep(5)
 
     with ConnectHandler(**device_dict) as ssh:
@@ -37,16 +37,15 @@ def send_command_to_devices(devices, command):
         for device in devices:
             future = executor.submit(send_show, device, command)
             future_list.append(future)
-            print('Future: {} for device {}'.format(future, device['ip']))
+            print("Future: {} for device {}".format(future, device["ip"]))
         for f in as_completed(future_list):
             result = f.result()
-            print('Future done {}'.format(f))
+            print("Future done {}".format(f))
             data.update(result)
     return data
 
 
-if __name__ == '__main__':
-    with open('devices.yaml') as f:
+if __name__ == "__main__":
+    with open("devices.yaml") as f:
         devices = yaml.safe_load(f)
-    pprint(send_command_to_devices(devices, 'sh clock'))
-
+    pprint(send_command_to_devices(devices, "sh clock"))

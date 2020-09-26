@@ -14,17 +14,19 @@ from netmiko.ssh_exception import NetMikoAuthenticationException
 logging.getLogger("paramiko").setLevel(logging.WARNING)
 
 logging.basicConfig(
-    format = '%(threadName)s %(name)s %(levelname)s: %(message)s',
-    level=logging.INFO)
+    format="%(threadName)s %(name)s %(levelname)s: %(message)s", level=logging.INFO
+)
 
-start_msg = '===> {} Connection: {}'
-received_msg = '<=== {} Received: {}'
-parsed_msg = '#### {} Parsed: {}'
+start_msg = "===> {} Connection: {}"
+received_msg = "<=== {} Received: {}"
+parsed_msg = "#### {} Parsed: {}"
+
 
 def send_show(device_dict, command):
-    ip = device_dict['ip']
+    ip = device_dict["ip"]
     logging.info(start_msg.format(datetime.now().time(), ip))
-    if ip == '192.168.100.1': time.sleep(5)
+    if ip == "192.168.100.1":
+        time.sleep(5)
     with ConnectHandler(**device_dict) as ssh:
         ssh.enable()
         result = ssh.send_command(command)
@@ -33,12 +35,11 @@ def send_show(device_dict, command):
 
 
 def parse_sh_ip_int_br(future):
-    regex = (r'(\S+) +([\d.]+) +\w+ +\w+ +'
-             r'(up|down|administratively down) +(up|down)')
+    regex = r"(\S+) +([\d.]+) +\w+ +\w+ +" r"(up|down|administratively down) +(up|down)"
     ip, output = future.result()
     parsed = [match.groups() for match in re.finditer(regex, output)]
     logging.info(parsed_msg.format(datetime.now().time(), ip))
-    with open(f'parsed_{ip}_sh_ip_int_br.csv', 'w', encoding='utf-8') as f:
+    with open(f"parsed_{ip}_sh_ip_int_br.csv", "w", encoding="utf-8") as f:
         writer = csv.writer(f)
         writer.writerows(parsed)
 
@@ -58,9 +59,8 @@ def send_command_to_devices(devices, command, callback=None):
     return data
 
 
-if __name__ == '__main__':
-    with open('devices.yaml') as f:
+if __name__ == "__main__":
+    with open("devices.yaml") as f:
         devices = yaml.safe_load(f)
-    done = send_command_to_devices(devices, 'sh ip int br', callback=parse_sh_ip_int_br)
+    done = send_command_to_devices(devices, "sh ip int br", callback=parse_sh_ip_int_br)
     pprint(done, width=120)
-

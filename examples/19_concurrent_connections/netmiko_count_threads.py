@@ -12,8 +12,8 @@ from netmiko.ssh_exception import NetMikoAuthenticationException
 def send_show(device_dict, commands):
     if type(commands) == str:
         commands = [commands]
-    ip = device_dict['ip']
-    result = ''
+    ip = device_dict["ip"]
+    result = ""
     with ConnectHandler(**device_dict) as ssh:
         ssh.enable()
         for command in commands:
@@ -33,17 +33,18 @@ def send_command_to_devices(devices, commands, max_threads=2):
     return data
 
 
-if __name__ == '__main__':
-    filename = 'devices_all.yaml'
+if __name__ == "__main__":
+    filename = "devices_all.yaml"
     min_th, max_th = 3, 9
 
     with open(filename) as f:
         devices = yaml.safe_load(f)
-    print('Количество устройств:', len(devices))
+    print("Number of devices:", len(devices))
 
-    for num_threads in range(min_th, max_th+1):
-        print(' {} потоков '.format(num_threads).center(50, '#'))
+    for num_threads in range(min_th, max_th + 1):
+        print(" {} threads".format(num_threads).center(50, "#"))
         start_time = datetime.now()
-        all_done = send_command_to_devices(devices, commands='sh ip int br', max_threads=num_threads)
+        all_done = send_command_to_devices(
+            devices, commands="sh ip int br", max_threads=num_threads
+        )
         print(datetime.now() - start_time)
-
