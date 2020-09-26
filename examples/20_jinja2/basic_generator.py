@@ -1,6 +1,7 @@
 from jinja2 import Template
 
-template = Template('''
+template = Template(
+    """
 hostname {{name}}
 !
 interface Loopback255
@@ -15,17 +16,13 @@ router ospf 10
  router-id 10.255.{{id}}.1
  auto-cost reference-bandwidth 10000
  network 10.0.0.0 0.255.255.255 area 0
-''')
+"""
+)
 
-liverpool = {
-    'id': '11',
-    'name': 'Liverpool',
-    'int': 'Gi1/0/17',
-    'ip': '10.1.1.10'
-}
+liverpool = {"id": "11", "name": "Liverpool", "int": "Gi1/0/17", "ip": "10.1.1.10"}
 
 print(template.render(liverpool))
-'''
+"""
 Examples:
 
 $ python generator.py
@@ -44,4 +41,4 @@ router ospf 10
  router-id 10.255.11.1
  auto-cost reference-bandwidth 10000
  network 10.0.0.0 0.255.255.255 area 0
-'''
+"""

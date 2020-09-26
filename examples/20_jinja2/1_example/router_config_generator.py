@@ -2,7 +2,7 @@
 import yaml
 from router_template import template_r1
 
-with open('routers_info.yml') as f
+with open('routers_info.yml') as f:
     routers = yaml.safe_load(f)
 
 for router in routers:
