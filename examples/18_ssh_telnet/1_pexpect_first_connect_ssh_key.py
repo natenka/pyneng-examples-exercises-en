@@ -32,7 +32,7 @@ def send_show_command(ip, username, password, enable, commands):
             elif match == 2:
                 return result
             else:
-                print("Ошибка: timeout")
+                print("Error: timeout")
         return result
 
 

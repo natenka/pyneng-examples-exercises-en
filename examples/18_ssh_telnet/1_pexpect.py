@@ -23,10 +23,10 @@ def send_show_command(ip, username, password, enable, commands, prompt="#"):
             match = ssh.expect([prompt, pexpect.TIMEOUT, pexpect.EOF])
             if match == 1:
                 print(
-                    f"Символ {prompt} не найден в выводе. Полученный вывод записан в словарь"
+                    f"Symbol {prompt} was not found in the output. The resulting output is written to the dictionary"
                 )
             if match == 2:
-                print("Соединение разорвано со стороны сервера")
+                print("The connection was dropped from the server side")
                 return result
             else:
                 output = ssh.before
