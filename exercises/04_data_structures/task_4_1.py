@@ -6,6 +6,9 @@
 в имени интерфейса вместо FastEthernet написано GigabitEthernet.
 
 Ограничение: Все задания надо выполнять используя только пройденные темы.
+Restriction: All tasks must be done using the topics covered in this and previous chapters.
+ 
+
 
 """
 
