@@ -1,26 +1,25 @@
 # -*- coding: utf-8 -*-
 """
-Задание 4.4
+Task 4.4
 
-Список vlans это список VLANов, собранных со всех устройств сети,
-поэтому в списке есть повторяющиеся номера VLAN.
+Vlans list is a list of VLANs collected from all devices on the network,
+therefore there are duplicate VLAN numbers in the list.
 
-Из списка vlans нужно получить новый список уникальных номеров VLANов,
-отсортированный по возрастанию номеров. Для получения итогового
-списка нельзя удалять конкретные vlanы вручную.
+Get a new list of unique VLAN numbers from the vlans list,
+sorted in ascending order of numbers. To get the final
+list, you cannot delete specific vlans manually.
 
-Записать итоговый список уникальных номеров VLANов в переменную result.
-(именно эта переменная будет проверяться в тесте)
+Write the resulting list to the result variable.
+(this is the variable that will be checked in the test)
 
-Полученный список result вывести на стандартный поток вывода (stdout)
-с помощью print.
+Print the resulting list to the standard output (stdout) using print.
 
-Ограничение: Все задания надо выполнять используя только пройденные темы.
+Restriction: All tasks must be done using the topics covered in this and previous chapters.
 
-Предупреждение: в разделе 4 тесты можно легко "обмануть" сделав нужный вывод,
-без получения результатов из исходных данных с помощью Python.
-Это не значит, что задание сделано правильно, просто на данном этапе сложно иначе
-проверять результат.
+Warning: in section 4, the tests can be easily "tricked" into making the
+correct output without getting results from initial data using Python.
+This does not mean that the task was done correctly, it is just that at
+this stage it is difficult otherwise test the result.
 """
 
 vlans = [10, 20, 30, 1, 2, 100, 10, 30, 3, 4, 10]

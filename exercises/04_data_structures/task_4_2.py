@@ -1,17 +1,17 @@
 # -*- coding: utf-8 -*-
 """
-Задание 4.2
+Task 4.2
 
-Преобразовать строку в переменной mac из формата XXXX:XXXX:XXXX
-в формат XXXX.XXXX.XXXX
-Полученную новую строку вывести на стандартный поток вывода (stdout) с помощью print.
+Convert string in mac variable from XXXX:XXXX:XXXX format to
+XXXX.XXXX.XXXX format.
+Print the resulting new string to the standard output (stdout) using print.
 
-Ограничение: Все задания надо выполнять используя только пройденные темы.
+Restriction: All tasks must be done using the topics covered in this and previous chapters.
 
-Предупреждение: в разделе 4 тесты можно легко "обмануть" сделав нужный вывод,
-без получения результатов из исходных данных с помощью Python.
-Это не значит, что задание сделано правильно, просто на данном этапе сложно иначе
-проверять результат.
+Warning: in section 4, the tests can be easily "tricked" into making the
+correct output without getting results from initial data using Python.
+This does not mean that the task was done correctly, it is just that at
+this stage it is difficult otherwise test the result.
 """
 
 mac = "AAAA:BBBB:CCCC"

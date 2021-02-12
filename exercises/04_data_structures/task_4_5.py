@@ -1,23 +1,23 @@
 # -*- coding: utf-8 -*-
 """
-Задание 4.5
+Task 4.5
 
-Из строк command1 и command2 получить список VLANов, которые есть
-и в команде command1 и в команде command2 (пересечение).
+From the strings command1 and command2, get a list of VLANs that exist
+in both command1 and command2 (intersection).
 
-В данном случае, результатом должен быть такой список: ['1', '3', '8']
+In this case, the result should be a list: ['1', '3', '8']
 
-Записать итоговый список в переменную result. (именно эта переменная будет
-проверяться в тесте)
+Write the resulting list to the result variable.
+(this is the variable that will be checked in the test)
 
-Полученный список result вывести на стандартный поток вывода (stdout) с помощью print.
+Print the resulting list to the standard output (stdout) using print.
 
-Ограничение: Все задания надо выполнять используя только пройденные темы.
+Restriction: All tasks must be done using the topics covered in this and previous chapters.
 
-Предупреждение: в разделе 4 тесты можно легко "обмануть" сделав нужный вывод,
-без получения результатов из исходных данных с помощью Python.
-Это не значит, что задание сделано правильно, просто на данном этапе сложно иначе
-проверять результат.
+Warning: in section 4, the tests can be easily "tricked" into making the
+correct output without getting results from initial data using Python.
+This does not mean that the task was done correctly, it is just that at
+this stage it is difficult otherwise test the result.
 """
 
 command1 = "switchport trunk allowed vlan 1,2,3,5,8"

@@ -1,18 +1,18 @@
 # -*- coding: utf-8 -*-
 """
-Задание 4.7
+Task 4.7
 
-Преобразовать MAC-адрес в строке mac в двоичную строку такого вида:
+Convert MAC address in mac string to binary string like this:
 '101010101010101010111011101110111100110011001100'
 
-Полученную новую строку вывести на стандартный поток вывода (stdout) с помощью print.
+Print the resulting new string to the standard output (stdout) using print.
 
-Ограничение: Все задания надо выполнять используя только пройденные темы.
+Restriction: All tasks must be done using the topics covered in this and previous chapters.
 
-Предупреждение: в разделе 4 тесты можно легко "обмануть" сделав нужный вывод,
-без получения результатов из исходных данных с помощью Python.
-Это не значит, что задание сделано правильно, просто на данном этапе сложно иначе
-проверять результат.
+Warning: in section 4, the tests can be easily "tricked" into making the
+correct output without getting results from initial data using Python.
+This does not mean that the task was done correctly, it is just that at
+this stage it is difficult otherwise test the result.
 """
 
 mac = "AAAA:BBBB:CCCC"
