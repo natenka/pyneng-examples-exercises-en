@@ -26,8 +26,8 @@ def test_task_stdout(capsys):
 
 def test_task_variables():
     """
-    Проверка что в задании создана нужная переменная
-    и в ней содержится правильный результат
+    Checking that the required variable has been created
+    in the task and contains the correct result
     """
     import task_4_5
 
