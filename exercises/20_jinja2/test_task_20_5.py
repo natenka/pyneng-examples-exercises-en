@@ -17,10 +17,10 @@ if not isinstance(__loader__, AssertionRewritingHook):
 def test_templates_exists():
     assert os.path.exists(
         "templates/gre_ipsec_vpn_1.txt"
-    ), "Шаблон templates/gre_ipsec_vpn_1.txt не существует"
+    ), "Template templates/gre_ipsec_vpn_1.txt does not exist"
     assert os.path.exists(
         "templates/gre_ipsec_vpn_2.txt"
-    ), "Шаблон templates/gre_ipsec_vpn_2.txt не существует"
+    ), "Template templates/gre_ipsec_vpn_2.txt does not exist"
 
 
 def test_function_return_value():
@@ -55,7 +55,7 @@ def test_function_return_value():
 
     assert (
         correct_value_1 in return_cfg1
-    ), "В итоговой конфигурации неправильно указаны настройки Tunnel для первой стороны"
+    ), "In the final configuration, the Tunnel settings for the first side are incorrect"
     assert (
         correct_value_2 in return_cfg2
-    ), "В итоговой конфигурации неправильно указаны настройки Tunnel для второй стороны"
+    ), "In the final configuration, the Tunnel settings for the second side are incorrect"

@@ -17,7 +17,7 @@ if not isinstance(__loader__, AssertionRewritingHook):
 def test_templates_exists():
     assert os.path.exists(
         "templates/add_vlan_to_switch.txt"
-    ), "Шаблон templates/add_vlan_to_switch.txt не существует"
+    ), "Template templates/add_vlan_to_switch.txt does not exist"
 
 
 def test_function_return_value():
@@ -41,10 +41,10 @@ def test_function_return_value():
 
     assert (
         correct_value_vlan in return_value
-    ), "В итоговой конфигурации не создан VLAN и/или не назначено имя VLAN"
+    ), "In the configuration, no VLAN was created and/or no VLAN name was assigned"
     assert (
         correct_value_access in return_value
-    ), "В итоговой конфигурации неправильная настройка access"
+    ), "In the final configuration, incorrect access configuration"
     assert (
         correct_value_trunk1 in return_value and correct_value_trunk2 in return_value
-    ), "В итоговой конфигурации неправильная настройка trunk"
+    ), "In the final configuration, incorrect trunk configuration"

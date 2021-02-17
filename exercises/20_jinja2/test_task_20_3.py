@@ -17,7 +17,7 @@ if not isinstance(__loader__, AssertionRewritingHook):
 def test_templates_exists():
     assert os.path.exists(
         "templates/ospf.txt"
-    ), "Шаблон templates/ospf.txt не существует"
+    ), "Template templates/ospf.txt does not exist"
 
 
 def test_function_return_value():
@@ -63,11 +63,9 @@ def test_function_return_value():
     return_value = strip_empty_lines(return_value)
     return_lines = set(return_value.splitlines())
 
-    # проверяем что строки из correct_return_value_router содержатся в return_value
     assert correct_lines_router.issubset(
         return_lines
-    ), "В итоговой конфигурации режима router ospf не все строки"
-    # проверяем что строки из correct_return_value_intf содержатся в return_value
+    ), "Not all lines are present in the router ospf configuration"
     assert correct_lines_interface.issubset(
         return_lines
-    ), "В итоговой конфигурации интерфейсов не все строки"
+    ), "Not all lines are present in the final interface configuration"

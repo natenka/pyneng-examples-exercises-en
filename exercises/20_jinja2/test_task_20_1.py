@@ -52,10 +52,10 @@ def test_function_return_value():
         ],
     }
     return_value = task_20_1.generate_config(template, data)
-    assert return_value != None, "Функция ничего не возвращает"
+    assert return_value != None, "The function returns None"
     assert (
         type(return_value) == str
-    ), f"По заданию функция должна возвращать строку, а возвращает {type(return_value).__name__}"
+    ), f"The function must return string, and it returns a {type(return_value).__name__}"
     assert strip_empty_lines(return_value) == strip_empty_lines(
         correct_return_value
-    ), "Функция возвращает неправильное значение"
+    ), "Function returns wrong value"

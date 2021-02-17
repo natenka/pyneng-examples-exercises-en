@@ -26,10 +26,10 @@ def get_interface_cfg(cfg_output):
 def test_templates_exists():
     assert os.path.exists(
         "templates/gre_ipsec_vpn_1.txt"
-    ), "Шаблон templates/gre_ipsec_vpn_1.txt не существует"
+    ), "Template templates/gre_ipsec_vpn_1.txt does not exist"
     assert os.path.exists(
         "templates/gre_ipsec_vpn_2.txt"
-    ), "Шаблон templates/gre_ipsec_vpn_2.txt не существует"
+    ), "Template templates/gre_ipsec_vpn_2.txt does not exist"
 
 
 def test_function_return_value(first_two_routers_from_devices_yaml):
@@ -64,13 +64,13 @@ def test_function_return_value(first_two_routers_from_devices_yaml):
 
     assert (
         type(return_value) == tuple
-    ), f"По заданию функция должна возвращать кортеж, а возвращает {type(return_value).__name__}"
+    ), f"The function should return a tuple, instead it returns a {type(return_value).__name__}"
     assert len(return_value) == 2 and all(
         type(item) == str for item in return_value
-    ), "Функция должна возвращать кортеж с двумя строками"
+    ), "The function must return a tuple with two strings"
     assert (
         correct_intf_1 in return_intf_cfg1
-    ), "В итоговой конфигурации неправильно указаны настройки Tunnel для первой стороны"
+    ), "In the final configuration, the Tunnel settings for the first side are incorrect"
     assert (
         correct_intf_2 in return_intf_cfg2
-    ), "В итоговой конфигурации неправильно указаны настройки Tunnel для второй стороны"
+    ), "In the final configuration, the Tunnel settings for the second side are incorrect"
