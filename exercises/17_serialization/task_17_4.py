@@ -8,7 +8,7 @@
 * source_log - имя файла в формате csv, из которого читаются данные (mail_log.csv)
 * output - имя файла в формате csv, в который будет записан результат
 
-Функция ничего не возвращает.
+The function returns None.
 
 Функция write_last_log_to_csv обрабатывает csv файл mail_log.csv.
 В файле mail_log.csv находятся логи изменения имени пользователя. При этом, email

@@ -15,14 +15,14 @@ if not isinstance(__loader__, AssertionRewritingHook):
 
 def test_function_created():
     """
-    Проверка, что функция создана
+    Checking that the function has been created
     """
     check_function_exists(task_17_3, "parse_sh_cdp_neighbors")
 
 
 def test_function_return_value():
     """
-    Проверка работы функции
+    Function check
     """
     with open("sh_cdp_n_sw1.txt") as f:
         sh_cdp_n_sw1 = f.read()
@@ -37,19 +37,16 @@ def test_function_return_value():
     }
 
     return_value = task_17_3.parse_sh_cdp_neighbors(sh_cdp_n_sw1)
-    assert return_value != None, "Функция ничего не возвращает"
+    assert return_value != None, "The function returns None"
     assert (
         type(return_value) == dict
-    ), f"По заданию функция должна возвращать словарь, а возвращает {type(return_value).__name__}"
+    ), f"The function should return a dict, instead it returns a {type(return_value).__name__}"
     assert (
         return_value == correct_return_value
-    ), "Функция возвращает неправильное значение"
+    ), "Function returns wrong value"
 
 
 def test_function_return_value_different_args():
-    """
-    Проверка работы функции на другом выводе
-    """
     with open("sh_cdp_n_sw1.txt") as f:
         sh_cdp_n_sw1 = f.read()
 
@@ -63,10 +60,10 @@ def test_function_return_value_different_args():
     }
 
     return_value = task_17_3.parse_sh_cdp_neighbors(sh_cdp_n_sw1)
-    assert return_value != None, "Функция ничего не возвращает"
+    assert return_value != None, "The function returns None"
     assert (
         type(return_value) == dict
-    ), f"По заданию функция должна возвращать словарь, а возвращает {type(return_value).__name__}"
+    ), f"The function should return a dict, instead it returns a {type(return_value).__name__}"
     assert (
         return_value == correct_return_value
-    ), "Функция возвращает неправильное значение"
+    ), "Function returns wrong value"

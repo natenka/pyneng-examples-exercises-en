@@ -15,14 +15,14 @@ if not isinstance(__loader__, AssertionRewritingHook):
 
 def test_function_created():
     """
-    Проверка, что функция создана
+    Checking that the function has been created
     """
     check_function_exists(task_17_1, "write_dhcp_snooping_to_csv")
 
 
 def test_return_value(tmpdir):
     """
-    Проверка работы функции
+    Function check
     """
     snooping_data = [
         ["switch", "mac", "ip", "vlan", "interface"],
@@ -52,15 +52,15 @@ def test_return_value(tmpdir):
 
     assert (
         return_value == None
-    ), f"По заданию функция должна возвращать None, а возвращает {type(return_value).__name__}"
+    ), f"The function must return None, and it returns a {type(return_value).__name__}"
     assert (
         sorted(csv_content) == correct_return_value
-    ), "Функция возвращает неправильное значение"
+    ), "Function returns wrong value"
 
 
 def test_function_return_value_different_args(tmpdir):
     """
-    Проверка работы функции с другими аргументами
+    Checking the function with different arguments
     """
     snooping_data = [
         ["switch", "mac", "ip", "vlan", "interface"],
@@ -85,7 +85,7 @@ def test_function_return_value_different_args(tmpdir):
 
     assert (
         return_value == None
-    ), f"По заданию функция должна возвращать None, а возвращает {type(return_value).__name__}"
+    ), f"The function must return None, and it returns a {type(return_value).__name__}"
     assert (
         sorted(csv_content) == correct_return_value
-    ), "Функция возвращает неправильное значение"
+    ), "Function returns wrong value"

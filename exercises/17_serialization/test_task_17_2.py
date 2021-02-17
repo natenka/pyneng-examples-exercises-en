@@ -15,7 +15,7 @@ if not isinstance(__loader__, AssertionRewritingHook):
 
 def test_functions_created():
     """
-    Проверка, что функции созданы
+    Checking that the functions has been created
     """
     check_function_exists(task_17_2, "parse_sh_version")
     check_function_exists(task_17_2, "write_inventory_to_csv")
@@ -23,7 +23,7 @@ def test_functions_created():
 
 def test_parse_sh_version_return_value():
     """
-    Проверка работы функции
+    Function check
     """
     with open("sh_version_r1.txt") as f:
         sh_version_r1 = f.read()
@@ -42,22 +42,22 @@ def test_parse_sh_version_return_value():
     )
 
     return_value_r1 = task_17_2.parse_sh_version(sh_version_r1)
-    assert return_value_r1 != None, "Функция ничего не возвращает"
+    assert return_value_r1 != None, "The function returns None"
     assert (
         type(return_value_r1) == tuple
-    ), f"По заданию функция должна возвращать кортеж, а возвращает {type(return_value_r1).__name__}"
+    ), f"The function should return a tuple, instead it returns a {type(return_value_r1).__name__}"
     assert (
         return_value_r1 == correct_return_value_r1
-    ), "Функция возвращает неправильное значение для вывода r1"
+    ), "Function returns wrong value for r1"
     return_value_r2 = task_17_2.parse_sh_version(sh_version_r2)
     assert (
         return_value_r2 == correct_return_value_r2
-    ), "Функция возвращает неправильное значение для вывода r2"
+    ), "Function returns wrong value for r2"
 
 
 def test_write_to_csv_return_value(tmpdir):
     """
-    Проверка работы функции
+    Function check
     """
     routers_inventory = [
         ["hostname", "ios", "image", "uptime"],
@@ -78,7 +78,7 @@ def test_write_to_csv_return_value(tmpdir):
 
     assert (
         return_value == None
-    ), f"По заданию функция должна возвращать None, а возвращает {type(return_value).__name__}"
+    ), f"The function must return None, and it returns a {type(return_value).__name__}"
     assert (
         sorted(csv_content) == correct_return_value
-    ), "Функция возвращает неправильное значение"
+    ), "Function returns wrong value"

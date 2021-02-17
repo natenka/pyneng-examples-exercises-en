@@ -10,7 +10,7 @@
 * filenames - список с именами файлов с выводом show dhcp snooping binding
 * output - имя файла в формате csv, в который будет записан результат
 
-Функция ничего не возвращает.
+The function returns None.
 
 Например, если как аргумент был передан список с одним файлом sw3_dhcp_snooping.txt:
 MacAddress          IpAddress        Lease(sec)  Type           VLAN  Interface

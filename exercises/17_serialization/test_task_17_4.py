@@ -15,14 +15,14 @@ if not isinstance(__loader__, AssertionRewritingHook):
 
 def test_function_created():
     """
-    Проверка, что функция создана
+    Checking that the function has been created
     """
     check_function_exists(task_17_4, "write_last_log_to_csv")
 
 
 def test_return_value(tmpdir):
     """
-    Проверка работы функции
+    Function check
     """
     unique_data = [
         ["Name", "Email", "Last Changed"],
@@ -44,7 +44,7 @@ def test_return_value(tmpdir):
 
     assert (
         return_value == None
-    ), f"По заданию функция должна возвращать None, а возвращает {type(return_value).__name__}"
+    ), f"The function must return None, and it returns a {type(return_value).__name__}"
     assert (
         sorted(csv_content) == correct_return_value
-    ), "Функция возвращает неправильное значение"
+    ), "Function returns wrong value"

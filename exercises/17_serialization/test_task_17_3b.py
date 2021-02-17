@@ -17,14 +17,14 @@ if not isinstance(__loader__, AssertionRewritingHook):
 
 def test_function_created():
     """
-    Проверка, что функция создана
+    Checking that the function has been created
     """
     check_function_exists(task_17_3b, "transform_topology")
 
 
 def test_function_return_value():
     """
-    Проверка работы функции
+    Function check
     """
     sh_cdp_topology_tuples = {
         ("R1", "Eth 0/0"): ("SW1", "Eth 0/1"),
@@ -37,12 +37,12 @@ def test_function_return_value():
     }
     correct_return_value = unify_topology_dict(sh_cdp_topology_tuples)
 
-    assert os.path.exists("topology.yaml"), "Файл topology.yaml не существует"
+    assert os.path.exists("topology.yaml"), "topology.yaml file does not exist"
     return_value = task_17_3b.transform_topology("topology.yaml")
-    assert return_value != None, "Функция ничего не возвращает"
+    assert return_value != None, "The function returns None"
     assert (
         type(return_value) == dict
-    ), f"По заданию функция должна возвращать словарь, а возвращает {type(return_value).__name__}"
+    ), f"The function should return a dict, instead it returns a {type(return_value).__name__}"
     assert (
         unify_topology_dict(return_value) == correct_return_value
-    ), "Функция возвращает неправильное значение"
+    ), "Function returns wrong value"
