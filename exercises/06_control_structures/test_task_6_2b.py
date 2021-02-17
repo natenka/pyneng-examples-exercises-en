@@ -37,7 +37,7 @@ def test_task_correct_ip(capsys, monkeypatch, ip_add, ip_type):
     ), "Nothing is printed to stdout. It is necessary not only to get the correct result, but also to print it to the stdout using printprint"
     assert (
         correct_stdout in out.strip()
-    ), "На стандартный поток вывода выводится неправильный вывод"
+    ), "Wrong output is printed to stdout"
 
 
 def count_calls(func):
@@ -90,4 +90,4 @@ def test_task_wrong_ip(capsys, monkeypatch, ip_add, ip_type):
     ), "Nothing is printed to stdout. It is necessary not only to get the correct result, but also to print it to the stdout using printprint"
     assert (
         correct_stdout in out.strip().lower()
-    ), "На стандартный поток вывода выводится неправильный вывод"
+    ), "Wrong output is printed to stdout"
