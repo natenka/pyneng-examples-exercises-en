@@ -17,26 +17,23 @@ def test_class_created():
     check_class_exists(task_23_1a, "IPAddress")
 
 
-def test_attr_topology():
-    """Проверяем, что в объекте IPAddress есть атрибуты ip и mask"""
+def test_attr_ipaddress():
     ip1 = task_23_1a.IPAddress("10.1.1.1/24")
     check_attr_or_method(ip1, attr="ip")
     check_attr_or_method(ip1, attr="mask")
-    assert ip1.ip == "10.1.1.1", "Значение ip1.ip должно быть равным 10.1.1.1"
-    assert ip1.mask == 24, "Значение ip1.mask должно быть равным 24"
+    assert ip1.ip == "10.1.1.1", "ip1.ip attribute must be equal to 10.1.1.1"
+    assert ip1.mask == 24, "ip1.mask attribute must be equal to 24"
 
 
 def test_str_method():
-    """Проверяем __str__"""
     ip1 = task_23_1a.IPAddress("10.5.5.5/24")
     assert (
         str(ip1) == "IP address 10.5.5.5/24"
-    ), "Метод __str__ должен возвращать 'IP address 10.5.5.5/24'"
+    ), "The __str__ method should return 'IP address 10.5.5.5/24'"
 
 
 def test_repr_method():
-    """Проверяем __repr__"""
     ip1 = task_23_1a.IPAddress("10.5.5.5/24")
     assert (
         repr(ip1) == "IPAddress('10.5.5.5/24')"
-    ), "Метод __repr__ должен возвращать IPAddress('10.5.5.5/24')"
+    ), "The __str__ method should return IPAddress('10.5.5.5/24')"

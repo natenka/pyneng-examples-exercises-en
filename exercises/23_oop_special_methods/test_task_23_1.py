@@ -17,13 +17,13 @@ def test_class_created():
     check_class_exists(task_23_1, "IPAddress")
 
 
-def test_attr_topology():
-    """Проверяем, что в объекте IPAddress есть атрибуты ip и mask"""
+def test_attr_ipaddress():
+    """Verify that the IPAddress object has ip and mask attributes"""
     ip1 = task_23_1.IPAddress("10.1.1.1/24")
     check_attr_or_method(ip1, attr="ip")
     check_attr_or_method(ip1, attr="mask")
-    assert ip1.ip == "10.1.1.1", "Значение ip1.ip должно быть равным 10.1.1.1"
-    assert ip1.mask == 24, "Значение ip1.mask должно быть равным 24"
+    assert ip1.ip == "10.1.1.1", "ip1.ip attribute must be equal to 10.1.1.1"
+    assert ip1.mask == 24, "ip1.mask attribute must be equal to 24"
 
 
 def test_wrong_ip():
