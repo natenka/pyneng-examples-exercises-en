@@ -15,19 +15,19 @@ if not isinstance(__loader__, AssertionRewritingHook):
 
 def test_class_created():
     """
-    Проверка, что класс создан
+    Checking that the class has been created
     """
     check_class_exists(task_22_1, "Topology")
 
 
 def test_attr_topology(topology_with_dupl_links):
-    """Проверяем, что в объекте Topology есть атрибут topology"""
+    """Checking that the Topology object has a topology attribute"""
     top_with_data = task_22_1.Topology(topology_with_dupl_links)
     check_attr_or_method(top_with_data, attr="topology")
 
 
 def test_topology_normalization():
-    """Проверка удаления дублей в топологии"""
+    """Checking the removal of duplicates in a topology"""
     topology_with_dupl_links = {
         ("R1", "Eth0/0"): ("SW1", "Eth0/1"),
         ("R2", "Eth0/0"): ("SW1", "Eth0/2"),
@@ -51,7 +51,7 @@ def test_topology_normalization():
     top_with_data = task_22_1.Topology(topology_with_dupl_links)
     assert (
         type(top_with_data.topology) == dict
-    ), f"По заданию в переменной topology должен быть словарь, а не {type(top_with_data.topology).__name__}"
+    ), f"topology attribute should be a dictionary, not a {type(top_with_data.topology).__name__}"
     assert len(top_with_data.topology) == len(
         normalized_topology_example
-    ), "После создания экземпляра, в переменной topology должна находиться топология без дублей"
+    ), "After creating an instance, the topology attribute should contain a topology without duplicates"

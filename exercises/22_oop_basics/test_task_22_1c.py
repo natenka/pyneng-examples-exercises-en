@@ -20,56 +20,53 @@ if not isinstance(__loader__, AssertionRewritingHook):
 
 def test_class_created():
     """
-    Проверка, что класс создан
+    Checking that the class has been created
     """
     check_class_exists(task_22_1c, "Topology")
 
 
 def test_attr_topology(topology_with_dupl_links):
-    """Проверяем, что в объекте Topology есть атрибут topology"""
+    """Checking that the Topology object has a topology attribute"""
     top_with_data = task_22_1c.Topology(topology_with_dupl_links)
     check_attr_or_method(top_with_data, attr="topology")
 
 
 def test_topology_normalization(topology_with_dupl_links, normalized_topology_example):
-    """Проверка удаления дублей в топологии"""
+    """Checking the removal of duplicates in a topology"""
     top_with_data = task_22_1c.Topology(topology_with_dupl_links)
     assert (
         type(top_with_data.topology) == dict
-    ), f"По заданию в переменной topology должен быть словарь, а не {type(top_with_data.topology).__name__}"
+    ), f"topology attribute should be a dictionary, not a {type(top_with_data.topology).__name__}"
     assert len(top_with_data.topology) == len(
         normalized_topology_example
-    ), "После создания экземпляра, в переменной topology должна находиться топология без дублей"
+    ), "After creating an instance, the topology attribute should contain a topology without duplicates"
 
 
 def test_method_delete_node_created(
     topology_with_dupl_links, normalized_topology_example
 ):
-    """Проверяем, что в объекте Topology есть метод delete_node"""
     norm_top = task_22_1c.Topology(normalized_topology_example)
     check_attr_or_method(norm_top, method="delete_node")
 
 
 def test_method_delete_node(normalized_topology_example, capsys):
-    """Проверка работы метода delete_node"""
     norm_top = task_22_1c.Topology(normalized_topology_example)
 
     node = "SW1"
     delete_node_result = norm_top.delete_node(node)
-    assert delete_node_result == None, "Метод delete_node не должен ничего возвращать"
+    assert delete_node_result == None, "The delete_node method should return None"
 
     ports_with_node = [
         src for src, dst in norm_top.topology.items() if node in src or node in dst
     ]
-    assert len(ports_with_node) == 0, "Соединения с хостом SW1 не были удалены"
+    assert len(ports_with_node) == 0, "Links to host SW1 have not been deleted"
     assert (
         len(norm_top.topology) == 3
-    ), "В топологии должны остаться только три соединения"
+    ), "Only three connections should remain in the topology"
 
-    # проверка удаления несуществующего устройства
     norm_top.delete_node(node)
     out, err = capsys.readouterr()
-    node_msg = "Такого устройства нет"
+    node_msg = "There is no such device"
     assert (
         node_msg in out
-    ), "При удалении несуществующего устройства, не было выведено сообщение 'Такого устройства нет'"
+    ), "When deleting a non-existent device, the message 'There is no such device' was not displayed"

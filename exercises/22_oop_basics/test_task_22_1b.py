@@ -20,52 +20,48 @@ if not isinstance(__loader__, AssertionRewritingHook):
 
 def test_class_created():
     """
-    Проверка, что класс создан
+    Checking that the class has been created
     """
     check_class_exists(task_22_1b, "Topology")
 
 
 def test_attr_topology(topology_with_dupl_links):
-    """Проверяем, что в объекте Topology есть атрибут topology"""
+    """Checking that the Topology object has a topology attribute"""
     top_with_data = task_22_1b.Topology(topology_with_dupl_links)
     check_attr_or_method(top_with_data, attr="topology")
 
 
 def test_topology_normalization(topology_with_dupl_links, normalized_topology_example):
-    """Проверка удаления дублей в топологии"""
+    """Checking the removal of duplicates in a topology"""
     top_with_data = task_22_1b.Topology(topology_with_dupl_links)
     assert (
         type(top_with_data.topology) == dict
-    ), f"По заданию в переменной topology должен быть словарь, а не {type(top_with_data.topology).__name__}"
+    ), f"topology attribute should be a dictionary, not a {type(top_with_data.topology).__name__}"
     assert len(top_with_data.topology) == len(
         normalized_topology_example
-    ), "После создания экземпляра, в переменной topology должна находиться топология без дублей"
+    ), "After creating an instance, the topology attribute should contain a topology without duplicates"
 
 
 def test_method_delete_link_created(
     topology_with_dupl_links, normalized_topology_example
 ):
-    """Проверяем, что в объекте Topology есть метод delete_link"""
     norm_top = task_22_1b.Topology(normalized_topology_example)
     check_attr_or_method(norm_top, method="delete_link")
 
 
 def test_method_delete_link(normalized_topology_example, capsys):
-    """Проверка работы метода delete_link"""
     norm_top = task_22_1b.Topology(normalized_topology_example)
     delete_link_result = norm_top.delete_link(("R3", "Eth0/0"), ("SW1", "Eth0/3"))
-    assert delete_link_result == None, "Метод delete_link не должен ничего возвращать"
+    assert delete_link_result == None, "The delete_link method should return None"
 
-    assert ("R3", "Eth0/0") not in norm_top.topology, "Соединение не было удалено"
+    assert ("R3", "Eth0/0") not in norm_top.topology, "The link was not deleted"
 
-    # проверка удаления зеркального линка
     norm_top.delete_link(("R5", "Eth0/0"), ("R3", "Eth0/2"))
-    assert ("R3", "Eth0/2") not in norm_top.topology, "Соединение не было удалено"
+    assert ("R3", "Eth0/2") not in norm_top.topology, "The link was not deleted"
 
-    # проверка удаления несуществующего линка
     norm_top.delete_link(("R8", "Eth0/2"), ("R9", "Eth0/1"))
     out, err = capsys.readouterr()
-    link_msg = "Такого соединения нет"
+    link_msg = "There is no such link"
     assert (
         link_msg in out
-    ), "При удалении несуществующего соединения, не было выведено сообщение 'Такого соединения нет'"
+    ), "When deleting a nonexistent connection, the message 'There is no such link' was not printed"

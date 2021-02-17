@@ -15,7 +15,7 @@ if not isinstance(__loader__, AssertionRewritingHook):
 
 def test_class_created():
     """
-    Проверка, что класс создан
+    Checking that the class has been created
     """
     check_class_exists(task_22_2, "CiscoTelnet")
 
@@ -31,7 +31,7 @@ def test_send_show_command(first_router_from_devices_yaml, r1_test_telnet_connec
     return_value = strip_empty_lines(r1.send_show_command("sh ip int br"))
     assert (
         correct_return_value in return_value
-    ), "Метод send_show_command возвращает неправильное значение"
+    ), "send_show_command method returns wrong value"
 
 
 def test_send_show_command_different_command(
@@ -45,4 +45,4 @@ def test_send_show_command_different_command(
     return_value = strip_empty_lines(r1.send_show_command("sh ip int | i address"))
     assert (
         correct_return_value in return_value
-    ), "Метод send_show_command возвращает неправильное значение"
+    ), "send_show_command method returns wrong value"
