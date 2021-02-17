@@ -21,9 +21,6 @@ if not isinstance(__loader__, AssertionRewritingHook):
     ],
 )
 def test_task_ip(capsys, monkeypatch, ip_add, ip_type):
-    """
-    Task check при вводе multicast адреса
-    """
     monkeypatch.setattr("builtins.input", lambda x=None: ip_add)
     if sys.modules.get("task_6_2"):
         reload(sys.modules["task_6_2"])

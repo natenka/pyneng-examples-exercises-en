@@ -10,9 +10,6 @@ if not isinstance(__loader__, AssertionRewritingHook):
 
 
 def test_task(capsys):
-    """
-    Task check при вводе access
-    """
     import task_6_3
 
     out, err = capsys.readouterr()
