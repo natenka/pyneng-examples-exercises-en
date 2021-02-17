@@ -29,14 +29,14 @@ def monkey_input_r2(prompt):
     if monkey_input_r2.total_calls == 1:
         return "r2"
     elif monkey_input_r2.total_calls == 2:
-        # при запросе параметры должны указываться доступные значения для
-        # устройства. Для r2: "location, vendor, model, ios, ip"
+        # when requesting a parameter, the available values for the device
+        # must be specified. For r2: "location, vendor, model, ios, ip"
         if re.search(r"location.+vendor.+model.+ios.+ip", prompt):
             return "ip"
         else:
             pytest.fail(
-                "В запросе параметра не указаны доступные значения для устройства. "
-                "Для r2 это такие значения "
+                "The parameter request did not specify available values for the device. "
+                "For r2 "
                 "(location, vendor, model, ios, ip)"
             )
 
@@ -51,15 +51,15 @@ def monkey_input_sw1(prompt):
             return "ios"
         else:
             pytest.fail(
-                "В запросе параметра не указаны доступные значения для устройства. "
-                "Для sw1 это такие значения "
+                "The parameter request did not specify available values for the device. "
+                "For sw1 "
                 "(location, vendor, model, ios, ip, vlans, routing)"
             )
 
 
 def test_task_r2(capsys, monkeypatch):
     """
-    Task check при вводе r2
+    Task check for r2
     """
     monkeypatch.setattr("builtins.input", monkey_input_r2)
     import task_5_1b
@@ -72,12 +72,12 @@ def test_task_r2(capsys, monkeypatch):
     ), "Nothing is printed to stdout. It is necessary not only to get the correct result, but also to print it to the stdout using printprint"
     assert (
         correct_stdout in out.strip()
-    ), "На стандартный поток вывода выводится неправильный вывод"
+    ), "Wrong output is printed to stdout"
 
 
 def test_task_sw1(capsys, monkeypatch):
     """
-    Task check при вводе sw1
+    Task check for sw1
     """
     monkeypatch.setattr("builtins.input", monkey_input_sw1)
     if sys.modules.get("task_5_1b"):
@@ -91,4 +91,4 @@ def test_task_sw1(capsys, monkeypatch):
     ), "Nothing is printed to stdout. It is necessary not only to get the correct result, but also to print it to the stdout using printprint"
     assert (
         correct_stdout in out.strip()
-    ), "На стандартный поток вывода выводится неправильный вывод"
+    ), "Wrong output is printed to stdout"

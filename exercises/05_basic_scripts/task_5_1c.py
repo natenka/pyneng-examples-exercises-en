@@ -17,6 +17,7 @@ $ python task_5_1c.py
 Введите имя устройства: r1
 Введите имя параметра (ios, model, vendor, location, ip): ips
 Такого параметра нет
+There is no such parameter
 
 Ограничение: нельзя изменять словарь london_co.
 

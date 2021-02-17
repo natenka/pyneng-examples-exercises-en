@@ -19,7 +19,7 @@ def unified_columns_output(output):
 
 def test_task_10_5_5_0_24(capsys, monkeypatch):
     """
-    Task check при вводе 10.5.5.0/24
+    Task check for 10.5.5.0/24
     """
     monkeypatch.setattr("builtins.input", lambda x=None: "10.5.5.0/24")
     import task_5_2
@@ -42,15 +42,15 @@ def test_task_10_5_5_0_24(capsys, monkeypatch):
     ), "Nothing is printed to stdout. It is necessary not only to get the correct result, but also to print it to the stdout using printprint"
     assert (
         correct_stdout_network in stdout
-    ), "Выведено неправильное значение сети"
+    ), "Wrong network value printed"
     assert (
         correct_stdout_mask in stdout
-    ), "Выведено неправильное значение маски"
+    ), "Wrong mask value printed"
 
 
 def test_task_10_1_1_192_28(capsys, monkeypatch):
     """
-    Task check при вводе 10.1.1.192/28
+    Task check for 10.1.1.192/28
     """
     monkeypatch.setattr("builtins.input", lambda x=None: "10.1.1.192/28")
     if sys.modules.get("task_5_2"):
@@ -75,9 +75,9 @@ def test_task_10_1_1_192_28(capsys, monkeypatch):
     ), "Nothing is printed to stdout. It is necessary not only to get the correct result, but also to print it to the stdout using printprint"
     assert (
         correct_stdout_network in stdout
-    ), "Выведено неправильное значение сети"
+    ), "Wrong network value printed"
     assert (
         correct_stdout_mask in stdout
-    ), "Выведено неправильное значение маски"
+    ), "Wrong mask value printed"
 
 

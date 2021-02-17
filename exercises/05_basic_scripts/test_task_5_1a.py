@@ -42,7 +42,7 @@ def monkey_input_sw1(prompt):
 
 def test_task_r2(capsys, monkeypatch):
     """
-    Task check при вводе r2
+    Task check for r2
     """
     monkeypatch.setattr("builtins.input", monkey_input_r2)
     import task_5_1a
@@ -55,12 +55,12 @@ def test_task_r2(capsys, monkeypatch):
     ), "Nothing is printed to stdout. It is necessary not only to get the correct result, but also to print it to the stdout using printprint"
     assert (
         correct_stdout in out.strip()
-    ), "На стандартный поток вывода выводится неправильный вывод"
+    ), "Wrong output is printed to stdout"
 
 
 def test_task_sw1(capsys, monkeypatch):
     """
-    Task check при вводе sw1
+    Task check for sw1
     """
     monkeypatch.setattr("builtins.input", monkey_input_sw1)
     if sys.modules.get("task_5_1a"):
@@ -74,4 +74,4 @@ def test_task_sw1(capsys, monkeypatch):
     ), "Nothing is printed to stdout. It is necessary not only to get the correct result, but also to print it to the stdout using printprint"
     assert (
         correct_stdout in out.strip()
-    ), "На стандартный поток вывода выводится неправильный вывод"
+    ), "Wrong output is printed to stdout"

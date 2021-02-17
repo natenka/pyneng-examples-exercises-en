@@ -46,7 +46,7 @@ def monkey_input_trunk(prompt):
 
 def test_task_access(capsys, monkeypatch):
     """
-    Task check при вводе access
+    Task check for access
     """
     monkeypatch.setattr("builtins.input", monkey_input_access)
     import task_5_3
@@ -66,12 +66,12 @@ def test_task_access(capsys, monkeypatch):
     ), "Nothing is printed to stdout. It is necessary not only to get the correct result, but also to print it to the stdout using printprint"
     assert (
         correct_stdout in out.strip()
-    ), "На стандартный поток вывода выводится неправильный вывод"
+    ), "Wrong output is printed to stdout"
 
 
 def test_task_trunk(capsys, monkeypatch):
     """
-    Task check при вводе trunk
+    Task check for trunk
     """
     monkeypatch.setattr("builtins.input", monkey_input_trunk)
     if sys.modules.get("task_5_3"):
@@ -90,4 +90,4 @@ def test_task_trunk(capsys, monkeypatch):
     ), "Nothing is printed to stdout. It is necessary not only to get the correct result, but also to print it to the stdout using printprint"
     assert (
         correct_stdout in out.strip()
-    ), "На стандартный поток вывода выводится неправильный вывод"
+    ), "Wrong output is printed to stdout"
