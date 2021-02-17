@@ -11,7 +11,7 @@
  * для настройки port-security, как значение надо передать список команд
    port-security (находятся в списке port_security_template)
 
-Функция должна возвращать список всех портов в режиме access с конфигурацией
+The function should return a list всех портов в режиме access с конфигурацией
 на основе шаблона access_mode_template и шаблона port_security_template,
 если он был передан.
 В конце строк в списке не должно быть символа перевода строки.
