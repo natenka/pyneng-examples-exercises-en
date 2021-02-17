@@ -15,14 +15,14 @@ if not isinstance(__loader__, AssertionRewritingHook):
 
 def test_function_created():
     """
-    Проверка, что функция создана
+    Checking that the function has been created
     """
     check_function_exists(task_9_3, "get_int_vlan_map")
 
 
 def test_function_params():
     """
-    Проверка имен и количества параметров
+    Checking names and number of parameters
     """
     check_function_params(
         function=task_9_3.get_int_vlan_map,
@@ -33,7 +33,7 @@ def test_function_params():
 
 def test_function_return_value():
     """
-    Проверка работы функции
+    Function check
     """
     correct_return_value = (
         {
@@ -50,15 +50,15 @@ def test_function_return_value():
     )
 
     return_value = task_9_3.get_int_vlan_map("config_sw1.txt")
-    assert return_value != None, "Функция ничего не возвращает"
+    assert return_value != None, "The function returns None"
     assert (
         type(return_value) == tuple
-    ), f"По заданию функция должна возвращать кортеж, а возвращает {type(return_value).__name__}"
+    ), f"The function should return a tuple, instead it returns a {type(return_value).__name__}"
     assert len(return_value) == 2 and all(
         type(item) == dict for item in return_value
-    ), "Функция должна возвращать кортеж с двумя словарями"
+    ), "The function must return a tuple with two dicts"
 
     access, trunk = return_value
     assert (
         return_value == correct_return_value
-    ), "Функция возвращает неправильное значение"
+    ), "Function returns wrong value"
