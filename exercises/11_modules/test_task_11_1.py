@@ -15,14 +15,14 @@ if not isinstance(__loader__, AssertionRewritingHook):
 
 def test_function_created():
     """
-    Проверка, что функция создана
+    Checking that the function has been created
     """
     check_function_exists(task_11_1, "parse_cdp_neighbors")
 
 
 def test_function_params():
     """
-    Проверка имен и количества параметров
+    Checking names and number of parameters
     """
     check_function_params(
         function=task_11_1.parse_cdp_neighbors,
@@ -33,7 +33,7 @@ def test_function_params():
 
 def test_function_return_value():
     """
-    Проверка работы функции
+    Function check
     """
     sh_cdp_n_sw1 = (
         "SW1>show cdp neighbors\n\n"
@@ -53,19 +53,16 @@ def test_function_return_value():
     }
 
     return_value = task_11_1.parse_cdp_neighbors(sh_cdp_n_sw1)
-    assert return_value != None, "Функция ничего не возвращает"
+    assert return_value != None, "The function returns None"
     assert (
         type(return_value) == dict
-    ), f"По заданию функция должна возвращать словарь, а возвращает {type(return_value).__name__}"
+    ), f"The function should return a dict, instead it returns a {type(return_value).__name__}"
     assert (
         return_value == correct_return_value
-    ), "Функция возвращает неправильное значение"
+    ), "Function returns wrong value"
 
 
 def test_function_return_value_different_args():
-    """
-    Проверка работы функции на другом выводе
-    """
     sh_cdp_n_r3 = (
         "R3>show cdp neighbors\n"
         "Capability Codes: R - Router, T - Trans Bridge, B - Source Route Bridge\n"
@@ -82,10 +79,10 @@ def test_function_return_value_different_args():
     }
 
     return_value = task_11_1.parse_cdp_neighbors(sh_cdp_n_r3)
-    assert return_value != None, "Функция ничего не возвращает"
+    assert return_value != None, "The function returns None"
     assert (
         type(return_value) == dict
-    ), f"По заданию функция должна возвращать словарь, а возвращает {type(return_value).__name__}"
+    ), f"The function should return a dict, instead it returns a {type(return_value).__name__}"
     assert (
         return_value == correct_return_value
-    ), "Функция возвращает неправильное значение"
+    ), "Function returns wrong value"
