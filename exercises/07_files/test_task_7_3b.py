@@ -3,11 +3,11 @@ import re
 import pytest
 
 
-# Проверка что тест вызван через pytest ..., а не python ...
+# Checking that the test is called via pytest ... and not python ...
 from _pytest.assertion.rewrite import AssertionRewritingHook
 
 if not isinstance(__loader__, AssertionRewritingHook):
-    print(f"Тесты нужно вызывать используя такое выражение:\npytest {__file__}\n\n")
+    print(f"Tests should be called using this expression:\npytest {__file__}\n\n")
 
 
 def unified_columns_output(output):
@@ -32,7 +32,7 @@ def unified_columns_output(output):
 )
 def test_task_stdout(capsys, monkeypatch, vlan, result):
     """
-    Проверка работы задания
+    Task check
     """
     monkeypatch.setattr("builtins.input", lambda x=None: vlan)
     if sys.modules.get("task_7_3b"):
@@ -43,4 +43,4 @@ def test_task_stdout(capsys, monkeypatch, vlan, result):
     correct_stdout = unified_columns_output(result)
     assert (
         unified_columns_output(out.strip()) == correct_stdout
-    ), "На стандартный поток вывода выводится неправильная строка"
+    ), "Wrong line is printed to stdout"

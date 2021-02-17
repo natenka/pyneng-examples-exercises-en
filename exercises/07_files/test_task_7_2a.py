@@ -1,16 +1,16 @@
 from functools import wraps
 import pytest
 
-# Проверка что тест вызван через pytest ..., а не python ...
+# Checking that the test is called via pytest ... and not python ...
 from _pytest.assertion.rewrite import AssertionRewritingHook
 
 if not isinstance(__loader__, AssertionRewritingHook):
-    print(f"Тесты нужно вызывать используя такое выражение:\npytest {__file__}\n\n")
+    print(f"Tests should be called using this expression:\npytest {__file__}\n\n")
 
 
 def test_task(capsys, monkeypatch):
     """
-    Проверка работы задания при вводе access
+    Task check при вводе access
     """
     monkeypatch.setattr("sys.argv", ["task_7_2a.py", "config_sw1.txt"])
     import task_7_2a
@@ -53,7 +53,7 @@ def test_task(capsys, monkeypatch):
 
     assert (
         out
-    ), "Ничего не выведено на стандартный поток вывода. Надо не только получить нужный результат, но и вывести его на стандартный поток вывода с помощью print"
+    ), "Nothing is printed to stdout. It is necessary not only to get the correct result, but also to print it to the stdout using printprint"
     assert (
         out.strip() == correct_stdout
     ), "На стандартный поток вывода выводится неправильный вывод"

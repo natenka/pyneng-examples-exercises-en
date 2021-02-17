@@ -2,7 +2,7 @@
 """
 Task 4.3
 
-Get the following list of VLANs from the config line:
+Get the following list of VLANs from the config string:
 ['1', '3', '10', '20', '30', '100']
 
 Write the resulting list to the result variable.

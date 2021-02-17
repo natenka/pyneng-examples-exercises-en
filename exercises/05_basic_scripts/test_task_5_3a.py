@@ -4,11 +4,11 @@ import sys
 import pytest
 
 
-# Проверка что тест вызван через pytest ..., а не python ...
+# Checking that the test is called via pytest ... and not python ...
 from _pytest.assertion.rewrite import AssertionRewritingHook
 
 if not isinstance(__loader__, AssertionRewritingHook):
-    print(f"Тесты нужно вызывать используя такое выражение:\npytest {__file__}\n\n")
+    print(f"Tests should be called using this expression:\npytest {__file__}\n\n")
 
 
 def count_calls(func):
@@ -58,7 +58,7 @@ def monkey_input_trunk(prompt):
 
 def test_task_access(capsys, monkeypatch):
     """
-    Проверка работы задания при вводе access
+    Task check при вводе access
     """
     monkeypatch.setattr("builtins.input", monkey_input_access)
     import task_5_3a
@@ -75,7 +75,7 @@ def test_task_access(capsys, monkeypatch):
 
     assert (
         out
-    ), "Ничего не выведено на стандартный поток вывода. Надо не только получить нужный результат, но и вывести его на стандартный поток вывода с помощью print"
+    ), "Nothing is printed to stdout. It is necessary not only to get the correct result, but also to print it to the stdout using printprint"
     assert (
         correct_stdout in out.strip()
     ), "На стандартный поток вывода выводится неправильный вывод"
@@ -83,7 +83,7 @@ def test_task_access(capsys, monkeypatch):
 
 def test_task_trunk(capsys, monkeypatch):
     """
-    Проверка работы задания при вводе trunk
+    Task check при вводе trunk
     """
     monkeypatch.setattr("builtins.input", monkey_input_trunk)
     if sys.modules.get("task_5_3a"):
@@ -99,7 +99,7 @@ def test_task_trunk(capsys, monkeypatch):
     )
     assert (
         out
-    ), "Ничего не выведено на стандартный поток вывода. Надо не только получить нужный результат, но и вывести его на стандартный поток вывода с помощью print"
+    ), "Nothing is printed to stdout. It is necessary not only to get the correct result, but also to print it to the stdout using printprint"
     assert (
         correct_stdout in out.strip()
     ), "На стандартный поток вывода выводится неправильный вывод"

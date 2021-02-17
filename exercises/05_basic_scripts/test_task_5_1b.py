@@ -5,11 +5,11 @@ import sys
 import pytest
 
 
-# Проверка что тест вызван через pytest ..., а не python ...
+# Checking that the test is called via pytest ... and not python ...
 from _pytest.assertion.rewrite import AssertionRewritingHook
 
 if not isinstance(__loader__, AssertionRewritingHook):
-    print(f"Тесты нужно вызывать используя такое выражение:\npytest {__file__}\n\n")
+    print(f"Tests should be called using this expression:\npytest {__file__}\n\n")
 
 
 def count_calls(func):
@@ -59,7 +59,7 @@ def monkey_input_sw1(prompt):
 
 def test_task_r2(capsys, monkeypatch):
     """
-    Проверка работы задания при вводе r2
+    Task check при вводе r2
     """
     monkeypatch.setattr("builtins.input", monkey_input_r2)
     import task_5_1b
@@ -69,7 +69,7 @@ def test_task_r2(capsys, monkeypatch):
 
     assert (
         out
-    ), "Ничего не выведено на стандартный поток вывода. Надо не только получить нужный результат, но и вывести его на стандартный поток вывода с помощью print"
+    ), "Nothing is printed to stdout. It is necessary not only to get the correct result, but also to print it to the stdout using printprint"
     assert (
         correct_stdout in out.strip()
     ), "На стандартный поток вывода выводится неправильный вывод"
@@ -77,7 +77,7 @@ def test_task_r2(capsys, monkeypatch):
 
 def test_task_sw1(capsys, monkeypatch):
     """
-    Проверка работы задания при вводе sw1
+    Task check при вводе sw1
     """
     monkeypatch.setattr("builtins.input", monkey_input_sw1)
     if sys.modules.get("task_5_1b"):
@@ -88,7 +88,7 @@ def test_task_sw1(capsys, monkeypatch):
     correct_stdout = "3.6.XE"
     assert (
         out
-    ), "Ничего не выведено на стандартный поток вывода. Надо не только получить нужный результат, но и вывести его на стандартный поток вывода с помощью print"
+    ), "Nothing is printed to stdout. It is necessary not only to get the correct result, but also to print it to the stdout using printprint"
     assert (
         correct_stdout in out.strip()
     ), "На стандартный поток вывода выводится неправильный вывод"

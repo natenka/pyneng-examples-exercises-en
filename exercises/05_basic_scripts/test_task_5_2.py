@@ -4,11 +4,11 @@ import sys
 import pytest
 
 
-# Проверка что тест вызван через pytest ..., а не python ...
+# Checking that the test is called via pytest ... and not python ...
 from _pytest.assertion.rewrite import AssertionRewritingHook
 
 if not isinstance(__loader__, AssertionRewritingHook):
-    print(f"Тесты нужно вызывать используя такое выражение:\npytest {__file__}\n\n")
+    print(f"Tests should be called using this expression:\npytest {__file__}\n\n")
 
 
 def unified_columns_output(output):
@@ -19,7 +19,7 @@ def unified_columns_output(output):
 
 def test_task_10_5_5_0_24(capsys, monkeypatch):
     """
-    Проверка работы задания при вводе 10.5.5.0/24
+    Task check при вводе 10.5.5.0/24
     """
     monkeypatch.setattr("builtins.input", lambda x=None: "10.5.5.0/24")
     import task_5_2
@@ -39,7 +39,7 @@ def test_task_10_5_5_0_24(capsys, monkeypatch):
 
     assert (
         out
-    ), "Ничего не выведено на стандартный поток вывода. Надо не только получить нужный результат, но и вывести его на стандартный поток вывода с помощью print"
+    ), "Nothing is printed to stdout. It is necessary not only to get the correct result, but also to print it to the stdout using printprint"
     assert (
         correct_stdout_network in stdout
     ), "Выведено неправильное значение сети"
@@ -50,7 +50,7 @@ def test_task_10_5_5_0_24(capsys, monkeypatch):
 
 def test_task_10_1_1_192_28(capsys, monkeypatch):
     """
-    Проверка работы задания при вводе 10.1.1.192/28
+    Task check при вводе 10.1.1.192/28
     """
     monkeypatch.setattr("builtins.input", lambda x=None: "10.1.1.192/28")
     if sys.modules.get("task_5_2"):
@@ -72,7 +72,7 @@ def test_task_10_1_1_192_28(capsys, monkeypatch):
 
     assert (
         out
-    ), "Ничего не выведено на стандартный поток вывода. Надо не только получить нужный результат, но и вывести его на стандартный поток вывода с помощью print"
+    ), "Nothing is printed to stdout. It is necessary not only to get the correct result, but also to print it to the stdout using printprint"
     assert (
         correct_stdout_network in stdout
     ), "Выведено неправильное значение сети"
