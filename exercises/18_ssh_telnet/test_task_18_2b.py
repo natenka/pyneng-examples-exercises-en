@@ -52,14 +52,14 @@ correct_return_value = (
 
 def test_functions_created():
     """
-    Проверка, что функция создана
+    Checking that the function has been created
     """
     check_function_exists(task_18_2b, "send_config_commands")
 
 
 def test_function_return_value(capsys, first_router_from_devices_yaml):
     """
-    Проверка работы функции
+    Function check
     """
     commands_with_errors = ["logging 0255.255.1", "logging", "a"]
     correct_commands = ["logging buffered 20010", "ip http server"]
@@ -69,18 +69,17 @@ def test_function_return_value(capsys, first_router_from_devices_yaml):
         first_router_from_devices_yaml, test_commands, log=False
     )
 
-    # проверяем возвращаемое значение
-    assert return_value != None, "Функция ничего не возвращает"
-    assert type(return_value) == tuple, "Функция должна возвращать кортеж"
+    assert return_value != None, "The function returns None"
+    assert type(return_value) == tuple, "The function must return a tuple"
     assert len(return_value) == 2 and all(
         type(item) == dict for item in return_value
-    ), "Функция должна возвращать кортеж с двумя словарями"
+    ), "The function must return a tuple with two dicts"
     correct_good, correct_bad = correct_return_value
     return_good, return_bad = return_value
     assert (
         return_good.keys() == correct_good.keys()
         and return_bad.keys() == correct_bad.keys()
-    ), "Функция возвращает неправильное значение"
+    ), "Function returns wrong value"
 
 
 @pytest.mark.parametrize(
@@ -96,13 +95,8 @@ def test_function_stdout(error, command, capsys, first_router_from_devices_yaml)
         first_router_from_devices_yaml, [command], log=False
     )
 
-    # Проверяем вывод информации об ошибках в stdout
-    # во входящих данных три команды с ошибками
-    # при каждой ошибке, должна выводиться информация:
-    # ошибка, IP устройства, команда
-    # в тесте проверяется наличие этих полей
     out, err = capsys.readouterr()
     ip = first_router_from_devices_yaml["host"]
-    assert error in out, "В сообщении об ошибке нет самой ошибки"
-    assert command in out, "В сообщении об ошибке нет выполняемой команды"
-    assert ip in out, "В сообщении об ошибке нет IP-адреса устройства"
+    assert error in out, "The error message does not contain the error itself"
+    assert command in out, "There is no command in the error message"
+    assert ip in out, "The error message does not contain the IP address of the device"

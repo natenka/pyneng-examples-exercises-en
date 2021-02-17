@@ -15,17 +15,17 @@ if not isinstance(__loader__, AssertionRewritingHook):
 
 def test_functions_created():
     """
-    Проверка, что функция создана
+    Checking that the function has been created
     """
     check_function_exists(task_18_1a, "send_show_command")
 
 
 def test_function_return_value(capsys, first_router_wrong_pass):
     """
-    Проверка работы функции
+    Function check
     """
     return_value = task_18_1a.send_show_command(first_router_wrong_pass, "sh ip int br")
     correct_stdout = "Authentication fail"
     out, err = capsys.readouterr()
-    assert out != "", "Сообщение об ошибке не выведено на stdout"
-    assert correct_stdout in out, "Выведено неправильное сообщение об ошибке"
+    assert out != "", "Error message not printed to stdout"
+    assert correct_stdout in out, "Wrong error message printed"

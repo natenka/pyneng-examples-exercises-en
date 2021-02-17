@@ -15,7 +15,7 @@ if not isinstance(__loader__, AssertionRewritingHook):
 
 def test_functions_created():
     """
-    Проверка, что функция создана
+    Checking that the function has been created
     """
     check_function_exists(task_18_2a, "send_config_commands")
 
@@ -24,7 +24,7 @@ def test_function_return_value(
     capsys, r1_test_connection, first_router_from_devices_yaml
 ):
     """
-    Проверка работы функции
+    Function check
     """
     test_commands = [
         "interface Loopback 100",
@@ -34,23 +34,21 @@ def test_function_return_value(
     return_value = task_18_2a.send_config_commands(
         first_router_from_devices_yaml, test_commands
     )
-    # проверяем возвращаемое значение
-    assert return_value != None, "Функция ничего не возвращает"
+    assert return_value != None, "The function returns None"
     assert (
         type(return_value) == str
-    ), f"По заданию функция должна возвращать строку, а возвращает {type(return_value).__name__}"
+    ), f"The function must return string, and it returns a {type(return_value).__name__}"
     assert (
         return_value == correct_return_value
-    ), "Функция возвращает неправильное значение"
+    ), "Function returns wrong value"
 
-    # по умолчанию, log должно быть равным True
-    # и на stdout должно выводиться сообщение
+    # by default, log should be True and a message should be printed to stdout
     correct_stdout = f"{r1_test_connection.host}"
     out, err = capsys.readouterr()
-    assert out != "", "Сообщение об ошибке не выведено на stdout"
-    assert correct_stdout in out, "Выведено неправильное сообщение об ошибке"
+    assert out != "", "Error message not printed to stdout"
+    assert correct_stdout in out, "Wrong error message printed"
 
-    # проверяем, что с log=False вывода в stdout нет
+    # check that with log=False there is no output to stdout
     return_value = task_18_2a.send_config_commands(
         first_router_from_devices_yaml, test_commands, log=False
     )
@@ -58,4 +56,4 @@ def test_function_return_value(
     out, err = capsys.readouterr()
     assert (
         out == correct_stdout
-    ), "Сообщение об ошибке не должно выводиться на stdout, когда log=False"
+    ), "The error message should not be printed to stdout when log=False"

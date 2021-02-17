@@ -15,14 +15,14 @@ if not isinstance(__loader__, AssertionRewritingHook):
 
 def test_functions_created():
     """
-    Проверка, что функция создана
+    Checking that the function has been created
     """
     check_function_exists(task_18_2, "send_config_commands")
 
 
 def test_function_return_value(r1_test_connection, first_router_from_devices_yaml):
     """
-    Проверка работы функции
+    Function check
     """
     test_commands = [
         "logging 10.255.255.1",
@@ -33,20 +33,20 @@ def test_function_return_value(r1_test_connection, first_router_from_devices_yam
     return_value = task_18_2.send_config_commands(
         first_router_from_devices_yaml, test_commands
     )
-    assert return_value != None, "Функция ничего не возвращает"
+    assert return_value != None, "The function returns None"
     assert (
         type(return_value) == str
-    ), f"По заданию функция должна возвращать строку, а возвращает {type(return_value).__name__}"
+    ), f"The function must return string, and it returns a {type(return_value).__name__}"
     assert strip_empty_lines(return_value) == strip_empty_lines(
         correct_return_value
-    ), "Функция возвращает неправильное значение"
+    ), "Function returns wrong value"
 
 
 def test_function_return_value_different_args(
     r1_test_connection, first_router_from_devices_yaml
 ):
     """
-    Проверка работы функции с другими аргументами
+    Checking the function with different arguments
     """
     test_commands = [
         "interface Loopback 100",
@@ -56,10 +56,10 @@ def test_function_return_value_different_args(
     return_value = task_18_2.send_config_commands(
         first_router_from_devices_yaml, test_commands
     )
-    assert return_value != None, "Функция ничего не возвращает"
+    assert return_value != None, "The function returns None"
     assert (
         type(return_value) == str
-    ), f"По заданию функция должна возвращать строку, а возвращает {type(return_value).__name__}"
+    ), f"The function must return string, and it returns a {type(return_value).__name__}"
     assert strip_empty_lines(return_value) == strip_empty_lines(
         correct_return_value
-    ), "Функция возвращает неправильное значение"
+    ), "Function returns wrong value"
