@@ -16,9 +16,6 @@ def unified_columns_output(output):
 
 
 def test_task_stdout(capsys):
-    """
-    Task check
-    """
     import task_7_3
 
     out, err = capsys.readouterr()

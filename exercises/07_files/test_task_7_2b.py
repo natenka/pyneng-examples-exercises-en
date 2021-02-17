@@ -9,9 +9,6 @@ if not isinstance(__loader__, AssertionRewritingHook):
 
 
 def test_task(monkeypatch, tmpdir):
-    """
-    Task check при вводе access
-    """
     dest_filename = tmpdir.mkdir("test_tasks").join("task_7_2b.txt")
 
     monkeypatch.setattr("sys.argv", ["task_7_2b.py", "config_sw1.txt", dest_filename])

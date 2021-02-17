@@ -31,9 +31,6 @@ def unified_columns_output(output):
     ids=["vlan 10", "vlan 1000"]
 )
 def test_task_stdout(capsys, monkeypatch, vlan, result):
-    """
-    Task check
-    """
     monkeypatch.setattr("builtins.input", lambda x=None: vlan)
     if sys.modules.get("task_7_3b"):
         del sys.modules["task_7_3b"]

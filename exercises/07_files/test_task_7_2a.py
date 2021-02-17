@@ -9,9 +9,6 @@ if not isinstance(__loader__, AssertionRewritingHook):
 
 
 def test_task(capsys, monkeypatch):
-    """
-    Task check при вводе access
-    """
     monkeypatch.setattr("sys.argv", ["task_7_2a.py", "config_sw1.txt"])
     import task_7_2a
 

@@ -21,9 +21,6 @@ def unified_columns_output(output):
 
 
 def test_task(capsys):
-    """
-    Task check при вводе access
-    """
     import task_7_1
 
     out, err = capsys.readouterr()
