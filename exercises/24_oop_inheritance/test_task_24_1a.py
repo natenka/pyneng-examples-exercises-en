@@ -4,7 +4,7 @@ try:
     import task_24_1a
 except OSError:
     pytest.fail(
-        "Для этого задания функцию надо ОБЯЗАТЕЛЬНО вызывать в блоке if __name__ == '__main__':"
+        "For this task, the function MUST be called in the block if __name__ == '__main__':"
     )
 
 from base_connect_class import BaseSSH
@@ -29,7 +29,7 @@ def test_class_created():
 def test_class_inheritance(first_router_from_devices_yaml):
     r1 = task_24_1a.CiscoSSH(**first_router_from_devices_yaml)
     r1.ssh.disconnect()
-    assert isinstance(r1, BaseSSH), "Класс CiscoSSH должен наследовать BaseSSH"
+    assert isinstance(r1, BaseSSH), "CiscoSSH class must inherit BaseSSH"
     check_attr_or_method(r1, method="send_show_command")
     check_attr_or_method(r1, method="send_cfg_commands")
 
@@ -43,4 +43,4 @@ def test_params_without_password(first_router_from_devices_yaml, monkeypatch):
         r1 = task_24_1a.CiscoSSH(**params)
         r1.ssh.disconnect()
     except SSHException:
-        pytest.fail("Ошибка при подключении")
+        pytest.fail("Connection error")

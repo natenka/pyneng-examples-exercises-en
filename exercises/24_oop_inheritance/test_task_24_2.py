@@ -20,7 +20,7 @@ def test_class_created():
 
 def test_class_inheritance(first_router_from_devices_yaml):
     r1 = task_24_2.MyNetmiko(**first_router_from_devices_yaml)
-    assert isinstance(r1, CiscoIosSSH), "Класс MyNetmiko должен наследовать CiscoIosSSH"
+    assert isinstance(r1, CiscoIosSSH), "MyNetmiko class must inherit from CiscoIosSSH"
     r1.disconnect()
     check_attr_or_method(r1, method="send_command")
     check_attr_or_method(r1, method="send_config_set")
@@ -32,4 +32,4 @@ def test_enable(first_router_from_devices_yaml):
     r1.disconnect()
     assert (
         "hostname" in output
-    ), "При создании экземпляра класса должно создаваться подключение и переход в режим enable"
+    ), "After creating an instance of the class, a connection must be created"

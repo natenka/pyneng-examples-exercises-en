@@ -21,7 +21,7 @@ def test_class_created():
 def test_class_inheritance(first_router_from_devices_yaml):
     r1 = task_24_2b.MyNetmiko(**first_router_from_devices_yaml)
     r1.disconnect()
-    assert isinstance(r1, CiscoIosSSH), "Класс MyNetmiko должен наследовать CiscoIosSSH"
+    assert isinstance(r1, CiscoIosSSH), "MyNetmiko class must inherit from CiscoIosSSH"
     check_attr_or_method(r1, method="send_command")
     check_attr_or_method(r1, method="_check_error_in_command")
 
@@ -41,4 +41,4 @@ def test_errors(first_router_from_devices_yaml, command, error):
         r1.disconnect()
     assert error in str(
         excinfo
-    ), "Метод send_config_commands должен генерировать исключение, когда команда выполнена с ошибкой"
+    ), "send_config_commands method should throw an exception when the command is executed with an error"
