@@ -15,14 +15,14 @@ if not isinstance(__loader__, AssertionRewritingHook):
 
 def test_function_created():
     """
-    Проверка, что функция создана
+    Checking that the function has been created
     """
     check_function_exists(task_15_2a, "convert_to_dict")
 
 
 def test_function_return_value():
     """
-    Проверка работы функции
+    Function check
     """
     headers = ["hostname", "ios", "platform"]
     parsed_data = [
@@ -36,18 +36,18 @@ def test_function_return_value():
         {"hostname": "SW1", "ios": "12.2(55)SE9", "platform": "Cisco WS-C2960-8TC-L"},
     ]
     return_value = task_15_2a.convert_to_dict(headers, parsed_data)
-    assert return_value != None, "Функция ничего не возвращает"
+    assert return_value != None, "The function returns None"
     assert (
         type(return_value) == list
-    ), f"По заданию функция должна возвращать список, а возвращает {type(return_value).__name__}"
+    ), f"The function should return a list, instead it returns a {type(return_value).__name__}"
     assert (
         return_value == correct_return_value
-    ), "Функция возвращает неправильное значение"
+    ), "Function returns wrong value"
 
 
 def test_function_return_value_different_args():
     """
-    Проверка работы функции с другими аргументами
+    Checking the function with different arguments
     """
     parsed_sh_ip_int_br = [
         ("FastEthernet0/0", "15.0.15.1", "up", "up"),
@@ -99,10 +99,10 @@ def test_function_return_value_different_args():
 
     headers = ["interface", "address", "status", "protocol"]
     return_value = task_15_2a.convert_to_dict(headers, parsed_sh_ip_int_br)
-    assert return_value != None, "Функция ничего не возвращает"
+    assert return_value != None, "The function returns None"
     assert (
         type(return_value) == list
-    ), f"По заданию функция должна возвращать список, а возвращает {type(return_value).__name__}"
+    ), f"The function should return a list, instead it returns a {type(return_value).__name__}"
     assert (
         return_value == correct_return_value
-    ), "Функция возвращает неправильное значение"
+    ), "Function returns wrong value"

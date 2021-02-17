@@ -15,14 +15,14 @@ if not isinstance(__loader__, AssertionRewritingHook):
 
 def test_function_created():
     """
-    Проверка, что функция создана
+    Checking that the function has been created
     """
     check_function_exists(task_15_1b, "get_ip_from_cfg")
 
 
 def test_function_return_value():
     """
-    Проверка работы функции
+    Function check
     """
     correct_return_value = {
         "Loopback0": [("10.2.2.2", "255.255.255.255")],
@@ -35,10 +35,10 @@ def test_function_return_value():
     }
 
     return_value = task_15_1b.get_ip_from_cfg("config_r2.txt")
-    assert return_value != None, "Функция ничего не возвращает"
+    assert return_value != None, "The function returns None"
     assert (
         type(return_value) == dict
-    ), f"По заданию функция должна возвращать словарь, а возвращает {type(return_value).__name__}"
+    ), f"The function should return a dict, instead it returns a {type(return_value).__name__}"
     assert (
         return_value == correct_return_value
-    ), "Функция возвращает неправильное значение"
+    ), "Function returns wrong value"

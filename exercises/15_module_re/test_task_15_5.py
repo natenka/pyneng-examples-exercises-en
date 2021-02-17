@@ -15,14 +15,14 @@ if not isinstance(__loader__, AssertionRewritingHook):
 
 def test_function_created():
     """
-    Проверка, что функция создана
+    Checking that the function has been created
     """
     check_function_exists(task_15_5, "generate_description_from_cdp")
 
 
 def test_function_return_value():
     """
-    Проверка работы функции
+    Function check
     """
     correct_return_value = {
         "Eth 0/1": "description Connected to R1 port Eth 0/0",
@@ -31,10 +31,10 @@ def test_function_return_value():
         "Eth 0/5": "description Connected to R6 port Eth 0/1",
     }
     return_value = task_15_5.generate_description_from_cdp("sh_cdp_n_sw1.txt")
-    assert return_value != None, "Функция ничего не возвращает"
+    assert return_value != None, "The function returns None"
     assert (
         type(return_value) == dict
-    ), f"По заданию функция должна возвращать словарь, а возвращает {type(return_value).__name__}"
+    ), f"The function should return a dict, instead it returns a {type(return_value).__name__}"
     assert (
         return_value == correct_return_value
-    ), "Функция возвращает неправильное значение"
+    ), "Function returns wrong value"
