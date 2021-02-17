@@ -17,14 +17,14 @@ if not isinstance(__loader__, AssertionRewritingHook):
 
 def test_functions_created():
     """
-    Проверка, что функция создана
+    Checking that the function has been created
     """
     check_function_exists(task_21_4, "send_and_parse_show_command")
 
 
 def test_function_return_value(r1_test_connection, first_router_from_devices_yaml):
     """
-    Проверка работы функции
+    Function check
     """
     with open("templates/sh_ip_int_br.template") as f:
         re_table = textfsm.TextFSM(f)
@@ -37,20 +37,20 @@ def test_function_return_value(r1_test_connection, first_router_from_devices_yam
         first_router_from_devices_yaml, "sh ip int br", templates_path=full_pth
     )
 
-    assert return_value != None, "Функция ничего не возвращает"
+    assert return_value != None, "The function returns None"
     assert (
         type(return_value) == list
-    ), f"По заданию функция должна возвращать список, а возвращает {type(return_value).__name__}"
+    ), f"The function should return a list, instead it returns a {type(return_value).__name__}"
     assert (
         return_value == correct_return_value
-    ), "Функция возвращает неправильное значение"
+    ), "Function returns wrong value"
 
 
 def test_function_return_value_different_args(
     r1_test_connection, first_router_from_devices_yaml
 ):
     """
-    Проверка работы функции с другими аргументами
+    Checking the function with different arguments
     """
     with open("templates/sh_version.template") as f:
         re_table = textfsm.TextFSM(f)
@@ -63,10 +63,10 @@ def test_function_return_value_different_args(
         first_router_from_devices_yaml, "sh version", templates_path=full_pth
     )
 
-    assert return_value != None, "Функция ничего не возвращает"
+    assert return_value != None, "The function returns None"
     assert (
         type(return_value) == list
-    ), f"По заданию функция должна возвращать список, а возвращает {type(return_value).__name__}"
+    ), f"The function should return a list, instead it returns a {type(return_value).__name__}"
     assert (
         return_value == correct_return_value
-    ), "Функция возвращает неправильное значение"
+    ), "Function returns wrong value"

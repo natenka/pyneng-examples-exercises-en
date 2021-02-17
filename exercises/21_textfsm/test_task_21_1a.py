@@ -15,14 +15,14 @@ if not isinstance(__loader__, AssertionRewritingHook):
 
 def test_functions_created():
     """
-    Проверка, что функция создана
+    Checking that the function has been created
     """
     check_function_exists(task_21_1a, "parse_output_to_dict")
 
 
 def test_function_return_value():
     """
-    Проверка работы функции
+    Function check
     """
     correct_return_value = [
         {
@@ -62,18 +62,18 @@ def test_function_return_value():
     template = "templates/sh_ip_int_br.template"
 
     return_value = task_21_1a.parse_output_to_dict(template, sh_ip_int_br)
-    assert return_value != None, "Функция ничего не возвращает"
+    assert return_value != None, "The function returns None"
     assert (
         type(return_value) == list
-    ), f"По заданию функция должна возвращать список, а возвращает {type(return_value).__name__}"
+    ), f"The function should return a list, instead it returns a {type(return_value).__name__}"
     assert (
         return_value == correct_return_value
-    ), "Функция возвращает неправильное значение"
+    ), "Function returns wrong value"
 
 
 def test_function_return_value_different_args():
     """
-    Проверка работы функции с другими аргументами
+    Checking the function with different arguments
     """
     correct_return_value = [
         {
@@ -88,10 +88,10 @@ def test_function_return_value_different_args():
     template = "templates/sh_version.template"
 
     return_value = task_21_1a.parse_output_to_dict(template, sh_version)
-    assert return_value != None, "Функция ничего не возвращает"
+    assert return_value != None, "The function returns None"
     assert (
         type(return_value) == list
-    ), f"По заданию функция должна возвращать список, а возвращает {type(return_value).__name__}"
+    ), f"The function should return a list, instead it returns a {type(return_value).__name__}"
     assert (
         return_value == correct_return_value
-    ), "Функция возвращает неправильное значение"
+    ), "Function returns wrong value"
