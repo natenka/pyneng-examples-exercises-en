@@ -22,7 +22,7 @@ def unified_columns_output(output):
 
 def test_function_created():
     """
-    Проверка, что функция создана
+    Checking that the function has been created
     """
     check_function_exists(task_12_3, "print_ip_table")
 
@@ -44,7 +44,7 @@ def test_function_stdout(capsys):
         "10.10.1.9\n"
         "10.10.1.15\n"
     )
-    assert return_value == None, "Функция должна возвращать None"
+    assert return_value == None, "The function must return None"
     assert (
         unified_columns_output(stdout) == correct_stdout
-    ), "Функция возвращает неправильное значение"
+    ), "Function returns wrong value"

@@ -15,14 +15,14 @@ if not isinstance(__loader__, AssertionRewritingHook):
 
 def test_function_created():
     """
-    Проверка, что функция создана
+    Checking that the function has been created
     """
     check_function_exists(task_12_2, "convert_ranges_to_ip_list")
 
 
 def test_function_return_value():
     """
-    Проверка работы функции
+    Function check
     """
     list_of_ips_and_ranges = ["8.8.4.4", "1.1.1.1-3", "172.21.41.128-172.21.41.132"]
     correct_return_value = [
@@ -38,17 +38,14 @@ def test_function_return_value():
     ]
 
     return_value = task_12_2.convert_ranges_to_ip_list(list_of_ips_and_ranges)
-    assert return_value != None, "Функция ничего не возвращает"
-    assert type(return_value) == list, "Функция должна возвращать список"
+    assert return_value != None, "The function returns None"
+    assert type(return_value) == list, "The function should return a list"
     assert (
         sorted(return_value) == sorted(correct_return_value)
-    ), "Функция возвращает неправильное значение"
+    ), "Function returns wrong value"
 
 
 def test_function_return_value_different_args():
-    """
-    Проверка работы функции на других адресах
-    """
     list_of_ips_and_ranges = ["10.1.1.1", "10.4.10.10-13", "192.168.1.12-192.168.1.15"]
     correct_return_value = [
         "10.1.1.1",
@@ -63,10 +60,10 @@ def test_function_return_value_different_args():
     ]
 
     return_value = task_12_2.convert_ranges_to_ip_list(list_of_ips_and_ranges)
-    assert return_value != None, "Функция ничего не возвращает"
+    assert return_value != None, "The function returns None"
     assert (
         type(return_value) == list
-    ), f"По заданию функция должна возвращать список, а возвращает {type(return_value).__name__}"
+    ), f"The function should return a list, instead it returns a {type(return_value).__name__}"
     assert (
         sorted(return_value) == sorted(correct_return_value)
-    ), "Функция возвращает неправильное значение"
+    ), "Function returns wrong value"
