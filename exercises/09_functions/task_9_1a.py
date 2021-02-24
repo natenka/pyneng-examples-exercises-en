@@ -24,7 +24,7 @@ port-security и без.
 print(generate_access_config(access_config, access_mode_template))
 print(generate_access_config(access_config, access_mode_template, port_security_template))
 
-Ограничение: Все задания надо выполнять используя только пройденные темы.
+Restriction: All tasks must be done using the topics covered in this and previous chapters.
 
 """
 

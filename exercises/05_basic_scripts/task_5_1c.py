@@ -1,28 +1,24 @@
 # -*- coding: utf-8 -*-
 """
-Задание 5.1c
+Task 5.1c
 
-Переделать скрипт из задания 5.1b таким образом, чтобы, при запросе параметра,
-которого нет в словаре устройства, отображалось сообщение 'Такого параметра нет'.
-Задание относится только к параметрам устройств, не к самим устройствам.
+which is not in the device dictionary, the message 'There is no such parameter' was displayed.
+The assignment applies only to the device parameters, not to the devices themselves.
 
-> Попробуйте набрать неправильное имя параметра  или несуществующий параметр,
-> чтобы увидеть какой будет результат. А затем выполняйте задание.
+> Try typing a non-existent parameter, to see what the result will be. And then complete the task.
 
-Если выбран существующий параметр, вывести информацию о соответствующем параметре,
-указанного устройства.
+If an existing parameter is selected, print information about the corresponding parameter.
 
-Пример выполнения скрипта:
+An example of script execution:
 $ python task_5_1c.py
-Введите имя устройства: r1
-Введите имя параметра (ios, model, vendor, location, ip): ips
-Такого параметра нет
+Enter device name: r1
+Enter parameter name (ios, model, vendor, location, ip): ips
 There is no such parameter
 
-Ограничение: нельзя изменять словарь london_co.
+Restriction: You cannot modify the london_co dictionary.
 
-Все задания надо выполнять используя только пройденные темы. То есть эту задачу можно
-решить без использования условия if.
+All tasks must be completed using only the topics covered. That is, this task can be
+solved without using the if condition.
 """
 
 london_co = {

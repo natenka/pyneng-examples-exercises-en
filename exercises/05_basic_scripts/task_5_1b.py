@@ -1,28 +1,28 @@
 # -*- coding: utf-8 -*-
 """
-Задание 5.1b
+Task 5.1b
 
-Переделать скрипт из задания 5.1a таким образом, чтобы, при запросе параметра,
-отображался список возможных параметров. Список параметров надо получить из словаря,
-а не прописывать вручную.
+Modify the script from task 5.1a so that, when requesting a parameter,
+a list of possible parameters was displayed. The list of parameters must be obtained
+from the dictionary, rather than written manually.
 
-Вывести информацию о соответствующем параметре, указанного устройства.
+Display information about the corresponding parameter of the specified device.
 
-Пример выполнения скрипта:
+An example of script execution:
 $ python task_5_1b.py
-Введите имя устройства: r1
-Введите имя параметра (location, vendor, model, ios, ip): ip
+Enter device name: r1
+Enter parameter name (location, vendor, model, ios, ip): ip
 10.255.0.1
 
 $ python task_5_1b.py
-Введите имя устройства: sw1
-Введите имя параметра (location, vendor, model, ios, ip, vlans, routing): ip
+Enter device name: sw1
+Enter parameter name (location, vendor, model, ios, ip, vlans, routing): ip
 10.255.0.101
 
-Ограничение: нельзя изменять словарь london_co.
+Restriction: You cannot modify the london_co dictionary.
 
-Все задания надо выполнять используя только пройденные темы. То есть эту задачу можно
-решить без использования условия if.
+All tasks must be completed using only the topics covered. That is, this task can be
+solved without using the if condition.
 """
 
 london_co = {

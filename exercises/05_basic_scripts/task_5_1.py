@@ -1,24 +1,22 @@
 # -*- coding: utf-8 -*-
 """
-Задание 5.1
+Task 5.1
 
+The task contains a dictionary with information about different devices.
 
-В задании создан словарь, с информацией о разных устройствах.
+In the task you need: ask the user to enter the device name (r1, r2 or sw1).
+Print information about the corresponding device to standard output
+(information will be in the form of a dictionary).
 
-Необходимо запросить у пользователя ввод имени устройства (r1, r2 или sw1).
-И вывести информацию о соответствующем устройстве на стандартный поток вывода
-(информация будет в виде словаря).
-
-
-Пример выполнения скрипта:
+An example of script execution:
 $ python task_5_1.py
-Введите имя устройства: r1
+Enter device name: r1
 {'location': '21 New Globe Walk', 'vendor': 'Cisco', 'model': '4451', 'ios': '15.4', 'ip': '10.255.0.1'}
 
-Ограничение: нельзя изменять словарь london_co.
+Restriction: You cannot modify the london_co dictionary.
 
-Все задания надо выполнять используя только пройденные темы. То есть эту задачу можно
-решить без использования условия if.
+All tasks must be completed using only the topics covered. That is, this task can be
+solved without using the if condition.
 """
 
 london_co = {

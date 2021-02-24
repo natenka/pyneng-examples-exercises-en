@@ -21,5 +21,5 @@
 
 Проверить работу функции на примере файла config_sw1.txt
 
-Ограничение: Все задания надо выполнять используя только пройденные темы.
+Restriction: All tasks must be done using the topics covered in this and previous chapters.
 """

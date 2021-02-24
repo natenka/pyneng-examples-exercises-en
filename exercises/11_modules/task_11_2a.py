@@ -70,7 +70,7 @@
 
 Не копировать код функций create_network_map и draw_topology.
 
-Ограничение: Все задания надо выполнять используя только пройденные темы.
+Restriction: All tasks must be done using the topics covered in this and previous chapters.
 
 """
 

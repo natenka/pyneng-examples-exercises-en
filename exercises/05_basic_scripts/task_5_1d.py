@@ -1,21 +1,21 @@
 # -*- coding: utf-8 -*-
 """
-Задание 5.1d
+Task 5.1d
 
-Переделать скрипт из задания 5.1c таким образом, чтобы, при запросе параметра,
-пользователь мог вводить название параметра в любом регистре.
+Modify the script from task 5.1c so that, when requesting a parameter,
+the user could enter the parameter name in any case.
 
-Пример выполнения скрипта:
+An example of script execution:
 $ python task_5_1d.py
-Введите имя устройства: r1
-Введите имя параметра (ios, model, vendor, location, ip): IOS
+Enter device name: r1
+Enter parameter name (ios, model, vendor, location, ip): IOS
 15.4
 
 
-Ограничение: нельзя изменять словарь london_co.
+Restriction: You cannot modify the london_co dictionary.
 
-Все задания надо выполнять используя только пройденные темы. То есть эту задачу можно
-решить без использования условия if.
+All tasks must be completed using only the topics covered. That is, this task can be
+solved without using the if condition.
 """
 
 london_co = {

@@ -31,7 +31,7 @@ R6           Fa 0/2          143           R S I           2811       Fa 0/0
 работать и на других файлах (тест проверяет работу функции на выводе
 из sh_cdp_n_sw1.txt и sh_cdp_n_r3.txt).
 
-Ограничение: Все задания надо выполнять используя только пройденные темы.
+Restriction: All tasks must be done using the topics covered in this and previous chapters.
 """
 
 

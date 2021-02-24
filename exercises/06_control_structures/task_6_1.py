@@ -9,7 +9,7 @@ MAC-адреса используются в формате XXXX.XXXX.XXXX
 список result.
 Полученный список result вывести на стандартный поток вывода (stdout) с помощью print.
 
-Ограничение: Все задания надо выполнять используя только пройденные темы.
+Restriction: All tasks must be done using the topics covered in this and previous chapters.
 """
 
 mac = ["aabb:cc80:7000", "aabb:dd80:7340", "aabb:ee80:7000", "aabb:ff80:7000"]

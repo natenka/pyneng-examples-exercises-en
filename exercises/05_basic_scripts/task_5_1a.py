@@ -1,22 +1,22 @@
 # -*- coding: utf-8 -*-
 """
-Задание 5.1a
+Task 5.1a
 
-Переделать скрипт из задания 5.1 таким образом, чтобы, кроме имени устройства,
-запрашивался также параметр устройства, который нужно отобразить.
+Modify the script from task 5.1 so that, in addition to the device name,
+the script requested and then printed the device parameter as well.
 
-Вывести информацию о соответствующем параметре, указанного устройства.
+Display information about the corresponding parameter of the specified device.
 
-Пример выполнения скрипта:
+An example of script execution:
 $ python task_5_1a.py
-Введите имя устройства: r1
-Введите имя параметра: ios
+Enter device name: r1
+Enter parameter name: ios
 15.4
 
-Ограничение: нельзя изменять словарь london_co.
+Restriction: You cannot modify the london_co dictionary.
 
-Все задания надо выполнять используя только пройденные темы. То есть эту задачу можно
-решить без использования условия if.
+All tasks must be completed using only the topics covered. That is, this task can be
+solved without using the if condition.
 """
 
 london_co = {

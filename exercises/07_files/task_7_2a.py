@@ -12,7 +12,7 @@
 Проверить работу скрипта на конфигурационном файле config_sw1.txt.
 Имя файла передается как аргумент скрипту.
 
-Ограничение: Все задания надо выполнять используя только пройденные темы.
+Restriction: All tasks must be done using the topics covered in this and previous chapters.
 
 """
 

@@ -12,5 +12,5 @@ The function must return a tuple with two lists:
 
 Для проверки доступности IP-адреса, используйте команду ping.
 
-Ограничение: Все задания надо выполнять используя только пройденные темы.
+Restriction: All tasks must be done using the topics covered in this and previous chapters.
 """

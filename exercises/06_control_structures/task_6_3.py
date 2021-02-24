@@ -38,7 +38,7 @@ interface FastEthernet 0/4
  switchport mode trunk
  switchport trunk allowed vlan remove 17
 
-Ограничение: Все задания надо выполнять используя только пройденные темы.
+Restriction: All tasks must be done using the topics covered in this and previous chapters.
 """
 
 access_template = [

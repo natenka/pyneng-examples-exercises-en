@@ -1,6 +1,6 @@
 # -*- coding: utf-8 -*-
 """
-Задание 5.3a
+Task 5.3a
 
 Дополнить скрипт из задания 5.3 таким образом, чтобы, в зависимости
 от выбранного режима, задавались разные вопросы в запросе о номере
@@ -8,8 +8,8 @@ VLANа или списка VLANов:
 * для access: 'Enter VLAN number:'
 * для trunk: 'Enter the allowed VLANs:'
 
-Ограничение: Все задания надо выполнять используя только пройденные темы.
-То есть эту задачу можно решить без использования условия if и циклов for/while.
+Restriction: All tasks must be done using the topics covered in this and previous chapters.
+То есть эту задачу можно solved without using the if condition.и циклов for/while.
 """
 
 access_template = [

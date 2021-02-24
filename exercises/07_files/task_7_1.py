@@ -11,6 +11,6 @@ Next-Hop              10.0.13.3
 Last update           3d18h
 Outbound Interface    FastEthernet0/0
 
-Ограничение: Все задания надо выполнять используя только пройденные темы.
+Restriction: All tasks must be done using the topics covered in this and previous chapters.
 
 """

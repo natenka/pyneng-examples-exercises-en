@@ -14,6 +14,6 @@ Enter VLAN number: 10
 10       0a1b.1c80.7000      Gi0/4
 10       01ab.c5d0.70d0      Gi0/8
 
-Ограничение: Все задания надо выполнять используя только пройденные темы.
+Restriction: All tasks must be done using the topics covered in this and previous chapters.
 
 """
