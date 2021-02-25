@@ -2,10 +2,10 @@
 """
 Task 5.3
 
-Скрипт должен запрашивать у пользователя:
-* информацию о режиме интерфейса (access/trunk)
-* номере интерфейса (тип и номер, вида Gi0/3)
-* номер VLANа (для режима trunk будет вводиться список VLANов)
+The script should prompt the user for input:
+* interface mode (access / trunk)
+* interface number (Gi0 / 3)
+* VLAN number (for trunk mode, a list of VLANs will be entered)
 
 В зависимости от выбранного режима, на стандартный поток вывода, должна возвращаться
 соответствующая конфигурация access или trunk (шаблоны команд находятся в списках
