@@ -9,7 +9,7 @@ or VLAN list:
 * for trunk: 'Enter the allowed VLANs:'
 
 Restriction: All tasks must be done using the topics covered in this and previous chapters.
-This task can be solved without using the if condition and for/while.
+This task can be solved without using the if condition and for/while loops.
 """
 
 access_template = [

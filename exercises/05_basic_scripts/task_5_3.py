@@ -13,8 +13,8 @@ on stdout (command templates are in the lists access_template and trunk_template
 The output should first print the interface line and the interface number, and then
 the corresponding template in which the VLAN number (or the list of VLANs) is inserted.
 
-Restriction: All tasks must be done using the topics covered in this and previous chapters. То есть эту
-задачу можно solved without using the if condition.и циклов for/while.
+Restriction: All tasks must be done using the topics covered in this and previous chapters.
+This task can be solved without using the if condition and for/while loops.
 
 Hint:
 Leading up to this task was task 5.1. To make it easier to solve this task,
