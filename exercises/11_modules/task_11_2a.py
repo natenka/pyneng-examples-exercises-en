@@ -1,42 +1,43 @@
 # -*- coding: utf-8 -*-
 """
-Задание 11.2a
+Task 11.2a
 
-> Для выполнения этого задания, должен быть установлен graphviz:
+> To complete this task, graphviz must be installed:
 > apt-get install graphviz
 
-> И модуль python для работы с graphviz:
+> And a python module to work with graphviz:
 > pip install graphviz
 
-С помощью функции create_network_map из задания 11.2 создать словарь topology
-с описанием топологии для файлов:
+Use the create_network_map function from task 11.2 to create the topology dict
+for files:
 * sh_cdp_n_sw1.txt
 * sh_cdp_n_r1.txt
 * sh_cdp_n_r2.txt
 * sh_cdp_n_r3.txt
 
-С помощью функции draw_topology из файла draw_network_graph.py нарисовать
-схему для словаря topology, полученного с помощью create_network_map.
-Как работать с функцией draw_topology надо разобраться самостоятельно,
-почитав описание функции в файле draw_network_graph.py.
-Полученная схема будет записана в файл svg - его можно открыть браузером.
+Using the draw_topology function from the draw_network_graph.py file, draw
+schema for the topology dict received with create_network_map function.
+You need to figure out how to work with the draw_topology function on your own,
+by reading the function description in the draw_network_graph.py file.
+The resulting scheme will be written to the svg file - it can be opened with a browser.
 
-С текущим словарем topology на схеме нарисованы лишние соединения. Они
-возникают потому что в одном файле CDP (sh_cdp_n_r1.txt) описывается соединение
+
+With the current topology dictionary, extra connections are drawn on the diagram. They
+occur because one CDP file (sh_cdp_n_r1.txt) describes connection
     ("R1", "Eth0/0"): ("SW1", "Eth0/1")
-а в другом (sh_cdp_n_sw1.txt)
+
+and another (sh_cdp_n_sw1.txt) describes connection
     ("SW1", "Eth0/1"): ("R1", "Eth0/0")
 
-В этом задании надо создать новую функцию unique_network_map, которая из этих
-двух соединений будет оставлять только одно, для корректного рисования схемы.
-При этом все равно какое из соединений оставить.
+In this task, you need to create a new function unique_network_map, which of these
+two connections will leave only one, for correct drawing of the schema.
+In this case, it does not matter which of the connections to leave.
 
-У функции unique_network_map должен быть один параметр topology_dict,
-который ожидает как аргумент словарь.
-Это должен быть словарь полученный в результате выполнения
-функции create_network_map из задания 11.2.
+The unique_network_map function must have one topology_dict parameter,
+which expects a dictionary as an argument.
+It should be a dictionary resulting from the create_network_map function call.
 
-Пример словаря:
+Dict example:
 {
     ("R1", "Eth0/0"): ("SW1", "Eth0/1"),
     ("R2", "Eth0/0"): ("SW1", "Eth0/2"),
@@ -51,24 +52,24 @@
 }
 
 
-Функция должна возвращать словарь, который описывает соединения между
-устройствами. В словаре надо избавиться от "дублирующих" соединений
-и оставлять только одно из них.
+The function should return a dictionary that describes the connections between
+devices. In the dictionary, you need to get rid of "duplicate" connections and
+ leave only one of them.
 
-Структура итогового словаря такая же, как в задании 11.2:
+The structure of the final dict is the same as in task 11.2:
     {("R4", "Fa0/1"): ("R5", "Fa0/1"),
      ("R4", "Fa0/2"): ("R6", "Fa0/0")}
 
-После создания функции, попробовать еще раз нарисовать топологию,
-теперь уже для словаря, который возвращает функция unique_network_map.
+After creating the function, try drawing the topology again,
+now for the dictionary returned by the unique_network_map function.
 
-Результат должен выглядеть так же, как схема в файле task_11_2a_topology.svg
+The result should look the same as the diagram in task_11_2a_topology.svg
 
-При этом:
-* Расположение устройств на схеме может быть другим
-* Соединения должны соответствовать схеме
+Wherein:
+* The arrangement of devices on the diagram may be different
+* Connections must match the diagram
 
-Не копировать код функций create_network_map и draw_topology.
+Do not copy the code of the create_network_map and draw_topology functions.
 
 Restriction: All tasks must be done using the topics covered in this and previous chapters.
 

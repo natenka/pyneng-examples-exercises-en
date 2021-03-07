@@ -1,35 +1,36 @@
 # -*- coding: utf-8 -*-
 """
-Задание 11.1
+Task 11.1
 
-Создать функцию parse_cdp_neighbors, которая обрабатывает
-вывод команды show cdp neighbors.
+Create a function parse_cdp_neighbors that handles
+show cdp neighbors command output.
 
-У функции должен быть один параметр command_output, который ожидает как аргумент
-вывод команды одной строкой (не имя файла). Для этого надо считать все содержимое
-файла в строку, а затем передать строку как аргумент функции (как передать вывод
-команды показано в коде ниже).
+The function must have one parameter, command_output, which expects a single
+string of command output as an argument (not a filename). To do this, you need
+to read the entire contents of the file into a string, and then pass the string
+as an argument to the function (how to pass the command output is shown in the code below).
 
-Функция должна возвращать словарь, который описывает соединения между устройствами.
+The function should return a dictionary that describes the connections between devices.
 
-Например, если как аргумент был передан такой вывод:
+
+For example, if the following output was passed as an argument:
 R4>show cdp neighbors
 
 Device ID    Local Intrfce   Holdtme     Capability       Platform    Port ID
 R5           Fa 0/1          122           R S I           2811       Fa 0/1
 R6           Fa 0/2          143           R S I           2811       Fa 0/0
 
-Функция должна вернуть такой словарь:
+The function should return a dictionary:
 
     {("R4", "Fa0/1"): ("R5", "Fa0/1"),
      ("R4", "Fa0/2"): ("R6", "Fa0/0")}
 
-В словаре интерфейсы должны быть записаны без пробела между типом и именем.
-То есть так Fa0/0, а не так Fa 0/0.
+In the dictionary, interfaces must be written without a space between type and name.
+That is, so Fa0/0, and not so Fa 0/0.
 
-Проверить работу функции на содержимом файла sh_cdp_n_sw1.txt. При этом функция должна
-работать и на других файлах (тест проверяет работу функции на выводе
-из sh_cdp_n_sw1.txt и sh_cdp_n_r3.txt).
+Check the operation of the function on the contents of the sh_cdp_n_sw1.txt file.
+In this case, the function should work on other files (the test checks the operation
+of the function on the output from sh_cdp_n_sw1.txt and sh_cdp_n_r3.txt).
 
 Restriction: All tasks must be done using the topics covered in this and previous chapters.
 """
@@ -37,11 +38,11 @@ Restriction: All tasks must be done using the topics covered in this and previou
 
 def parse_cdp_neighbors(command_output):
     """
-    Тут мы передаем вывод команды одной строкой потому что именно в таком виде будет
-    получен вывод команды с оборудования. Принимая как аргумент вывод команды,
-    вместо имени файла, мы делаем функцию более универсальной: она может работать
-    и с файлами и с выводом с оборудования.
-    Плюс учимся работать с таким выводом.
+    Here we transfer the output of the command as single string because it is in this form that
+    received command output from equipment. Taking the output of the command as an argument,
+    instead of a filename, we make the function more generic: it can work
+    both with files and with output from equipment.
+    Plus, we learn to work with such a output.
     """
 
 
