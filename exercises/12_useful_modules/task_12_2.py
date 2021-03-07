@@ -1,35 +1,34 @@
 # -*- coding: utf-8 -*-
 """
-Задание 12.2
+Task 12.2
 
+The ping_ip_addresses function from task 12.1 only accepts a list of addresses,
+but it would be convenient to be able to specify addresses using a range,
+for example 192.168.100.1-10.
 
-Функция ping_ip_addresses из задания 12.1 принимает только список адресов,
-но было бы удобно иметь возможность указывать адреса с помощью диапазона,
-например, 192.168.100.1-10.
+In this task, you need to create a function convert_ranges_to_ip_list that
+converts a list of IP addresses in different formats into a list where each
+IP address is listed separately.
 
-В этом задании необходимо создать функцию convert_ranges_to_ip_list,
-которая конвертирует список IP-адресов в разных форматах в список,
-где каждый IP-адрес указан отдельно.
+The function expects as an argument a list containing IP addresses
+and/or ranges of IP addresses.
 
-Функция ожидает как аргумент список, в котором содержатся IP-адреса
-и/или диапазоны IP-адресов.
-
-Элементы списка могут быть в формате:
+List items can be in the format:
 * 10.1.1.1
 * 10.1.1.1-10.1.1.10
 * 10.1.1.1-10
 
-Если адрес указан в виде диапазона, надо развернуть диапазон в отдельные
-адреса, включая последний адрес диапазона.
-Для упрощения задачи, можно считать, что в диапазоне всегда меняется только
-последний октет адреса.
+If the address is specified as a range, the range must be expanded into
+individual addresses, including the last address in the range.
+To simplify the task, we can assume that only the last octet of the
+address changes in the range.
 
-Функция возвращает список IP-адресов.
+The function returns a list of IP addresses.
 
-Например, если передать функции convert_ranges_to_ip_list такой список:
+For example, if you pass the following list to the convert_ranges_to_ip_list function:
 ['8.8.4.4', '1.1.1.1-3', '172.21.41.128-172.21.41.132']
 
-Функция должна вернуть такой список:
+The function should return a list like this:
 ['8.8.4.4', '1.1.1.1', '1.1.1.2', '1.1.1.3', '172.21.41.128',
  '172.21.41.129', '172.21.41.130', '172.21.41.131', '172.21.41.132']
 
