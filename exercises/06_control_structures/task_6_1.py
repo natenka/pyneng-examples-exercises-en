@@ -1,13 +1,13 @@
 # -*- coding: utf-8 -*-
 """
-Задание 6.1
+Task 6.1
 
-Список mac содержит MAC-адреса в формате XXXX:XXXX:XXXX Однако, в оборудовании Cisco
-MAC-адреса используются в формате XXXX.XXXX.XXXX
+The mac list contains MAC addresses in the format XXXX:XXXX:XXXX
+However, in Cisco equipment MAC addresses are in XXXX.XXXX.XXXX format.
 
-Написать код, который преобразует MAC-адреса в формат cisco и добавляет их в новый
-список result.
-Полученный список result вывести на стандартный поток вывода (stdout) с помощью print.
+Write a code that converts MAC addresses to cisco format and adds them to
+a new list named result.
+Print the result list to the stdout using print.
 
 Restriction: All tasks must be done using the topics covered in this and previous chapters.
 """

@@ -1,30 +1,31 @@
 # -*- coding: utf-8 -*-
 """
-Задание 6.3
+Task 6.3
 
-В скрипте сделан генератор конфигурации для access-портов.
-Сделать аналогичный генератор конфигурации для портов trunk.
+A configuration generator for access ports is made in the script.
+Make a similar configuration generator for trunk ports.
 
-В транках ситуация усложняется тем, что VLANов может быть много, и надо понимать,
-что с ними делать (добавлять, удалять, перезаписывать).
+In trunks, the situation is complicated by the fact that there can be many VLANs,
+and you need to understand what to do with them (add, delete, overwrite).
 
-Поэтому в соответствии каждому порту стоит список и первый (нулевой) элемент списка
-указывает как воспринимать номера VLAN, которые идут дальше.
+Therefore, in accordance with each port there is a list and the first (zero index)
+element of the list specifies how to interpret VLAN numbers that follow.
 
-Пример значения и соответствующей команды:
-* ['add', '10', '20'] - команда switchport trunk allowed vlan add 10,20
-* ['del', '17'] - команда switchport trunk allowed vlan remove 17
-* ['only', '11', '30'] - команда switchport trunk allowed vlan 11,30
 
-Задача для портов 0/1, 0/2, 0/4:
-- сгенерировать конфигурацию на основе шаблона trunk_template
-- с учетом ключевых слов add, del, only
+Dict value and corresponding command:
+* ['add', '10', '20'] - switchport trunk allowed vlan add 10,20
+* ['del', '17'] - switchport trunk allowed vlan remove 17
+* ['only', '11', '30'] - switchport trunk allowed vlan 11,30
 
-Код не должен привязываться к конкретным номерам портов. То есть,
-если в словаре trunk будут другие номера интерфейсов, код должен работать.
+Task for ports 0/1, 0/2, 0/4:
+- generate a configuration based on the trunk_template template
+- taking into account the keywords add, del, only
 
-Для данных в словаре trunk_template вывод на
-стандартный поток вывода должен быть таким:
+The code should not be tied to specific port numbers. I.e,
+if there are other interface numbers in the trunk dictionary, the code should work.
+
+For data in the trunk_template dictionary, output to
+the standard output should be like this:
 interface FastEthernet 0/1
  switchport trunk encapsulation dot1q
  switchport mode trunk

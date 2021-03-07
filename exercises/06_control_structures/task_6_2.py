@@ -1,14 +1,14 @@
 # -*- coding: utf-8 -*-
 """
-Задание 6.2
+Task 6.2
 
-Запросить у пользователя ввод IP-адреса в формате 10.0.1.1
-В зависимости от типа адреса (описаны ниже), вывести на стандартный поток вывода:
-   'unicast' - если первый байт в диапазоне 1-223
-   'multicast' - если первый байт в диапазоне 224-239
-   'local broadcast' - если IP-адрес равен 255.255.255.255
-   'unassigned' - если IP-адрес равен 0.0.0.0
-   'unused' - во всех остальных случаях
+Prompt the user to enter an IP address in the format 10.0.1.1
+Depending on the type of address (described below), print to the stdout:
+    'unicast' - if the first byte is in the range 1-223
+    'multicast' - if the first byte is in the range 224-239
+    'local broadcast' - if the IP address is 255.255.255.255
+    'unassigned' - if the IP address is 0.0.0.0
+    'unused' - in all other cases
 
 Restriction: All tasks must be done using the topics covered in this and previous chapters.
 """
