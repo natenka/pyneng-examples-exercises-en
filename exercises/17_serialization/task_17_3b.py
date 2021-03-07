@@ -1,45 +1,44 @@
 # -*- coding: utf-8 -*-
 """
-Задание 17.3b
+Task 17.3b
 
-Создать функцию transform_topology, которая преобразует топологию в формат подходящий
-для функции draw_topology.
+Create a transform_topology function that converts the topology to a format
+suitable for the draw_topology function.
 
-Функция ожидает как аргумент имя файла в формате YAML, в котором хранится топология.
+The function expects a YAML filename as an argument in which the topology is stored.
 
-Функция должна считать данные из YAML файла, преобразовать их соответственно,
-чтобы функция возвращала словарь такого вида:
+The function must read data from the YAML file, transform it accordingly,
+so that the function returns a dictionary of the following form:
     {('R4', 'Fa 0/1'): ('R5', 'Fa 0/1'),
      ('R4', 'Fa 0/2'): ('R6', 'Fa 0/0')}
 
-Функция transform_topology должна не только менять формат представления топологии,
-но и удалять "дублирующиеся" соединения (их лучше всего видно на схеме, которую
-генерирует функция draw_topology из файла draw_network_graph.py).
-Тут "дублирующиеся" соединения, это ситуация когда в словаре есть два соединения:
+The transform_topology function should not only change the format of the topology
+representation, but also remove the "duplicate" connections (they are best seen
+in the diagram that the draw_topology function generates from
+the draw_network_graph.py file).
+"Duplicate" connections are connections of this kind:
     ("R1", "Eth0/0"): ("SW1", "Eth0/1")
     ("SW1", "Eth0/1"): ("R1", "Eth0/0")
 
-Из-за того что один и тот же линк описывается дважды, на схеме будут лишние соединения.
-Задача оставить только один из этих линков в итоговом словаре, не важно какой.
+Due to the fact that the same link is described twice, there will be extra
+connections on the diagram. The task is to leave only one of these links
+in the final dictionary, does not matter which one.
 
-Проверить работу функции на файле topology.yaml (должен быть создан в задании 17.3a).
-На основании полученного словаря надо сгенерировать изображение топологии
-с помощью функции draw_topology.
-Не копировать код функции draw_topology из файла draw_network_graph.py.
+Check the operation of the function on the topology.yaml file (must be created
+in task 17.3a). Based on the resulting dictionary, you need to generate a topology
+image using the draw_topology function.
+Do not copy draw_topology function code from draw_network_graph.py file.
 
-Результат должен выглядеть так же, как схема в файле task_17_3b_topology.svg
-
-При этом:
-* Интерфейсы должны быть записаны с пробелом Fa 0/0
-* Расположение устройств на схеме может быть другим
-* Соединения должны соответствовать схеме
-* На схеме не должно быть "дублирующихся" линков
+The result should look the same as the diagram in the task_17_3b_topology.svg file:
+* Interfaces must be written with a space Fa 0/0
+* The arrangement of devices on the diagram may be different
+* Connections must match the diagram
+* There should be no "duplicate" links on the diagram
 
 
-> Для выполнения этого задания, должен быть установлен graphviz:
+> To complete this task, graphviz must be installed:
 > apt-get install graphviz
 
-> И модуль python для работы с graphviz:
+> And a python module to work with graphviz:
 > pip install graphviz
-
 """

@@ -1,26 +1,27 @@
 # -*- coding: utf-8 -*-
 """
-Задание 17.3
+Task 17.3
 
-Создать функцию parse_sh_cdp_neighbors, которая обрабатывает
-вывод команды show cdp neighbors.
+Create a function parse_sh_cdp_neighbors that processes the output of
+the show cdp neighbors command.
 
-Функция ожидает, как аргумент, вывод команды одной строкой (не имя файла).
-Функция должна возвращать словарь, который описывает соединения между устройствами.
+The function expects, as an argument, the output of the command
+as a single string (not a filename).
+The function should return a dictionary that describes the connections between devices.
 
-Например, если как аргумент был передан такой вывод:
+For example, if the following output was passed as an argument:
 R4>show cdp neighbors
 
 Device ID    Local Intrfce   Holdtme     Capability       Platform    Port ID
 R5           Fa 0/1          122           R S I           2811       Fa 0/1
 R6           Fa 0/2          143           R S I           2811       Fa 0/0
 
-Функция должна вернуть такой словарь:
+The function should return a dictionary like this:
 {'R4': {'Fa 0/1': {'R5': 'Fa 0/1'},
         'Fa 0/2': {'R6': 'Fa 0/0'}}}
 
-Интерфейсы должны быть записаны с пробелом. То есть, так Fa 0/0, а не так Fa0/0.
+Interfaces must be written with a space. That is, so Fa 0/0, and not so Fa0/0.
 
 
-Проверить работу функции на содержимом файла sh_cdp_n_sw1.txt
+Check the function on the contents of the sh_cdp_n_sw1.txt file
 """

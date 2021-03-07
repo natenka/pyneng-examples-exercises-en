@@ -1,29 +1,30 @@
 # -*- coding: utf-8 -*-
 """
-Задание 17.3a
+Task 17.3a
 
-Создать функцию generate_topology_from_cdp, которая обрабатывает вывод
-команды show cdp neighbor из нескольких файлов и записывает итоговую
-топологию в один словарь.
+Create a generate_topology_from_cdp function that processes the
+show cdp neighbor command output from multiple files and writes
+the resulting topology to a single dictionary.
 
-Функция generate_topology_from_cdp должна быть создана с параметрами:
-* list_of_files - список файлов из которых надо считать вывод команды sh cdp neighbor
-* save_to_filename - имя файла в формате YAML, в который сохранится топология.
- * значение по умолчанию - None. По умолчанию, топология не сохраняется в файл
- * топология сохраняется только, если save_to_filename как аргумент указано имя файла
+The generate_topology_from_cdp function must be created with parameters:
+* list_of_files - list of files from which to read the output of the sh cdp neighbor command
+* save_to_filename is the name of the YAML file where the topology will be saved.
+  * default is None. By default, the topology is not saved to a file.
+  * topology is saved only if save_to_filename is file name as argument
 
-Функция должна возвращать словарь, который описывает соединения между устройствами,
-независимо от того сохраняется ли топология в файл.
 
-Структура словаря должна быть такой:
+The function should return a dictionary that describes the connections between
+devices, regardless of whether the topology is saved to a file.
+
+Dictionary example:
 {'R4': {'Fa 0/1': {'R5': 'Fa 0/1'},
         'Fa 0/2': {'R6': 'Fa 0/0'}},
  'R5': {'Fa 0/1': {'R4': 'Fa 0/1'}},
  'R6': {'Fa 0/0': {'R4': 'Fa 0/2'}}}
 
-Интерфейсы должны быть записаны с пробелом. То есть, так Fa 0/0, а не так Fa0/0.
+Interfaces must be written with a space. That is, so Fa 0/0, and not so Fa0/0.
 
-Проверить работу функции generate_topology_from_cdp на списке файлов:
+Check the work of the generate_topology_from_cdp function on the list of files:
 * sh_cdp_n_sw1.txt
 * sh_cdp_n_r1.txt
 * sh_cdp_n_r2.txt
@@ -32,7 +33,7 @@
 * sh_cdp_n_r5.txt
 * sh_cdp_n_r6.txt
 
-Проверить работу параметра save_to_filename и записать итоговый словарь
-в файл topology.yaml. Он понадобится в следующем задании.
+Check the operation of the save_to_filename parameter and write the resulting
+dictionary to the topology.yaml file. You will need it in the next task.
 
 """
