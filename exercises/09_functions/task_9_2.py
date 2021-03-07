@@ -1,33 +1,30 @@
 # -*- coding: utf-8 -*-
 """
-Задание 9.2
+Task 9.2
 
-Создать функцию generate_trunk_config, которая генерирует
-конфигурацию для trunk-портов.
+Create generate_trunk_config function that generates configuration
+for access ports.
 
-У функции должны быть такие параметры:
+The function expects such arguments:
 
-- intf_vlan_mapping: ожидает как аргумент словарь с соответствием интерфейс-VLANы
-  такого вида:
+- intf_vlan_mapping: expects a dictionary with interface-VLAN mapping:
     {'FastEthernet0/1': [10, 20],
      'FastEthernet0/2': [11, 30],
      'FastEthernet0/4': [17]}
-- trunk_template: ожидает как аргумент шаблон конфигурации trunk-портов в виде
-  списка команд (список trunk_mode_template)
+- trunk_template: expects trunk port configuration template as command list
+  (trunk_mode_template list)
 
-The function should return a list команд с конфигурацией на основе указанных портов
-и шаблона trunk_mode_template. В конце строк в списке не должно быть символа
-перевода строки.
+The function should return a list of commands with configuration based on
+the specified ports and trunk_mode_template.
 
-Проверить работу функции на примере словаря trunk_config
-и списка команд trunk_mode_template.
-Если предыдущая проверка прошла успешно, проверить работу функции еще раз
-на словаре trunk_config_2 и убедится, что в итоговом списке правильные номера
-интерфейсов и вланов.
+Check the operation of the function using the example of the trunk_config
+dictionary and a list of commands trunk_mode_template.
+If the previous check was successful, check the function again
+on the trunk_config_2 dictionary and make sure that the final list contains
+the correct numbers interfaces and vlans.
 
 
-Пример итогового списка (перевод строки после каждого элемента сделан
-для удобства чтения):
+An example of a final list (each string is written on a new line for readability):
 [
 'interface FastEthernet0/1',
 'switchport mode trunk',

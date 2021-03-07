@@ -1,28 +1,26 @@
 # -*- coding: utf-8 -*-
 """
-Задание 9.1
+Task 9.1
 
-Создать функцию generate_access_config, которая генерирует конфигурацию
-для access-портов.
+Create generate_access_config function that generates configuration
+for access ports.
 
-Функция ожидает такие аргументы:
+The function expects such arguments:
 
-- словарь с соответствием интерфейс-VLAN такого вида:
-    {'FastEthernet0/12': 10,
-     'FastEthernet0/14': 11,
-     'FastEthernet0/16': 17}
-- шаблон конфигурации access-портов в виде списка команд (список access_mode_template)
+- a dictionary with interface as a key and VLAN as a value:
+     {'FastEthernet0/12': 10,
+      'FastEthernet0/14': 11,
+      'FastEthernet0/16': 17}
+- access ports configuration template as a list of commands (access_mode_template list)
 
-The function should return a list всех портов в режиме access с конфигурацией
-на основе шаблона access_mode_template. В конце строк в списке не должно быть
-символа перевода строки.
+The function should return a list of all ports in access mode with configuration
+based on the access_mode_template template.
 
-В этом задании заготовка для функции уже сделана и надо только продолжить писать
-само тело функции.
+In this task, the beginning of the function is written and you just need to
+continue writing the function body itself.
 
 
-Пример итогового списка (перевод строки после каждого элемента сделан
-для удобства чтения):
+An example of a final list (each string is written on a new line for readability):
 [
 'interface FastEthernet0/12',
 'switchport mode access',
@@ -38,11 +36,11 @@ The function should return a list всех портов в режиме access �
 'spanning-tree bpduguard enable',
 ...]
 
-Проверить работу функции на примере словаря access_config
-и списка команд access_mode_template.
-Если предыдущая проверка прошла успешно, проверить работу функции еще раз на словаре
-access_config_2 и убедиться, что в итоговом списке правильные номера интерфейсов
-и вланов.
+Check the operation of the function using the access_config dictionary
+and the list of commands access_mode_template.
+If the previous check was successful, check the function again using the dictionary
+access_config_2 and make sure that the final list contains the correct interface
+numbers and vlans.
 
 Restriction: All tasks must be done using the topics covered in this and previous chapters.
 
@@ -59,19 +57,19 @@ access_mode_template = [
 access_config = {"FastEthernet0/12": 10, "FastEthernet0/14": 11, "FastEthernet0/16": 17}
 
 access_config_2 = {
-    "FastEthernet0/03": 100,
-    "FastEthernet0/07": 101,
-    "FastEthernet0/09": 107,
+    "FastEthernet0/3": 100,
+    "FastEthernet0/7": 101,
+    "FastEthernet0/9": 107,
 }
 
 
 def generate_access_config(intf_vlan_mapping, access_template):
     """
-    intf_vlan_mapping - словарь с соответствием интерфейс-VLAN такого вида:
-        {'FastEthernet0/12':10,
-         'FastEthernet0/14':11,
-         'FastEthernet0/16':17}
-    access_template - список команд для порта в режиме access
+    intf_vlan_mapping is a dictionary with interface-VLAN mapping:
+         {'FastEthernet0/12': 10,
+          'FastEthernet0/14': 11,
+          'FastEthernet0/16': 17}
+    access_template - list of commands for the port in access mode
 
-    Возвращает список всех портов в режиме access с конфигурацией на основе шаблона
+    Returns a list of commands.
     """

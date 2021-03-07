@@ -1,27 +1,25 @@
 # -*- coding: utf-8 -*-
 """
-Задание 9.3a
+Task 9.3a
 
-Сделать копию функции get_int_vlan_map из задания 9.3.
+Make a copy of the code from the task 9.3.
 
-Дополнить функцию: добавить поддержку конфигурации, когда настройка access-порта
-выглядит так:
+Add this functionality: add support for configuration when the port is in VLAN 1
+and the access port setting looks like this:
     interface FastEthernet0/20
         switchport mode access
         duplex auto
 
-То есть, порт находится в VLAN 1
-
-В таком случае, в словарь портов должна добавляться информация, что порт в VLAN 1
-Пример словаря:
+In this case, information should be added to the dictionary that the port in VLAN 1
+Dictionary example:
     {'FastEthernet0/12': 10,
      'FastEthernet0/14': 11,
      'FastEthernet0/20': 1 }
 
-У функции должен быть один параметр config_filename, который ожидает
-как аргумент имя конфигурационного файла.
+The function must have one parameter, config_filename, which expects as an argument
+the name of the configuration file.
 
-Проверить работу функции на примере файла config_sw2.txt
+Check the operation of the function using the config_sw2.txt file.
 
 Restriction: All tasks must be done using the topics covered in this and previous chapters.
 """
