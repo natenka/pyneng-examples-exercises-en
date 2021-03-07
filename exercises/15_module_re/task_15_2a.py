@@ -1,28 +1,28 @@
 # -*- coding: utf-8 -*-
 """
-Задание 15.2a
+Task 15.2a
 
-Создать функцию convert_to_dict, которая ожидает два аргумента:
-* список с названиями полей
-* список кортежей со значениями
+Create a convert_to_dict function that expects two arguments:
+* list with field names
+* list of tuples with values
 
-Функция возвращает результат в виде списка словарей,
-где ключи - взяты из первого списка, а значения подставлены из второго.
+The function returns a list of dictionaries, where the keys are taken
+from the first list, and the values from the second.
 
-Например, если функции передать как аргументы список headers и список
+For example, if you pass the headers list and the list
 [('R1', '12.4(24)T1', 'Cisco 3825'),
  ('R2', '15.2(2)T1', 'Cisco 2911')]
 
-Функция должна вернуть такой список со словарями:
+The function should return a list of dictionaries:
 [{'hostname': 'R1', 'ios': '12.4(24)T1', 'platform': 'Cisco 3825'},
  {'hostname': 'R2', 'ios': '15.2(2)T1', 'platform': 'Cisco 2911'}]
 
-Функция не должна быть привязана к конкретным данным или количеству
-заголовков/данных в кортежах.
+The function should not be tied to specific data or the number
+of headers/data in tuples.
 
-Проверить работу функции:
-* первый аргумент - список headers
-* второй аргумент - список data
+Check function operation:
+* the first argument is the headers list
+* the second argument is the data list
 
 Restriction: All tasks must be done using the topics covered in this and previous chapters.
 """

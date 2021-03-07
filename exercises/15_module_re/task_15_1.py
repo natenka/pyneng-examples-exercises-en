@@ -1,25 +1,24 @@
 # -*- coding: utf-8 -*-
 """
-Задание 15.1
+Task 15.1
 
-Создать функцию get_ip_from_cfg, которая ожидает как аргумент имя файла,
-в котором находится конфигурация устройства.
+Create a get_ip_from_cfg function that expects the name of the file containing
+the device configuration as an argument.
 
-Функция должна обрабатывать конфигурацию и возвращать IP-адреса и маски,
-которые настроены на интерфейсах, в виде списка кортежей:
-* первый элемент кортежа - IP-адрес
-* второй элемент кортежа - маска
+The function should process the configuration and return the IP addresses and
+masks that are configured on the interfaces as a list of tuples:
+* the first element of the tuple is the IP address
+* the second element of the tuple is a mask
 
-Например (взяты произвольные адреса):
+For example (arbitrary addresses are taken):
 [('10.0.1.1', '255.255.255.0'), ('10.0.2.1', '255.255.255.0')]
 
-Для получения такого результата, используйте регулярные выражения.
+To get this result, use regular expressions.
 
-Проверить работу функции на примере файла config_r1.txt.
+Check the operation of the function using the config_r1.txt file.
 
-
-Обратите внимание, что в данном случае, можно не проверять корректность IP-адреса,
-диапазоны адресов и так далее, так как обрабатывается вывод команды,
-а не ввод пользователя.
+Please note that in this case, you can not check the correctness
+of the IP address, address ranges, and so on, since the command
+output from network device is processed, not user input.
 
 """

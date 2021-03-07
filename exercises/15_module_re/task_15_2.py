@@ -1,23 +1,24 @@
 # -*- coding: utf-8 -*-
 """
-Задание 15.2
+Task 15.2
 
-Создать функцию parse_sh_ip_int_br, которая ожидает как аргумент
-имя файла, в котором находится вывод команды show ip int br
+Create a function parse_sh_ip_int_br that expects as an argument the name
+of the file containing the output of the show ip int br command.
 
-Функция должна обрабатывать вывод команды show ip int br и возвращать такие поля:
+The function should process the output of the show ip int br command
+and return the following fields:
 * Interface
 * IP-Address
 * Status
 * Protocol
 
-Информация должна возвращаться в виде списка кортежей:
+The information should be returned as a list of tuples:
 [('FastEthernet0/0', '10.0.1.1', 'up', 'up'),
  ('FastEthernet0/1', '10.0.2.1', 'up', 'up'),
  ('FastEthernet0/2', 'unassigned', 'down', 'down')]
 
-Для получения такого результата, используйте регулярные выражения.
+To get this result, use regular expressions.
 
-Проверить работу функции на примере файла sh_ip_int_br.txt.
+Check the operation of the function using the example of the sh_ip_int_br.txt file.
 
 """
