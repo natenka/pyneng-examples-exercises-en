@@ -1,16 +1,17 @@
 # -*- coding: utf-8 -*-
 """
-Задание 7.2b
+Task 7.2b
 
-Переделать скрипт из задания 7.2a: вместо вывода на стандартный поток вывода,
-скрипт должен записать полученные строки в файл
+Make a copy of the code from the task 7.2a.
+Add this functionality: instead of printing to stdout,
+the script should write the resulting lines to a file.
 
-Имена файлов нужно передавать как аргументы скрипту:
- * имя исходного файла конфигурации
- * имя итогового файла конфигурации
+File names must be passed as arguments to the script:
+  1. name of the source configuration file
+  2. name of the final configuration file
 
-При этом, должны быть отфильтрованы строки, которые содержатся в списке ignore
-и строки, которые начинаются на '!'.
+In this case, the lines that are contained in the ignore list and lines
+that start with ! must be filtered.
 
 Restriction: All tasks must be done using the topics covered in this and previous chapters.
 

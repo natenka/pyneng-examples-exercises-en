@@ -1,18 +1,19 @@
 # -*- coding: utf-8 -*-
 """
-Задание 7.2
+Task 7.2
 
-Создать скрипт, который будет обрабатывать конфигурационный файл config_sw1.txt.
-Имя файла передается как аргумент скрипту.
+Create a script that will process the config_sw1.txt configuration file.
+The filename is passed as an argument to the script.
 
-Скрипт должен возвращать на стандартный поток вывода команды из переданного
-конфигурационного файла, исключая строки, которые начинаются с '!'.
+The script should return to the stdout commands from the passed
+configuration file, excluding lines that start with '!'.
 
-Вывод должен быть без пустых строк.
+There should be no blank lines in the output.
 
 Restriction: All tasks must be done using the topics covered in this and previous chapters.
 
-Пример вывода:
+Output example:
+
 $ python task_7_2.py config_sw1.txt
 Current configuration : 2033 bytes
 version 15.0

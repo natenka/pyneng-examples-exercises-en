@@ -1,12 +1,12 @@
 # -*- coding: utf-8 -*-
 """
-Задание 7.3a
+Task 7.3a
 
-Сделать копию скрипта задания 7.3.
+Make a copy of the code from the task 7.3.
 
-Переделать скрипт:  Отсортировать вывод по номеру VLAN
+Add this functionality: Sort output by VLAN number
 
-В результате должен получиться такой вывод:
+As a result, you should get the following output:
 10       01ab.c5d0.70d0      Gi0/8
 10       0a1b.1c80.7000      Gi0/4
 100      01bb.c580.7000      Gi0/1
@@ -17,8 +17,8 @@
 500      02b1.3c80.7b00      Gi0/5
 1000     0a4b.c380.7d00      Gi0/9
 
-Обратите внимание на vlan 1000 - он должен выводиться последним.
-Правильной сортировки можно добиться, если vlan будет числом, а не строкой.
+Pay attention to vlan 1000 - it should be displayed last.
+Correct sorting can be achieved if vlan is a number, not a string.
 
 Restriction: All tasks must be done using the topics covered in this and previous chapters.
 

@@ -1,16 +1,16 @@
 # -*- coding: utf-8 -*-
 """
-Задание 7.2a
+Task 7.2a
 
-Сделать копию скрипта задания 7.2.
+Make a copy of the code from the task 7.2.
 
-Дополнить скрипт: Скрипт не должен выводить на стандартрый поток вывода команды,
-в которых содержатся слова из списка ignore.
+Add this functionality: The script should not print to the stdout commands,
+which contain words from the ignore list.
 
-При этом скрипт также не должен выводить строки, которые начинаются на !.
+The script should also not print lines that begin with !.
 
-Проверить работу скрипта на конфигурационном файле config_sw1.txt.
-Имя файла передается как аргумент скрипту.
+Check the script on the config_sw1.txt configuration file.
+The filename is passed as an argument to the script.
 
 Restriction: All tasks must be done using the topics covered in this and previous chapters.
 

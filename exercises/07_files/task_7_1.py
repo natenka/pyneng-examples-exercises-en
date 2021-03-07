@@ -1,9 +1,9 @@
 # -*- coding: utf-8 -*-
 """
-Задание 7.1
+Task 7.1
 
-Обработать строки из файла ospf.txt и вывести информацию по каждой строке в таком
-виде на стандартный поток вывода:
+Process the lines from the ospf.txt file and print information for each line
+in this form to the stdout:
 
 Prefix                10.0.24.0/24
 AD/Metric             110/41
