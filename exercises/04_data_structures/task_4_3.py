@@ -8,7 +8,7 @@ Get the following list of VLANs from the config string:
 Write the resulting list to the result variable.
 (this is the variable that will be checked in the test)
 
-Print the resulting list to the standard output (stdout) using print.
+Print the result list to the standard output (stdout) using print.
 
 Here is a very important point that you need to get exactly the list (data type),
 and not, for example, a string that looks like the list shown.

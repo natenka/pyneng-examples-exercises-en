@@ -12,7 +12,7 @@ list, you cannot delete specific vlans manually.
 Write the resulting list to the result variable.
 (this is the variable that will be checked in the test)
 
-Print the resulting list to the standard output (stdout) using print.
+Print the result list to the standard output (stdout) using print.
 
 Restriction: All tasks must be done using the topics covered in this and previous chapters.
 
