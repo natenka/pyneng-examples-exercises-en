@@ -1,16 +1,16 @@
 # -*- coding: utf-8 -*-
 """
-Задание 18.3
+Task 18.3
 
-Создать функцию send_commands (для подключения по SSH используется netmiko).
+Create a send_commands function (use netmiko to connect via SSH).
 
-Параметры функции:
-* device - словарь с параметрами подключения к одному устройству
-* show - одна команда show (строка)
-* config - список с командами, которые надо выполнить в конфигурационном режиме
+Function parameters:
+* device - a dictionary with parameters for connecting to one device
+* show - one show command (string)
+* config - a list with commands to be executed in configuration mode
 
-Аргументы show и config должны передаваться только как ключевые. При передачи
-этих аргументов как позиционных, должно генерироваться исключение TypeError.
+The show and config arguments should only be passed as keyword arguments.
+Passing these arguments as positional should raise a TypeError exception.
 
 In [4]: send_commands(r1, 'sh clock')
 ---------------------------------------------------------------------------
@@ -20,23 +20,23 @@ TypeError                                 Traceback (most recent call last)
 
 TypeError: send_commands() takes 1 positional argument but 2 were given
 
+Depending on which argument was passed, the send_commands function calls
+different functions internally. When calling the send_commands function,
+only one of the show, config arguments should always be passed. If both
+arguments are passed, a ValueError exception should be raised.
 
-В зависимости от того, какой аргумент был передан, функция вызывает разные функции
-внутри. При вызове функции send_commands, всегда должен передаваться
-только один из аргументов show, config. Если передаются оба аргумента, должно
-генерироваться исключение ValueError.
+A combination of an argument and a corresponding function:
+* show - the send_show_command function from task 18.1
+* config - send_config_commands function from task 18.2
 
-Далее комбинация из аргумента и соответствующей функции:
-* show - функция send_show_command из задания 18.1
-* config - функция send_config_commands из задания 18.2
+The function returns a string with the results of executing single command
+or multiple commands.
 
-Функция возвращает строку с результатами выполнения команд или команды.
+Check function operation:
+* with a list of config commands in variable commands
+* single show command in variable command
 
-Проверить работу функции:
-* со списком команд commands
-* командой command
-
-Пример работы функции:
+An example of how the function works:
 
 In [14]: send_commands(r1, show='sh clock')
 Out[14]: '*17:06:12.278 UTC Wed Mar 13 2019'

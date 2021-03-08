@@ -1,14 +1,13 @@
 # -*- coding: utf-8 -*-
 """
-Задание 18.1b
+Task 18.1b
 
-Скопировать функцию send_show_command из задания 18.1a и переделать ее таким образом,
-чтобы обрабатывалось не только исключение, которое генерируется при ошибке
-аутентификации на устройстве, но и исключение, которое генерируется, когда IP-адрес
-устройства недоступен.
+Copy the send_show_command function from task 18.1a and rewrite it to handle
+not only the exception that is raised when authentication fails on the device,
+but also the exception that is raised when the IP address of the device
+is not available.
 
-При возникновении ошибки, на стандартный поток вывода должно выводиться
-сообщение исключения.
+When an error occurs, an exception message should be printed to standard output.
 
-Для проверки измените IP-адрес на устройстве или в файле devices.yaml.
+To check, change the IP address on the device or in the devices.yaml file.
 """

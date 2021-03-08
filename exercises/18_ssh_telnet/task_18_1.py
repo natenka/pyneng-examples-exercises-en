@@ -1,21 +1,20 @@
 # -*- coding: utf-8 -*-
 """
-Задание 18.1
+Task 18.1
 
-Создать функцию send_show_command.
+Create send_show_command function.
 
-Функция подключается по SSH (с помощью netmiko) к ОДНОМУ устройству
-и выполняет указанную команду.
+The function connects via SSH (using netmiko) to ONE device and executes
+the specified command.
 
-Параметры функции:
-* device - словарь с параметрами подключения к устройству
-* command - команда, которую надо выполнить
+Function parameters:
+* device - a dictionary with parameters for connecting to a device
+* command - the command to be executed
 
-Функция возвращает строку с выводом команды.
+The function should return a string with the command output.
 
-Скрипт должен отправлять команду command на все устройства из файла devices.yaml
-с помощью функции send_show_command (эта часть кода написана).
-
+The script should send command command to all devices from the devices.yaml file
+using the send_show_command function (this part of the code is written).
 """
 import yaml
 

@@ -1,35 +1,33 @@
 # -*- coding: utf-8 -*-
 """
-Задание 18.2c
+Task 18.2c
 
-Скопировать функцию send_config_commands из задания 18.2b и переделать ее таким образом:
+Copy the send_config_commands function from task 18.2b and remake it as follows:
+If an error occurs while executing a command, ask the user whether to continue
+executing other commands.
 
-Если при выполнении команды возникла ошибка, спросить пользователя надо ли выполнять
-остальные команды.
+Answer options [y]/n:
+* y - execute other commands. This is the default, so any key is interpreted as y
+* n or no - do not execute other commands
 
-Варианты ответа [y]/n:
-* y - выполнять остальные команды. Это значение по умолчанию,
-  поэтому нажатие любой комбинации воспринимается как y
-* n или no - не выполнять остальные команды
+The send_config_commands function should still return a tuple of two dictionaries:
+* the first dictionary with the output of commands that were executed without error
+* second dictionary with the output of commands that were executed with errors
 
-Функция send_config_commands по-прежнему должна возвращать кортеж из двух словарей:
-* первый словарь с выводом команд, которые выполнились без ошибки
-* второй словарь с выводом команд, которые выполнились с ошибками
+In both dictionaries:
+* key - command
+* value - output with command execution
 
-Оба словаря в формате
-* ключ - команда
-* значение - вывод с выполнением команд
+You can test the function on one device.
 
-Проверить работу функции можно на одном устройстве.
-
-Пример работы функции:
+An example of how the send_config_commands function works:
 
 In [11]: result = send_config_commands(r1, commands)
-Подключаюсь к 192.168.100.1...
-Команда "logging 0255.255.1" выполнилась с ошибкой "Invalid input detected at '^' marker." на устройстве 192.168.100.1
-Продолжать выполнять команды? [y]/n: y
-Команда "logging" выполнилась с ошибкой "Incomplete command." на устройстве 192.168.100.1
-Продолжать выполнять команды? [y]/n: n
+Connecting to 192.168.100.1...
+The "logging 0255.255.1" command was executed with the error "Invalid input detected at '^' marker." on the device 192.168.100.1
+Do you want to continue executing commands? [y]/n: y
+The "logging" command was executed with the error "Incomplete command." on the device 192.168.100.1
+Do you want to continue executing commands? [y]/n: n
 
 In [12]: pprint(result)
 ({},
@@ -50,7 +48,6 @@ In [12]: pprint(result)
 
 """
 
-# списки команд с ошибками и без:
 commands_with_errors = ["logging 0255.255.1", "logging", "a"]
 correct_commands = ["logging buffered 20010", "ip http server"]
 

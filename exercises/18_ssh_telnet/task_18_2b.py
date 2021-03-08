@@ -1,34 +1,34 @@
 # -*- coding: utf-8 -*-
 """
-Задание 18.2b
+Task 18.2b
 
-Скопировать функцию send_config_commands из задания 18.2a и добавить проверку на ошибки.
+Copy the send_config_commands function from task 18.2a and add error checking.
 
-При выполнении каждой команды, скрипт должен проверять результат на такие ошибки:
- * Invalid input detected, Incomplete command, Ambiguous command
-
-Если при выполнении какой-то из команд возникла ошибка, функция должна выводить
-сообщение на стандартный поток вывода с информацией о том, какая ошибка возникла,
-при выполнении какой команды и на каком устройстве, например:
-Команда "logging" выполнилась с ошибкой "Incomplete command." на устройстве 192.168.100.1
-
-Ошибки должны выводиться всегда, независимо от значения параметра log.
-При этом, параметр log по-прежнему должен контролировать будет ли выводиться сообщение:
-Подключаюсь к 192.168.100.1...
+When executing each command, the script should check the output for
+the following errors: Invalid input detected, Incomplete command, Ambiguous command
 
 
-Функция send_config_commands теперь должна возвращать кортеж из двух словарей:
-* первый словарь с выводом команд, которые выполнились без ошибки
-* второй словарь с выводом команд, которые выполнились с ошибками
+If an error occurs while executing any of the commands, the function should
+print a message to the stdout with information about what error occurred,
+in which command and on which device, for example:
+The "logging" command was executed with the error "Incomplete command." on the device 192.168.100.1
 
-Оба словаря в формате (примеры словарей ниже):
-* ключ - команда
-* значение - вывод с выполнением команд
+Errors should always be printed, regardless of the value of the log parameter.
+At the same time, the log parameter should still control whether the message
+"Connecting to 192.168.100.1..." will be displayed.
 
-Проверить работу функции можно на одном устройстве.
+Send_config_commands should now return a tuple of two dictionaries:
+* the first dict with the output of commands that were executed without error
+* second dict with the output of commands that were executed with errors
+
+In both dictionaries:
+* key - command
+* value - output with command execution
+
+You can test the function on one device.
 
 
-Пример работы функции send_config_commands:
+An example of how the send_config_commands function works:
 
 In [16]: commands
 Out[16]:
@@ -39,10 +39,10 @@ Out[16]:
  'ip http server']
 
 In [17]: result = send_config_commands(r1, commands)
-Подключаюсь к 192.168.100.1...
-Команда "logging 0255.255.1" выполнилась с ошибкой "Invalid input detected at '^' marker." на устройстве 192.168.100.1
-Команда "logging" выполнилась с ошибкой "Incomplete command." на устройстве 192.168.100.1
-Команда "a" выполнилась с ошибкой "Ambiguous command:  "a"" на устройстве 192.168.100.1
+Connecting to 192.168.100.1...
+The "logging 0255.255.1" command was executed with the error "Invalid input detected at '^' marker." on the device 192.168.100.1
+The "logging" command was executed with the error "Incomplete command." on the device 192.168.100.1
+The "a" command was executed with the error "Ambiguous command:  "a"" on the device 192.168.100.1
 
 In [18]: pprint(result, width=120)
 ({'ip http server': 'config term\n'
@@ -81,7 +81,7 @@ In [21]: bad.keys()
 Out[21]: dict_keys(['logging 0255.255.1', 'logging', 'a'])
 
 
-Примеры команд с ошибками:
+Examples of commands with errors:
 R1(config)#logging 0255.255.1
                    ^
 % Invalid input detected at '^' marker.
@@ -93,7 +93,6 @@ R1(config)#a
 % Ambiguous command:  "a"
 """
 
-# списки команд с ошибками и без:
 commands_with_errors = ["logging 0255.255.1", "logging", "a"]
 correct_commands = ["logging buffered 20010", "ip http server"]
 
