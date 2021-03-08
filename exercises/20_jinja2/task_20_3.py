@@ -1,43 +1,44 @@
 # -*- coding: utf-8 -*-
 """
-Задание 20.3
+Task 20.3
 
-Создайте шаблон templates/ospf.txt на основе конфигурации OSPF в файле cisco_ospf.txt.
-Пример конфигурации дан, чтобы показать синтаксис.
+Create a template templates/ospf.txt based on the OSPF configuration
+in the cisco_ospf.txt file. A configuration example is given to show the syntax.
 
-Шаблон надо создавать вручную, скопировав части конфига в соответствующий шаблон.
+The template must be created manually by copying parts of the config
+into the corresponding template.
 
-Какие значения должны быть переменными:
-* номер процесса. Имя переменной - process
-* router-id. Имя переменной - router_id
-* reference-bandwidth. Имя переменной - ref_bw
-* интерфейсы, на которых нужно включить OSPF. Имя переменной - ospf_intf.
-  На месте этой переменной ожидается список словарей с такими ключами:
-  * name - имя интерфейса, вида Fa0/1, Vlan10, Gi0/0
-  * ip - IP-адрес интерфейса, вида 10.0.1.1
-  * area - номер зоны
-  * passive - является ли интерфейс пассивным. Допустимые значения: True или False
+What values should be variables:
+* process number. Variable name - process
+* router-id. Variable name - router_id
+* reference-bandwidth. Variable name - ref_bw
+* interfaces on which to enable OSPF. The variable name is ospf_intf.
+  In place of this variable, a list of dictionaries with the following keys is expected:
+   * name - interface name, like Fa0/1, Vlan10, Gi0/0
+   * ip - interface IP address, like 10.0.1.1
+   * area - zone number
+   * passive - whether the interface is passive. Valid values: True or False
 
-Для всех интерфейсов в списке ospf_intf, надо сгенерировать строки:
+For all interfaces in the ospf_intf list, you need to generate the following lines:
  network x.x.x.x 0.0.0.0 area x
 
-Если интерфейс пассивный, для него должна быть добавлена строка:
+If the interface is passive, the line must be added for it:
  passive-interface x
 
-Для интерфейсов, которые не являются пассивными, в режиме конфигурации интерфейса,
-надо добавить строку:
+For interfaces that are not passive, in interface configuration mode,
+you need to add the line:
  ip ospf hello-interval 1
 
 
-Все команды должны быть в соответствующих режимах.
+All commands must be in the appropriate configuration mode.
 
-Проверьте получившийся шаблон templates/ospf.txt, на данных в файле data_files/ospf.yml,
-с помощью функции generate_config из задания 20.1.
-Не копируйте код функции generate_config.
+Check the resulting template templates/ospf.txt, against the data in
+the data_files/ospf.yml file, using the generate_config function
+from task 20.1. Do not copy the code of the generate_config function.
 
-В результате должна получиться конфигурация такого вида
-(команды в режиме router ospf не обязательно должны быть в таком порядке,
-главное чтобы они были в нужном режиме):
+The result should be a configuration of the following type (the commands
+in router ospf mode do not have to be in this order, the main thing is that
+they are in the correct config section):
 router ospf 10
  router-id 10.0.0.1
  auto-cost reference-bandwidth 20000

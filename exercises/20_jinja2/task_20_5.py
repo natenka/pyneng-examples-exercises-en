@@ -1,31 +1,34 @@
 # -*- coding: utf-8 -*-
 """
-Задание 20.5
+Task 20.5
 
-Создать шаблоны templates/gre_ipsec_vpn_1.txt и templates/gre_ipsec_vpn_2.txt,
-которые генерируют конфигурацию IPsec over GRE между двумя маршрутизаторами.
+Create templates templates/gre_ipsec_vpn_1.txt and templates/gre_ipsec_vpn_2.txt
+that generate IPsec over GRE configuration between two routers.
 
-Шаблон templates/gre_ipsec_vpn_1.txt создает конфигурацию для одной стороны туннеля,
-а templates/gre_ipsec_vpn_2.txt - для второй.
+The templates/gre_ipsec_vpn_1.txt template creates the configuration for one
+side of the tunnel, and templates gre_ipsec_vpn_2.txt for the other.
 
-Примеры итоговой конфигурации, которая должна создаваться на основе шаблонов в файлах:
-cisco_vpn_1.txt и cisco_vpn_2.txt.
+Examples of the final configuration that should be generated from templates
+in the files: cisco_vpn_1.txt and cisco_vpn_2.txt.
 
-Шаблоны надо создавать вручную, скопировав части конфига в соответствующие шаблоны.
+Templates must be created manually by copying parts of the config into
+the corresponding templates.
 
-Создать функцию create_vpn_config, которая использует эти шаблоны
-для генерации конфигурации VPN на основе данных в словаре data.
+Create a create_vpn_config function that uses these templates to generate
+a VPN configuration based on the data in the data dictionary.
 
-Параметры функции:
-* template1 - имя файла с шаблоном, который создает конфигурацию для одной строны туннеля
-* template2 - имя файла с шаблоном, который создает конфигурацию для второй строны туннеля
-* data_dict - словарь со значениями, которые надо подставить в шаблоны
+Function parameters:
+* template1 - the name of the template file that creates the configuration
+  for one side of the tunnel
+* template2 - the name of the template file that creates the configuration
+  for the second side of the tunnel
+* data_dict - a dictionary with values to be substituted into templates
 
-The function must return a tuple с двумя конфигурациями (строки),
-которые получены на основе шаблонов.
+The function must return a tuple with two configurations (strings) that are
+derived from templates.
 
-Примеры конфигураций VPN, которые должна возвращать функция create_vpn_config в файлах
-cisco_vpn_1.txt и cisco_vpn_2.txt.
+Examples of VPN configurations that the create_vpn_config function
+should return in the cisco_vpn_1.txt and cisco_vpn_2.txt files.
 """
 
 data = {

@@ -1,34 +1,34 @@
 # -*- coding: utf-8 -*-
 """
-Задание 20.4
+Task 20.4
 
-Создайте шаблон templates/add_vlan_to_switch.txt, который будет использоваться
-при необходимости добавить VLAN на коммутатор.
+Create a template templates/add_vlan_to_switch.txt that will be used
+if you need to add a VLAN to the switch.
 
-В шаблоне должны поддерживаться возможности:
-* добавления VLAN и имени VLAN
-* добавления VLAN как access, на указанном интерфейсе
-* добавления VLAN в список разрешенных, на указанные транки
+The template must support the following features:
+* add VLAN and VLAN name
+* adding VLANs as access, on the specified interface
+* adding VLANs to the list of allowed, on specified trunks
 
-Шаблон надо создавать вручную, скопировав части конфига в соответствующий шаблон.
+The template must be created manually by copying parts of the config into
+the corresponding template.
 
-Если VLAN необходимо добавить как access, надо настроить и режим интерфейса
-и добавить его в VLAN:
+If VLAN needs to be added as access, you need to configure the interface
+mode and add it to VLAN:
 interface Gi0/1
- switchport mode access
- switchport access vlan 5
+  switchport mode access
+  switchport access vlan 5
 
-Для транков, необходимо только добавить VLAN в список разрешенных:
+For trunks, you only need to add VLANs to the allowed list:
 interface Gi0/10
- switchport trunk allowed vlan add 5
+  switchport trunk allowed vlan add 5
 
-Имена переменных надо выбрать на основании примера данных,
-в файле data_files/add_vlan_to_switch.yaml.
+The variable names should be chosen based on the sample data in
+the data_files/add_vlan_to_switch.yaml file.
 
 
-Проверьте шаблон templates/add_vlan_to_switch.txt на данных
-в файле data_files/add_vlan_to_switch.yaml, с помощью функции generate_config
-из задания 20.1.
-Не копируйте код функции generate_config.
+Check the templates/add_vlan_to_switch.txt template against the data
+in data_files/add_vlan_to_switch.yaml using the generate_config function
+from task 20.1. Do not copy the code of the generate_config function.
 
 """

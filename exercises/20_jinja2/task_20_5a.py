@@ -1,41 +1,39 @@
 # -*- coding: utf-8 -*-
 """
-Задание 20.5a
+Task 20.5a
 
-Создать функцию configure_vpn, которая использует
-шаблоны из задания 20.5 для настройки VPN на маршрутизаторах
-на основе данных в словаре data.
+Create a configure_vpn function that uses the templates from task 20.5
+to configure VPN on routers based on the data in the data dictionary.
 
-Параметры функции:
-* src_device_params - словарь с параметрами подключения к устройству 1
-* dst_device_params - словарь с параметрами подключения к устройству 2
-* src_template - имя файла с шаблоном, который создает конфигурацию для строны 1
-* dst_template - имя файла с шаблоном, который создает конфигурацию для строны 2
-* vpn_data_dict - словарь со значениями, которые надо подставить в шаблоны
+Function parameters:
+* src_device_params - dictionary with connection parameters for device 1
+* dst_device_params - dictionary with connection parameters for device 2
+* src_template - a template that creates the configuration for side 1
+* dst_template - a template that creates the configuration for side 2
+* vpn_data_dict - a dictionary with values to be substituted into templates
 
-Функция должна настроить VPN на основе шаблонов
-и данных на каждом устройстве с помощью netmiko.
-Функция возвращает кортеж с выводом команд с двух
-маршрутизаторов (вывод, которые возвращает метод netmiko send_config_set).
-Первый элемент кортежа - вывод с первого устройства (строка),
-второй элемент кортежа - вывод со второго устройства.
+The function should configure the VPN based on templates and data on each
+device using netmiko. The function returns a tuple with the output of commands
+from two routers (the output returned by the netmiko send_config_set method).
+The first element of the tuple is the output from the first device (string),
+the second element of the tuple is the output from the second device.
 
-При этом, в словаре data не указан номер интерфейса Tunnel,
-который надо использовать.
-Номер надо определить самостоятельно на основе информации с оборудования.
-Если на маршрутизаторе нет интерфейсов Tunnel,
-взять номер 0, если есть взять ближайший свободный номер,
-но одинаковый для двух маршрутизаторов.
+In this task, the data dictionary does not specify the Tunnel interface
+number to use. The number must be determined independently based on information
+from the equipment. If the router does not have Tunnel interfaces, take
+the number 0, if there is, take the nearest free number, but the same for two routers.
 
-Например, если на маршрутизаторе src такие интерфейсы: Tunnel1, Tunnel4.
-А на маршрутизаторе dest такие: Tunnel2, Tunnel3, Tunnel8.
-Первый свободный номер одинаковый для двух маршрутизаторов будет 5.
-И надо будет настроить интерфейс Tunnel 5.
+For example, if the src router has the following interfaces: Tunnel1, Tunnel4.
+And on the dst router are: Tunnel2, Tunnel3, Tunnel8.
+The first free number that is the same for two routers will be 5.
+And you will need to configure the Tunnel 5 interface.
 
-Для этого задания тест проверяет работу функции на первых двух устройствах
-из файла devices.yaml. И проверяет, что в выводе есть команды настройки
-интерфейсов, но при этом не проверяет настроенные номера тунелей и другие команды.
-Они должны быть, но тест упрощен, чтобы было больше свободы выполнения.
+For this task, the test verifies that the function works on the first
+two devices from the devices.yaml file. And it checks that the output contains
+commands for configuring interfaces, but does not check the configured tunnel
+numbers and other commands. The tunnels must be configured, but the test has been
+simplified so that there are fewer constraints on the task.
+
 """
 
 data = {
