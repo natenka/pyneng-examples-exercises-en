@@ -1,16 +1,16 @@
 # -*- coding: utf-8 -*-
 
 """
-Задание 24.2b
+Task 24.2b
 
-Скопировать класс MyNetmiko из задания 24.2a.
+Copy the class MyNetmiko from task 24.2a.
 
-Дополнить функционал метода send_config_set netmiko и добавить в него проверку
-на ошибки с помощью метода _check_error_in_command.
+Add error checking to the send_config_set method using
+the _check_error_in_command method.
 
-Метод send_config_set должен отправлять команды по одной и проверять каждую на ошибки.
-Если при выполнении команд не обнаружены ошибки, метод send_config_set возвращает
-вывод команд.
+The send_config_set method should send commands one at a time and check each for errors.
+If no errors are encountered while executing the commands, the send_config_set method
+returns the output of the commands.
 
 In [2]: from task_24_2b import MyNetmiko
 
@@ -23,6 +23,6 @@ ErrorInCommand                            Traceback (most recent call last)
 ----> 1 r1.send_config_set('lo')
 
 ...
-ErrorInCommand: При выполнении команды "lo" на устройстве 192.168.100.1 возникла ошибка "Incomplete command."
+ErrorInCommand: When executing the command "lo" on device 192.168.100.1, an error occurred "Incomplete command."
 
 """
