@@ -1,22 +1,23 @@
 # -*- coding: utf-8 -*-
 """
-Задание 19.3
+Task 19.3
 
-Создать функцию send_command_to_devices, которая отправляет разные
-команды show на разные устройства в параллельных потоках, а затем записывает
-вывод команд в файл. Вывод с устройств в файле может быть в любом порядке.
+Create a send_command_to_devices function that sends different show commands
+to different devices in concurrent threads and then writes the output of the
+commands to a file. The output from the devices in the file can be in any order.
 
-Параметры функции:
-* devices - список словарей с параметрами подключения к устройствам
-* commands_dict - словарь в котором указано на какое устройство отправлять
-  какую команду. Пример словаря - commands
-* filename - имя файла, в который будут записаны выводы всех команд
-* limit - максимальное количество параллельных потоков (по умолчанию 3)
+Function parameters:
+* devices - a list of dictionaries with parameters for connecting to devices
+* commands_dict - a dictionary that specifies which device to send which command.
+  Dictionary example - commands
+* filename is the name of the file to which the output of all commands will be written
+* limit - maximum number of concurrent threads (default 3)
 
 The function returns None.
 
-Вывод команд должен быть записан в файл в таком формате (перед выводом
-команды надо написать имя хоста и саму команду):
+The output of the commands should be written to a plain text file in this
+format (before the output of the command, you must write the hostname and
+the command itself):
 
 R1#sh ip int br
 Interface                  IP-Address      OK? Method Status                Protocol
@@ -35,13 +36,14 @@ router ospf 1
  network 0.0.0.0 255.255.255.255 area 0
 
 
-Для выполнения задания можно создавать любые дополнительные функции.
+You can create any additional functions to complete the task.
 
-Проверить работу функции на устройствах из файла devices.yaml и словаре commands
+Check the operation of the function on devices from the devices.yaml file.
 """
 
-# Этот словарь нужен только для проверки работа кода, в нем можно менять IP-адреса
-# тест берет адреса из файла devices.yaml
+# This dictionary is only needed to check the operation of the code;
+# you can change the IP addresses in it.
+# The test takes addresses from the devices.yaml file
 commands = {
     "192.168.100.3": "sh run | s ^router ospf",
     "192.168.100.1": "sh ip int br",

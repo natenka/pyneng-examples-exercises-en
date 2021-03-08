@@ -1,21 +1,22 @@
 # -*- coding: utf-8 -*-
 """
-Задание 19.4
+Task 19.4
 
-Создать функцию send_commands_to_devices, которая отправляет команду show или config
-на разные устройства в параллельных потоках, а затем записывает вывод команд в файл.
+Create a send_commands_to_devices function that sends a show or config command
+to different devices in concurrent threads and then writes the output of the
+commands to a file.
 
-Параметры функции:
-* devices - список словарей с параметрами подключения к устройствам
-* filename - имя файла, в который будут записаны выводы всех команд
-* show - команда show, которую нужно отправить (по умолчанию, значение None)
-* config - команды конфигурационного режима, которые нужно отправить (по умолчанию None)
-* limit - максимальное количество параллельных потоков (по умолчанию 3)
+Function parameters:
+* devices - a list of dictionaries with parameters for connecting to devices
+* filename is the name of the file to which the output of all commands will be written
+* show - the show command to be sent (by default, the value is None)
+* config - configuration mode commands to be sent (default None)
+* limit - maximum number of parallel threads (default 3)
 
 The function returns None.
 
-Аргументы show, config и limit должны передаваться только как ключевые. При передачи
-этих аргументов как позиционных, должно генерироваться исключение TypeError.
+The show, config and limit arguments should only be passed as keyword arguments.
+Passing these arguments as positional should raise a TypeError exception.
 
 In [4]: send_commands_to_devices(devices, 'result.txt', 'sh clock')
 ---------------------------------------------------------------------------
@@ -26,13 +27,14 @@ TypeError                                 Traceback (most recent call last)
 TypeError: send_commands_to_devices() takes 2 positional argument but 3 were given
 
 
-При вызове функции send_commands_to_devices, всегда должен передаваться
-только один из аргументов show, config. Если передаются оба аргумента, должно
-генерироваться исключение ValueError.
+When calling the send_commands_to_devices function, only one of the show,
+config arguments should always be passed. If both arguments are passed,
+a ValueError exception should be raised.
 
 
-Вывод команд должен быть записан в файл в таком формате
-(перед выводом команды надо написать имя хоста и саму команду):
+The output of the commands should be written to a plain text file in this
+format (before the output of the command, you must write the hostname and
+the command itself):
 
 R1#sh ip int br
 Interface                  IP-Address      OK? Method Status                Protocol
@@ -48,7 +50,7 @@ Interface                  IP-Address      OK? Method Status                Prot
 Ethernet0/0                192.168.100.3   YES NVRAM  up                    up
 Ethernet0/1                unassigned      YES NVRAM  administratively down down
 
-Пример вызова функции:
+An example of a function call:
 In [5]: send_commands_to_devices(devices, 'result.txt', show='sh clock')
 
 In [6]: cat result.txt
@@ -103,5 +105,5 @@ R3(config-router)#end
 R3#
 
 
-Для выполнения задания можно создавать любые дополнительные функции.
+You can create any additional functions to complete the task.
 """

@@ -1,22 +1,24 @@
 # -*- coding: utf-8 -*-
 """
-Задание 19.3a
+Task 19.3a
 
-Создать функцию send_command_to_devices, которая отправляет список указанных
-команд show на разные устройства в параллельных потоках, а затем записывает
-вывод команд в файл. Вывод с устройств в файле может быть в любом порядке.
+Create a send_command_to_devices function that sends a list of the specified
+show commands to different devices in concurrent threads, and then writes the
+output of the commands to a file. The output from the devices in the file can
+be in any order.
 
-Параметры функции:
-* devices - список словарей с параметрами подключения к устройствам
-* commands_dict - словарь в котором указано на какое устройство отправлять
-  какие команды. Пример словаря - commands
-* filename - имя файла, в который будут записаны выводы всех команд
-* limit - максимальное количество параллельных потоков (по умолчанию 3)
+Function parameters:
+* devices - a list of dictionaries with parameters for connecting to devices
+* commands_dict - a dictionary that specifies which device to send which commands.
+  Dictionary example - commands
+* filename is the name of the file to which the output of all commands will be written
+* limit - maximum number of parallel threads (default 3)
 
 The function returns None.
 
-Вывод команд должен быть записан в файл в таком формате (перед выводом каждой
-команды надо написать имя хоста и саму команду):
+The output of the commands should be written to a plain text file in this
+format (before the output of the command, you must write the hostname and
+the command itself):
 
 R2#sh arp
 Protocol  Address          Age (min)  Hardware Addr   Type   Interface
@@ -42,17 +44,17 @@ Gateway of last resort is not set
 O        10.1.1.1/32 [110/11] via 192.168.100.1, 07:12:03, Ethernet0/0
 O        10.30.0.0/24 [110/20] via 192.168.100.1, 07:12:03, Ethernet0/0
 
+Commands can be written to a file in any order.
+To complete the task, you can create any additional functions,
+as well as use the functions created in previous tasks.
 
-Порядок команд в файле может быть любым.
-
-Для выполнения задания можно создавать любые дополнительные функции,
-а также использовать функции созданные в предыдущих заданиях.
-
-Проверить работу функции на устройствах из файла devices.yaml и словаре commands
+Check the operation of the function on devices from the devices.yaml file
+and the commands dictionary
 """
 
-# Этот словарь нужен только для проверки работа кода, в нем можно менять IP-адреса
-# тест берет адреса из файла devices.yaml
+# This dictionary is only needed to check the operation of the code;
+# you can change the IP addresses in it.
+# The test takes addresses from the devices.yaml file
 commands = {
     "192.168.100.3": ["sh ip int br", "sh ip route | ex -"],
     "192.168.100.1": ["sh ip int br", "sh int desc"],

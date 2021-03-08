@@ -1,21 +1,22 @@
 # -*- coding: utf-8 -*-
 """
-Задание 19.2
+Task 19.2
 
-Создать функцию send_show_command_to_devices, которая отправляет одну и ту же
-команду show на разные устройства в параллельных потоках, а затем записывает
-вывод команд в файл. Вывод с устройств в файле может быть в любом порядке.
+Create a send_show_command_to_devices function that sends the same show command
+to different devices in concurrent threads and then writes the output of
+the commands to a file. The output from the devices in the file can be in any order.
 
-Параметры функции:
-* devices - список словарей с параметрами подключения к устройствам
-* command - команда
-* filename - имя текстового файла, в который будут записаны выводы всех команд
-* limit - максимальное количество параллельных потоков (по умолчанию 3)
+Function parameters:
+* devices - a list of dictionaries with parameters for connecting to devices
+* command - show command
+* filename - is the name of a text file to which the output of all commands will be written
+* limit - maximum number of concurrent threads (default 3)
 
 The function returns None.
 
-Вывод команд должен быть записан в обычный текстовый файл в таком формате
-(перед выводом команды надо написать имя хоста и саму команду):
+The output of the commands should be written to a plain text file in this
+format (before the output of the command, you must write the hostname and
+the command itself):
 
 R1#sh ip int br
 Interface                  IP-Address      OK? Method Status                Protocol
@@ -30,7 +31,7 @@ Interface                  IP-Address      OK? Method Status                Prot
 Ethernet0/0                192.168.100.3   YES NVRAM  up                    up
 Ethernet0/1                unassigned      YES NVRAM  administratively down down
 
-Для выполнения задания можно создавать любые дополнительные функции.
+You can create any additional functions to complete the task.
 
-Проверить работу функции на устройствах из файла devices.yaml
+Check the operation of the function on devices from the devices.yaml file.
 """
