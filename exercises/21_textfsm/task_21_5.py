@@ -1,23 +1,23 @@
 # -*- coding: utf-8 -*-
 """
-Задание 21.5
+Task 21.5
 
-Создать функцию send_and_parse_command_parallel.
+Create function send_and_parse_command_parallel.
 
-Функция send_and_parse_command_parallel должна запускать в
-параллельных потоках функцию send_and_parse_show_command из задания 21.4.
+The send_and_parse_command_parallel function must run
+the send_and_parse_show_command function from task 21.4 in concurrent threads.
 
-Параметры функции send_and_parse_command_parallel:
-* devices - список словарей с параметрами подключения к устройствам
-* command - команда
-* templates_path - путь к каталогу с шаблонами TextFSM
-* limit - максимальное количество параллельных потоков (по умолчанию 3)
+Send_and_parse_command_parallel function parameters:
+* devices - a list of dicts with connection parameters for devices
+* command - command
+* templates_path - path to the directory with TextFSM templates
+* limit - maximum number of concurrent threads (default 3)
 
-Функция должна возвращать словарь:
-* ключи - IP-адрес устройства с которого получен вывод
-* значения - список словарей (вывод который возвращает функция send_and_parse_show_command)
+The function should return a dictionary:
+* keys - the IP address of the device from which the output was received
+* values - a list of dicts (the output returned by the send_and_parse_show_command function)
 
-Пример словаря:
+Dictionary example:
 {'192.168.100.1': [{'address': '192.168.100.1',
                     'intf': 'Ethernet0/0',
                     'protocol': 'up',
@@ -35,6 +35,6 @@
                     'protocol': 'up',
                     'status': 'up'}]}
 
-Проверить работу функции на примере вывода команды sh ip int br
-и устройствах из devices.yaml.
+Check the operation of the function using the output
+of the sh ip int br command and devices from devices.yaml.
 """

@@ -1,23 +1,24 @@
 # -*- coding: utf-8 -*-
 """
-Задание 21.4
+Task 21.4
 
-Создать функцию send_and_parse_show_command.
+Create function send_and_parse_show_command.
 
-Параметры функции:
-* device_dict - словарь с параметрами подключения к одному устройству
-* command - команда, которую надо выполнить
-* templates_path - путь к каталогу с шаблонами TextFSM
-* index - имя индекс файла, значение по умолчанию "index"
+Function parameters:
+* device_dict - a dict with connectin parameters for one device
+* command - the command to be executed
+* templates_path - path to the directory with TextFSM templates
+* index - file index name, default value "index"
 
-Функция должна подключаться к одному устройству, отправлять команду show
-с помощью netmiko, а затем парсить вывод команды с помощью TextFSM.
+The function should connect to one device, send a show command using netmiko,
+and then parse the command output using TextFSM.
 
-The function should return a list словарей с результатами обработки
-вывода команды (как в задании 21.1a):
-* ключи - имена переменных в шаблоне TextFSM
-* значения - части вывода, которые соответствуют переменным
+The function should return a list of dictionaries with the results
+of parsing the command output (as in task 21.1a):
+* keys - names of variables in the TextFSM template
+* values - parts of the output that correspond to variables
 
-Проверить работу функции на примере вывода команды sh ip int br
-и устройствах из devices.yaml.
+Check the operation of the function using the output
+of the sh ip int br command and devices from devices.yaml.
+
 """

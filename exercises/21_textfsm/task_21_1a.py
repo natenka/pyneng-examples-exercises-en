@@ -1,18 +1,18 @@
 # -*- coding: utf-8 -*-
 """
-Задание 21.1a
+Task 21.1a
 
-Создать функцию parse_output_to_dict.
+Create parse_output_to_dict function.
 
-Параметры функции:
-* template - имя файла, в котором находится шаблон TextFSM.
-  Например, templates/sh_ip_int_br.template
-* command_output - вывод соответствующей команды show (строка)
+Function parameters:
+* template is the name of the file containing the TextFSM template.
+  For example templates/sh_ip_int_br.template
+* command_output - output of the corresponding show command (string)
 
-The function should return a list словарей:
-* ключи - имена переменных в шаблоне TextFSM
-* значения - части вывода, которые соответствуют переменным
+The function should return a list of dictionaries:
+* keys - names of variables in the TextFSM template
+* values - parts of the output that correspond to variables
 
-Проверить работу функции на выводе команды output/sh_ip_int_br.txt
-и шаблоне templates/sh_ip_int_br.template.
+Check the operation of the function on the output of the command
+output/sh_ip_int_br.txt and the template templates/sh_ip_int_br.template.
 """

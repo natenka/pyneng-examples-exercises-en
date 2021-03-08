@@ -1,24 +1,25 @@
 # -*- coding: utf-8 -*-
 """
-Задание 21.1
+Task 21.1
 
-Создать функцию parse_command_output. Параметры функции:
-* template - имя файла, в котором находится шаблон TextFSM
-  Например, templates/sh_ip_int_br.template
-* command_output - вывод соответствующей команды show (строка)
+Create parse_command_output function. Function parameters:
+* template - name of the file containing the TextFSM template.
+  For example templates/sh_ip_int_br.template
+* command_output - output the corresponding show command (string)
 
 The function should return a list:
-* первый элемент - это список с названиями столбцов
-* остальные элементы это списки, в котором находятся результаты обработки вывода
+* the first element is a list with column names
+* the rest of the items are lists, which contain the results
+  of processing the output of the show command
 
-Проверить работу функции на выводе команды sh ip int br с оборудования
-и шаблоне templates/sh_ip_int_br.template.
+Check the operation of the function on the output of the sh ip int br command
+from the equipment and on the templates/sh_ip_int_br.template template.
 
 """
 from netmiko import ConnectHandler
 
 
-# вызов функции должен выглядеть так
+# this is how a function call should look
 if __name__ == "__main__":
     r1_params = {
         "device_type": "cisco_ios",
