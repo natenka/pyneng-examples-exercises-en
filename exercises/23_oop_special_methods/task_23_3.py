@@ -1,14 +1,15 @@
 # -*- coding: utf-8 -*-
 
 """
-Задание 23.3
+Task 23.3
 
-Скопировать и изменить класс Topology из задания 22.1x.
+Copy and modify the Topology class from job 22.1x.
 
-Добавить метод, который позволит выполнять сложение двух экземпляров класса Topology.
-В результате сложения должен возвращаться новый экземпляр класса Topology.
+In this task, you need to add a method that will allow you to add two instances
+of the Topology class. The addition should return a new instance of the Topology
+class.
 
-Создание двух топологий:
+Creating two instances of the Topology class:
 
 In [1]: t1 = Topology(topology_example)
 
@@ -29,7 +30,7 @@ In [4]: t2 = Topology(topology_example2)
 In [5]: t2.topology
 Out[5]: {('R1', 'Eth0/4'): ('R7', 'Eth0/0'), ('R1', 'Eth0/6'): ('R9', 'Eth0/0')}
 
-Суммирование топологий:
+Summing instances of the Topology class:
 
 In [6]: t3 = t1+t2
 
@@ -44,7 +45,7 @@ Out[7]:
  ('R3', 'Eth0/1'): ('R4', 'Eth0/0'),
  ('R3', 'Eth0/2'): ('R5', 'Eth0/0')}
 
-Проверка, что исходные топологии не изменились:
+Checking that the original instances haven't changed:
 
 In [9]: t1.topology
 Out[9]:

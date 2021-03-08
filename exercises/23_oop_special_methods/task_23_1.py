@@ -1,24 +1,26 @@
 # -*- coding: utf-8 -*-
 
 """
-Задание 23.1
+Task 23.1
 
-В этом задании необходимо создать класс IPAddress.
+In this task, you must create an IPAddress class.
 
-При создании экземпляра класса, как аргумент передается IP-адрес и маска,
-а также должна выполняться проверка корректности адреса и маски:
-* Адрес считается корректно заданным, если он:
-   - состоит из 4 чисел разделенных точкой
-   - каждое число в диапазоне от 0 до 255
-* маска считается корректной, если это число в диапазоне от 8 до 32 включительно
+When creating an instance of a class, the IP address and mask are passed
+as an argument, and the correctness of the address and mask must be checked:
+* The address is considered to be correctly specified if it:
+    - consists of 4 numbers separated by a dot
+    - every number in the range from 0 to 255
+* the mask is considered correct if the mask is a number and a number in
+  the range from 8 to 32 inclusiveA
 
-Если маска или адрес не прошли проверку, необходимо сгенерировать
-исключение ValueError с соответствующим текстом (вывод ниже).
 
-Также, при создании класса, должны быть созданы два атрибута экземпляра:
-ip и mask, в которых содержатся адрес и маска, соответственно.
+If the mask or address fails validation, you must raise a ValueError
+with the appropriate text (output below).
 
-Пример создания экземпляра класса:
+Also, when creating a class, two instance variables must be created: ip and mask,
+which contain the address and mask, respectively.
+
+An example of creating an instance of a class:
 In [1]: ip = IPAddress('10.1.1.1/24')
 
 Атрибуты ip и mask
@@ -30,13 +32,13 @@ Out[3]: '10.1.1.1'
 In [4]: ip1.mask
 Out[4]: 24
 
-Проверка корректности адреса (traceback сокращен)
+Checking the correctness of the address (traceback is shortened)
 In [5]: ip1 = IPAddress('10.1.1/24')
 ---------------------------------------------------------------------------
 ...
 ValueError: Incorrect IPv4 address
 
-Проверка корректности маски (traceback сокращен)
+Checking the correctness of the mask (traceback is shortened)
 In [6]: ip1 = IPAddress('10.1.1.1/240')
 ---------------------------------------------------------------------------
 ...
