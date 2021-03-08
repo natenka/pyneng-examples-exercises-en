@@ -1,21 +1,19 @@
 # -*- coding: utf-8 -*-
 
 """
-Задание 22.2a
+Task 22.2a
 
-Скопировать класс CiscoTelnet из задания 22.2 и изменить
-метод send_show_command добавив три параметра:
+Copy the CiscoTelnet class from job 22.2 and modify the send_show_command method
+by adding three parameters:
+* parse - controls what will be returned: normal command output or a list of dicts
+  received after parsing command output using TextFSM.
+  If parse=True, a list of dicts should be returned, and parse=False normal output.
+  The default is True.
+* templates - path to the directory with templates. The default is "templates"
+* index is the name of the file where the correspondence between commands and
+  templates is stored. The default is "index"
 
-* parse - контролирует то, будет возвращаться обычный вывод команды или список словарей,
-  полученный после обработки с помощью TextFSM.
-  При parse=True должен возвращаться список словарей, а parse=False обычный вывод.
-  Значение по умолчанию - True.
-* templates - путь к каталогу с шаблонами. Значение по умолчанию - "templates"
-* index - имя файла, где хранится соответствие между командами и шаблонами.
-  Значение по умолчанию - "index"
-
-
-Пример создания экземпляра класса:
+An example of creating an instance of a class:
 
 In [1]: r1_params = {
    ...:     'ip': '192.168.100.1',
@@ -27,7 +25,7 @@ In [2]: from task_22_2a import CiscoTelnet
 
 In [3]: r1 = CiscoTelnet(**r1_params)
 
-Использование метода send_show_command:
+Using the send_show_command method:
 In [4]: r1.send_show_command("sh ip int br", parse=True)
 Out[4]:
 [{'intf': 'Ethernet0/0',

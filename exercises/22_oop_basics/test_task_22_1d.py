@@ -63,10 +63,10 @@ def test_method_add_link(normalized_topology_example, capsys):
 
     norm_top.add_link(("R1", "Eth0/4"), ("R7", "Eth0/0"))
     out, err = capsys.readouterr()
-    link_msg = "Such a link exists"
+    link_msg = "Such a connection already exists"
     assert (
         link_msg in out
-    ), "When adding an existing connection, the message 'Such a link exists' was not printed"
+    ), "When adding an existing connection, the message 'Such a connection already exists' was not printed"
 
     norm_top.add_link(("R1", "Eth0/4"), ("R7", "Eth0/5"))
     out, err = capsys.readouterr()

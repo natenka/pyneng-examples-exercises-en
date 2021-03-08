@@ -1,26 +1,29 @@
 # -*- coding: utf-8 -*-
 
 """
-Задание 22.1
+Task 22.1
 
-Создать класс Topology, который представляет топологию сети.
+Create a Topology class that represents the topology of the network.
 
-При создании экземпляра класса, как аргумент передается словарь,
-который описывает топологию. Словарь может содержать "дублирующиеся" соединения.
-Тут "дублирующиеся" соединения, это ситуация когда в словаре есть два соединения:
+When creating an instance of a class, a dictionary that describes the topology
+is passed as an argument. The dictionary may contain "duplicate" connections.
+"Duplicate" connections are a situation when there are two connections
+in the dictionary:
     ("R1", "Eth0/0"): ("SW1", "Eth0/1")
     ("SW1", "Eth0/1"): ("R1", "Eth0/0")
 
-Задача оставить только один из этих линков в итоговом словаре, не важно какой.
+The task is to leave only one of these links in the final dictionary,
+no matter which one.
 
-В каждом экземпляре должна быть создана переменная topology, в которой содержится
-словарь топологии, но уже без "дублей". Переменная topology должна содержать словарь
-без "дублей" сразу после создания экземпляра.
+In each instance, a topology instance variable must be created, which contains
+the topology dictionary, but already without "duplicates". The topology instance
+variable should contain a dict without "duplicates" immediately after instance
+creation.
 
-Пример создания экземпляра класса:
+An example of creating an instance of a class:
 In [2]: top = Topology(topology_example)
 
-После этого, должна быть доступна переменная topology:
+After that, the topology variable should be available:
 
 In [3]: top.topology
 Out[3]:

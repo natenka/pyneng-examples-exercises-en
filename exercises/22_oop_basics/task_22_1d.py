@@ -1,18 +1,16 @@
 # -*- coding: utf-8 -*-
 
 """
-Задание 22.1d
+Task 22.1d
 
-Изменить класс Topology из задания 22.1c
+Copy the Topology class from task 22.1c and modify it.
 
-Добавить метод add_link, который добавляет указанное соединение, если его еще
- нет в топологии.
-Если соединение существует, вывести сообщение "Such a link exists",
-Если одна из сторон есть в топологии, вывести сообщение
-"A link to one of the ports exists"
+Add the add_link method, which adds the specified link if it is not already
+in the topology. If the connection exists, print the message
+"Such a connection already exists", If one of the sides is in the topology,
+display the message "A link to one of the ports exists".
 
-
-Создание топологии
+Topology creation:
 In [7]: t = Topology(topology_example)
 
 In [8]: t.topology
@@ -37,7 +35,7 @@ Out[10]:
  ('R3', 'Eth0/2'): ('R5', 'Eth0/0')}
 
 In [11]: t.add_link(('R1', 'Eth0/4'), ('R7', 'Eth0/0'))
-Such a link exists
+Such a connection already exists
 
 In [12]: t.add_link(('R1', 'Eth0/4'), ('R7', 'Eth0/5'))
 A link to one of the ports exists
