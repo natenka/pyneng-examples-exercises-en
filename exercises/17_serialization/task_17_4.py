@@ -25,7 +25,8 @@ username several times:
 C=3PO,c3po@gmail.com,16/12/2019 17:10
 C3PO,c3po@gmail.com,16/12/2019 17:15
 C-3PO,c3po@gmail.com,16/12/2019 17:24
-                                                                                                                                                                                             Of these three records, only one should be written to the final file - the most recent:
+
+Of these three records, only one should be written to the final file - the most recent:
 C-3PO,c3po@gmail.com,16/12/2019 17:24
 
 

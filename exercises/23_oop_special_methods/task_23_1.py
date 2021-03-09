@@ -23,7 +23,7 @@ which contain the address and mask, respectively.
 An example of creating an instance of a class:
 In [1]: ip = IPAddress('10.1.1.1/24')
 
-Атрибуты ip и mask
+ip and mask attributes
 In [2]: ip1 = IPAddress('10.1.1.1/24')
 
 In [3]: ip1.ip

@@ -32,7 +32,7 @@ Out[5]: {('R1', 'Eth0/4'): ('R7', 'Eth0/0'), ('R1', 'Eth0/6'): ('R9', 'Eth0/0')}
 
 Summing instances of the Topology class:
 
-In [6]: t3 = t1+t2
+In [6]: t3 = t1 + t2
 
 In [7]: t3.topology
 Out[7]:
