@@ -9,32 +9,32 @@ DFLT_DB_SCHEMA = 'dhcp_snooping_schema.sql'
 
 
 def create(args):
-    print('Создаю БД {} со схемой {}'.format(args.name, args.schema))
+    print('Creating a {} database with {} schema'.format(args.name, args.schema))
     pds.create_db(args.name, args.schema)
 
 
 def add(args):
     if args.sw_true:
-        print('Добавляю данные о коммутаторах')
+        print('Adding switch data')
         pds.add_data_switches(args.db_file, args.filename)
     else:
-        print('Читаю информацию из файлов\n{}'.format(', '.join(
+        print('Adding information from files\n{}'.format(', '.join(
             args.filename)))
-        print('\nДобавляю данные по DHCP записям в {}'.format(args.db_file))
+        print('\nAdding data on DHCP records to {}'.format(args.db_file))
         pds.add_data(args.db_file, args.filename)
 
 
 def get(args):
     if args.key and args.value:
-        print('Данные из БД: {}'.format(args.db_file))
-        print('Информация об устройствах с такими параметрами:',
+        print('Data from the database: {}'.format(args.db_file))
+        print('Information about devices with the following parameters:',
               args.key, args.value)
         pds.get_data(args.db_file, args.key, args.value)
     elif args.key or args.value:
-        print('Пожалуйста, введите два или ноль аргументов\n')
+        print('Please enter two or zero arguments\n')
         print(show_subparser_help('get'))
     else:
-        print('В таблице dhcp такие записи:')
+        print('The dhcp table has the following entries:')
         pds.get_all_data(args.db_file)
 
 
@@ -51,34 +51,34 @@ def show_subparser_help(subparser_name):
 
 parser = argparse.ArgumentParser()
 subparsers = parser.add_subparsers(title='subcommands',
-                                   description='команды',
-                                   help='дополнительная информация')
+                                   description='commands',
+                                   help='additional info')
 
-create_parser = subparsers.add_parser('create_db', help='создать новую базу данных')
+create_parser = subparsers.add_parser('create_db', help='create new database')
 create_parser.add_argument('-n', dest='name', default=DFLT_DB_NAME,
-                           help='имя БД')
+                           help='database name')
 create_parser.add_argument('-s', dest='schema', default=DFLT_DB_SCHEMA,
-                           help='схема БД')
+                           help='database schema')
 create_parser.set_defaults(func=create)
 
-add_parser = subparsers.add_parser('add', help='добавить данные в БД')
+add_parser = subparsers.add_parser('add', help='add data to database')
 add_parser.add_argument('filename', nargs='+',
-                        help='файл(ы), которые надо добавить')
+                        help='file(s) to add')
 add_parser.add_argument('--db', dest='db_file', default=DFLT_DB_NAME,
-                        help='имя БД')
+                        help='database name')
 add_parser.add_argument('-s', dest='sw_true', action='store_true',
-                        help=('если флаг установлен, добавлять '
-                              'данные коммутаторов, иначе добавлять DHCP записи'))
+                        help=('if the flag is set, add switch data, otherwise '
+                              'add DHCP records'))
 add_parser.set_defaults(func=add)
 
-get_parser = subparsers.add_parser('get', help='отобразить данные из БД')
+get_parser = subparsers.add_parser('get', help='show database records')
 get_parser.add_argument('--db', dest='db_file', default=DFLT_DB_NAME,
-                        help='имя БД')
+                        help='database name')
 get_parser.add_argument('-k', dest='key',
                         choices=['mac', 'ip', 'vlan', 'interface', 'switch'],
-                        help='параметр для поиска записей')
-get_parser.add_argument('-v', dest='value', help='значение параметра')
-get_parser.add_argument('-a', action='store_true', help='показать все содержимое БД')
+                        help='parameter for searching records')
+get_parser.add_argument('-v', dest='value', help='parameter value')
+get_parser.add_argument('-a', action='store_true', help='show all database content')
 get_parser.set_defaults(func=get)
 
 if __name__ == '__main__':

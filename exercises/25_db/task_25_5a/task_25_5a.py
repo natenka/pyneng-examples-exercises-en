@@ -1,23 +1,22 @@
 # -*- coding: utf-8 -*-
 '''
-Задание 25.5a
+Task 25.5a
 
-Для заданий 25 раздела нет тестов!
+There are no tests for the tasks of the 25th chapter!
 
-После выполнения задания 25.5, в таблице dhcp есть новое поле last_active.
+After completing task 25.5, the dhcp table has a new last_active field.
 
-Обновите скрипт add_data.py, таким образом, чтобы он удалял все записи,
-которые были активными более 7 дней назад.
+Update the add_data.py script so that it removes all records that were active
+more than 7 days ago.
+In order to get such records, you can manually update the last_active field
+in some records and set the time to 7 or more days.
 
-Для того, чтобы получить такие записи, можно просто вручную обновить поле last_active
-в некоторых записях и поставить время 7 или более дней.
+The task file shows an example of working with objects of the datetime module.
+Shows how to get the date 7 days ago. It will be necessary to compare
+the last_active time with this date.
 
-В файле задания описан пример работы с объектами модуля datetime.
-Показано как получить дату 7 дней назад.
-С этой датой надо будет сравнивать время last_active.
-
-Обратите внимание, что строки с датой, которые пишутся в БД, можно сравнивать
-между собой.
+Please note that date strings that are written to the database can be compared
+with each other.
 
 '''
 

@@ -1,58 +1,55 @@
 # -*- coding: utf-8 -*-
 '''
-Задание 25.6
+Task 25.6
 
-Для заданий 25 раздела нет тестов!
+There are no tests for the tasks of the 25th chapter!
 
-В этом задании выложен файл parse_dhcp_snooping.py.
-В файле parse_dhcp_snooping.py нельзя ничего менять.
+This task contains the parse_dhcp_snooping.py file.
+You cannot change anything in the parse_dhcp_snooping.py file.
 
-В файле созданы несколько функций и описаны аргументы командной строки,
-которые принимает файл.
+The file creates several functions and describes the command line arguments
+that the file takes.
+There is support for arguments to perform all the actions that, in the previous
+tasks, were performed in the files create_db.py, add_data.py and get_data.py.
 
-Есть поддержка аргументов для выполнения всех действий, которые,
-в предыдущих заданиях, выполнялись в файлах create_db.py, add_data.py и get_data.py.
-
-В файле parse_dhcp_snooping.py есть такая строка:
+The parse_dhcp_snooping.py file contains this line:
 import parse_dhcp_snooping_functions as pds
 
-И задача этого задания в том, чтобы создать все необходимые функции, в файле
-parse_dhcp_snooping_functions.py на основе информации в файле parse_dhcp_snooping.py.
+And the goal of this task is to create all the necessary functions
+in the parse_dhcp_snooping_functions.py file based on the information
+in the parse_dhcp_snooping.py file.
 
-Из файла parse_dhcp_snooping.py, необходимо определить:
-* какие функции должны быть в файле parse_dhcp_snooping_functions.py
-* какие параметры создать в этих функциях
+From the parse_dhcp_snooping.py file, you need to decide:
+* what functions should be in the parse_dhcp_snooping_functions.py file
+* what parameters to create in these functions
 
-Необходимо создать соответствующие функции и перенести в них функционал,
-который описан в предыдущих заданиях.
+It is necessary to create the corresponding functions and transfer to them
+the functionality that is described in the previous tasks.
+All the necessary information is present in the create, add, get functions,
+in the parse_dhcp_snooping.py file.
 
-Вся необходимая информация, присутствует в функциях create, add, get,
-в файле parse_dhcp_snooping.py.
-
-В принципе, для выполнения задания, не обязательно разбираться с модулем argparse, но,
-можно почитать о нем в разделе
-https://pyneng.readthedocs.io/ru/latest/book/12_useful_modules/argparse.html
-
-Для того, чтобы было проще начать, попробуйте создать необходимые функции в файле
-parse_dhcp_snooping_functions.py и просто выведите аргументы функций, используя print.
-
-Потом, можно создать функции, которые запрашивают информацию из БД
-(базу данных можно скопировать из предыдущих заданий).
-
-Можно создавать любые вспомогательные функции в файле parse_dhcp_snooping_functions.py,
-а не только те, которые вызываются из файла parse_dhcp_snooping.py.
+In principle, to complete the task, it is not necessary to understand
+the argparse module, but, you can read about it in section:
+https://pyneng.readthedocs.io/en/latest/book/additional_info/argparse.html
 
 
-Проверьте все операции:
-* создание БД
-* добавление информации о коммутаторах
-* добавление информации на основании вывода sh ip dhcp snooping binding из файлов
-* выборку информации из БД (по параметру и всю информацию)
+To make it easier to get started, try creating the required functions
+in parse_dhcp_snooping_functions.py and just print the function arguments.
+Then, you can create functions that request information from the database
+(the database can be copied from previous jobs).
 
-Чтобы было проще понять, как будет выглядеть вызов скрипта,
-ниже несколько примеров.
-В примерах показывается вариант, когда в базе данных есть поля active и last_active,
-но можно также использовать вариант без этих полей.
+You can create any helper functions in parse_dhcp_snooping_functions.py,
+not just those called from parse_dhcp_snooping.py.
+
+Check all operations:
+* creating a database
+* adding information about switches
+* adding information based on the output of sh ip dhcp snooping binding from files
+* selection of information from the database (by parameter and all information)
+
+To make it easier to understand what the script call will look like,
+here are some examples. The examples show the option when the database has active
+and last_active fields, but you can also use the option without these fields.
 
 $ python parse_dhcp_snooping.py get -h
 usage: parse_dhcp_snooping.py get [-h] [--db DB_FILE]
@@ -61,11 +58,11 @@ usage: parse_dhcp_snooping.py get [-h] [--db DB_FILE]
 
 optional arguments:
   -h, --help            show this help message and exit
-  --db DB_FILE          имя БД
+  --db DB_FILE          database name
   -k {mac,ip,vlan,interface,switch}
-                        параметр для поиска записей
-  -v VALUE              значение параметра
-  -a                    показать все содержимое БД
+                        parameter for searching records
+  -v VALUE              parameter value
+  -a                    show all database content
 
 
 $ python parse_dhcp_snooping.py add -h
@@ -73,62 +70,34 @@ usage: parse_dhcp_snooping.py add [-h] [--db DB_FILE] [-s]
                                   filename [filename ...]
 
 positional arguments:
-  filename      файл(ы), которые надо добавить
+  filename      file(s) to add
 
 optional arguments:
   -h, --help    show this help message and exit
-  --db DB_FILE  имя БД
-  -s            если флаг установлен, добавлять данные коммутаторов, иначе -
-                DHCP записи
-
-
-$ python parse_dhcp_snooping.py add -h
-usage: parse_dhcp_snooping.py add [-h] [--db DB_FILE] [-s]
-                                  filename [filename ...]
-
-positional arguments:
-  filename      файл(ы), которые надо добавить
-
-optional arguments:
-  -h, --help    show this help message and exit
-  --db DB_FILE  имя БД
-  -s            если флаг установлен, добавлять данные коммутаторов, иначе
-                добавлять DHCP записи
-
-
-$ python parse_dhcp_snooping.py get -h
-usage: parse_dhcp_snooping.py get [-h] [--db DB_FILE]
-                                  [-k {mac,ip,vlan,interface,switch}]
-                                  [-v VALUE] [-a]
-
-optional arguments:
-  -h, --help            show this help message and exit
-  --db DB_FILE          имя БД
-  -k {mac,ip,vlan,interface,switch}
-                        параметр для поиска записей
-  -v VALUE              значение параметра
-  -a                    показать все содержимое БД
+  --db DB_FILE  database name
+  -s            if the flag is set, add switch data, otherwise add DHCP
+                records
 
 
 $ python parse_dhcp_snooping.py create_db
-Создаю БД dhcp_snooping.db со схемой dhcp_snooping_schema.sql
-Создаю базу данных...
+Creating a dhcp_snooping.db database with dhcp_snooping_schema.sql schema
+Creating database...
 
 
 $ python parse_dhcp_snooping.py add sw[1-3]_dhcp_snooping.txt
-Читаю информацию из файлов
+Adding information from files
 sw1_dhcp_snooping.txt, sw2_dhcp_snooping.txt, sw3_dhcp_snooping.txt
 
-Добавляю данные по DHCP записях в dhcp_snooping.db
+Adding data on DHCP records to dhcp_snooping.db
 
 
 $ python parse_dhcp_snooping.py add -s switches.yml
-Добавляю данные о коммутаторах
+Adding switch data
 
 $ python parse_dhcp_snooping.py get
-В таблице dhcp такие записи:
+The dhcp table has the following entries:
 
-Активные записи:
+Active entries:
 
 -----------------  ---------------  --  ----------------  ---  -  -------------------
 00:09:BB:3D:D6:58  10.1.10.2        10  FastEthernet0/1   sw1  1  2019-03-08 16:47:52
@@ -145,10 +114,10 @@ $ python parse_dhcp_snooping.py get
 
 
 $ python parse_dhcp_snooping.py get -k vlan -v 10
-Данные из БД: dhcp_snooping.db
-Информация об устройствах с такими параметрами: vlan 10
+Data from the database: dhcp_snooping.db
+Information about devices with the following parameters: vlan 10
 
-Активные записи:
+Active entries:
 
 -----------------  ----------  --  ---------------  ---  -  -------------------
 00:09:BB:3D:D6:58  10.1.10.2   10  FastEthernet0/1  sw1  1  2019-03-08 16:47:52
