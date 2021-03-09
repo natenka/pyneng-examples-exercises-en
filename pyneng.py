@@ -34,9 +34,9 @@ task_dirs = [
 ]
 
 
-class PtestError(Exception):
+class PynengError(Exception):
     """
-    Ошибка в использовании/работе скрипта ptest
+    Error in the use/operation of the pyneng script
     """
 
 
@@ -50,18 +50,18 @@ def green(msg):
 
 def exception_handler(exception_type, exception, traceback):
     """
-    sys.excepthook для отключения traceback по умолчанию
+    sys.excepthook to disable traceback output by default
     """
     print(f"\n{exception_type.__name__}: {exception}\n")
 
 
 class CustomTasksType(click.ParamType):
     """
-    Класс создает новый тип для click и преобразует
-    допустимые варианты строк заданий в отдельные файлы тестов.
+    The class creates a new type for click and converts the valid choices
+    of the assignment strings into separate test files.
 
-    Кроме того проверяет есть ли такой файл в текущем каталоге
-    и оставляет только те, что есть.
+    In addition, it checks if there is such a file in the current directory
+    and leaves only those that are.
     """
 
     def convert(self, value, param, ctx):
@@ -77,7 +77,7 @@ class CustomTasksType(click.ParamType):
             task_dirs_line = "\n    ".join(task_dirs)
             self.fail(
                 red(
-                    f"\nСкрипт нужно вызывать из каталогов с заданиями:"
+                    f"\nThe script must be called from the task directories:"
                     f"\n    {task_dirs_line}"
                 )
             )
@@ -100,8 +100,8 @@ class CustomTasksType(click.ParamType):
             else:
                 self.fail(
                     red(
-                        f"Данный формат не поддерживается {task}. "
-                        "Допустимые форматы: 1, 1a, 1b-d, 1*, 1-3"
+                        f"This format is not supported {task}. "
+                        "Supported formats: 1, 1a, 1b-d, 1*, 1-3"
                     )
                 )
         return test_files
@@ -109,8 +109,8 @@ class CustomTasksType(click.ParamType):
 
 def call_command(command, verbose=True, return_stdout=False):
     """
-    Функция вызывает указанную command через subprocess
-    и выводит stdout и stderr, если флан verbose=True.
+    The function calls the specified command via subprocess and prints stdout
+    and stderr if verbose=True.
     """
     result = subprocess.run(
         command,
@@ -130,7 +130,7 @@ def call_command(command, verbose=True, return_stdout=False):
 
 def current_chapter_id():
     """
-    Функция возвращает номер текущего раздела, где вызывается ptest.
+    The function returns the number of the current section where pyneng is called.
     """
     pth = str(pathlib.Path().absolute())
     last_dir = os.path.split(pth)[-1]
@@ -146,8 +146,8 @@ def current_dir_name():
 
 def parse_json_report(report):
     """
-    Отбирает нужные части из отчета запуска pytest в формате JSON.
-    Возвращает список тестов, которые прошли.
+    Selects parts from the pytest run report in JSON format.
+    Returns a list of passedd tests.
     """
     if report and report["summary"]["total"] != 0:
         all_tests = defaultdict(list)
@@ -165,11 +165,11 @@ def parse_json_report(report):
 
 def copy_answers(passed_tasks):
     """
-    Функция клонирует репозиторий с ответами в домашний каталог пользователя
-    копирует ответы для заданий, которые прошли тесты.
-    После того как ответы скопированы, репозиторий с ответами удаляется.
-    Все это выполняется вручную, а не через tempfile, из-за проблем
-    с удалением на Windows.
+    The function clones the repository with answers to the user's home
+    directory and copies the answers for the tasks that passed the tests.
+    After the answers are copied, the repository with the answers is deleted.
+    All of this is done manually, not through tempfile, due to deletion
+    issues on Windows.
     """
     pth = str(pathlib.Path().absolute())
     current_chapter_name = os.path.split(pth)[-1]
@@ -178,29 +178,29 @@ def copy_answers(passed_tasks):
     homedir = pathlib.Path.home()
     os.chdir(homedir)
     returncode = call_command(
-        "git clone --depth=1 https://github.com/natenka/pyneng-answers",
+        "git clone --depth=1 https://github.com/natenka/pyneng-answers-en",
         verbose=False,
     )
     if returncode == 0:
-        os.chdir(f"pyneng-answers/answers/{current_chapter_name}")
+        os.chdir(f"pyneng-answers-en/answers/{current_chapter_name}")
         copy_answer_files(passed_tasks, pth)
         print(
             green(
-                "\nОтветы на задания, которые прошли тесты "
-                "скопированы в файлы answer_task_x.py\n"
+                "\nThe answers to the tasks that passed the tests "
+                "are copied to the files answer_task_x.py\n"
             )
         )
         os.chdir(homedir)
-        shutil.rmtree("pyneng-answers", onerror=remove_readonly)
+        shutil.rmtree("pyneng-answers-en", onerror=remove_readonly)
     else:
-        raise PtestError(red("Не получилось скопировать ответы."))
+        raise PynengError(red("Failed to copy answers."))
     os.chdir(pth)
 
 
 def remove_readonly(func, path, _):
     """
-    Вспомогательная функция для Windows, которая позволяет удалять
-    read only файлы из каталога .git
+    Helper function for Windows that allows to remove read only files
+    from the .git directory
     """
     os.chmod(path, stat.S_IWRITE)
     func(path)
@@ -208,7 +208,7 @@ def remove_readonly(func, path, _):
 
 def copy_answer_files(passed_tasks, pth):
     """
-    Функция копирует ответы для указанных заданий.
+    The function copies the answers for the specified tasks.
     """
     for test_file in passed_tasks:
         task_name = test_file.replace("test_", "")
@@ -227,36 +227,34 @@ def copy_answer_files(passed_tasks, pth):
 )
 @click.argument("tasks", default="all", type=CustomTasksType())
 @click.option(
-    "--disable-verbose", "-d", is_flag=True, help="Отключить подробный вывод pytest"
+    "--disable-verbose", "-d", is_flag=True, help="Disable pytest verbose output"
 )
 @click.option(
     "--answer",
     "-a",
     is_flag=True,
     help=(
-        "Скопировать ответы для заданий, которые "
-        "прошли тесты. При добавлении этого флага, "
-        "не выводится traceback для тестов."
+        "Copy answers for assignments that passed the tests. "
+        "When this flag is added, no traceback is displayed for tests."
     ),
 )
-@click.option("--debug", is_flag=True, help="Показывать traceback исключений")
+@click.option("--debug", is_flag=True, help="Show traceback")
 def cli(tasks, disable_verbose, answer, debug):
     """
-    Запустить тесты для заданий TASKS. По умолчанию запустятся все тесты.
+    Run tests for TASKS. By default, all tests will run.
 
-    Примеры запуска:
+    Examples of running pyneng:
 
     \b
-        ptest            запустить все тесты для текущего раздела
-        ptest 1,2a,5     запустить тесты для заданий 1, 2a и 5
-        ptest 1,2a-c,5   запустить тесты для заданий 1, 2a, 2b, 2c и 5
-        ptest 1,2*       запустить тесты для заданий 1, все задания 2 с буквами и без
-        ptest 1,3-5      запустить тесты для заданий 1, 3, 4, 5
-        ptest 1-5 -a     запустить тесты и записать ответы на задания,
-                         которые прошли тесты, в файлы answer_task_x.py
+        pyneng            run all tests for current chapter
+        pyneng 1,2a,5     run tests for tasks 1, 2a и 5
+        pyneng 1,2a-c,5   run tests for tasks 1, 2a, 2b, 2c и 5
+        pyneng 1,2*       run tests for tasks 1, all tasks 2
+        pyneng 1,3-5      run tests for tasks 1, 3, 4, 5
+        pyneng 1-5 -a     run test and get answers
 
-    Флаг -d отключает подробный вывод pytest, который включен по умолчанию.
-    Флаг -a записывает ответы в файлы answer_task_x.py, если тесты проходят.
+    The -d flag disables verbose output from pytest, which is enabled by default.
+    The -a flag writes answers to the answer_task_x.py files if the tests pass.
     """
     if not debug:
         sys.excepthook = exception_handler
@@ -269,21 +267,16 @@ def cli(tasks, disable_verbose, answer, debug):
     else:
         pytest_args = [*pytest_args_common, "-vv"]
 
-    # если добавлен флаг -a нет смысла выводить traceback,
-    # так как скорее всего задания уже проверены предыдущими запусками.
     if answer:
         pytest_args = [*pytest_args_common, "--tb=no"]
 
-    # запуск pytest
     if tasks == "all":
         pytest.main(pytest_args, plugins=[json_plugin])
     else:
         pytest.main(tasks + pytest_args, plugins=[json_plugin])
 
-    # получить результаты pytest в формате JSON
     passed_tasks = parse_json_report(json_plugin.report)
 
-    # скопировать ответы в файлы answer_task_x.py
     if passed_tasks and answer:
         copy_answers(passed_tasks)
 
