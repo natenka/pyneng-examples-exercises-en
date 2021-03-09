@@ -3,7 +3,7 @@
 Task 12.3
 
 Create a function print_ip_table that prints a table of available
- and unavailable IP addresses.
+and unavailable IP addresses.
 
 The function expects two lists as arguments:
 * list of available IP addresses

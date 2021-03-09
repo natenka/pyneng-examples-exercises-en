@@ -38,7 +38,7 @@ Restriction: All tasks must be done using the topics covered in this and previou
 
 def parse_cdp_neighbors(command_output):
     """
-    Here we transfer the output of the command as single string because it is in this form that
+    Here we pass the output of the command as single string because it is in this form that
     received command output from equipment. Taking the output of the command as an argument,
     instead of a filename, we make the function more generic: it can work
     both with files and with output from equipment.

@@ -54,7 +54,7 @@ Dict example:
 
 The function should return a dictionary that describes the connections between
 devices. In the dictionary, you need to get rid of "duplicate" connections and
- leave only one of them.
+leave only one of them.
 
 The structure of the final dict is the same as in task 11.2:
     {("R4", "Fa0/1"): ("R5", "Fa0/1"),
