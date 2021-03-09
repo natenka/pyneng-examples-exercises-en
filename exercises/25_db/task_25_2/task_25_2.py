@@ -1,30 +1,30 @@
 # -*- coding: utf-8 -*-
 '''
-Задание 25.2
+Task 25.2
 
-Для заданий 25 раздела нет тестов!
+There are no tests for the tasks of the 25th chapter!
 
-В этом задании необходимо создать скрипт get_data.py.
+In this task, you need to create the get_data.py script.
 
-Код в скрипте должен быть разбит на функции.
-Какие именно функции и как разделить код, надо решить самостоятельно.
-Часть кода может быть глобальной.
+The code in the script should be broken down into functions.
+It is up to you to decide which functions and how to split the code.
+Some of the code can be global.
 
-Скрипту могут передаваться аргументы и, в зависимости от аргументов,
-надо выводить разную информацию.
-Если скрипт вызван:
-* без аргументов, вывести всё содержимое таблицы dhcp
-* с двумя аргументами, вывести информацию из таблицы dhcp,
-  которая соответствует полю и значению
-* с любым другим количеством аргументов, вывести сообщение,
-  что скрипт поддерживает только два или ноль аргументов
+The script can be passed arguments and, depending on the arguments,
+you need to display different information.
+If the script is called:
+* with no arguments, print the entire contents of the dhcp table
+* with two arguments, display information from the dhcp table that matches
+  the field and value
+* with any other number of arguments, print a message that the script
+  only supports two or zero arguments
 
-Файл БД можно скопировать из задания 25.1.
+The database file can be copied from task 25.1.
 
-Примеры вывода для разного количества и значений аргументов:
+Examples of output for different numbers and values of arguments:
 
 $ python get_data.py
-В таблице dhcp такие записи:
+The dhcp table has the following entries:
 -----------------  ---------------  --  ----------------  ---
 00:09:BB:3D:D6:58  10.1.10.2        10  FastEthernet0/1   sw1
 00:04:A3:3E:5B:69  10.1.5.2          5  FastEthernet0/10  sw1
@@ -41,7 +41,7 @@ $ python get_data.py
 
 $ python get_data.py vlan 10
 
-Информация об устройствах с такими параметрами: vlan 10
+Information about devices with the following parameters: vlan 10
 -----------------  ----------  --  ---------------  ---
 00:09:BB:3D:D6:58  10.1.10.2   10  FastEthernet0/1  sw1
 00:07:BC:3F:A6:50  10.1.10.6   10  FastEthernet0/3  sw1
@@ -50,16 +50,16 @@ $ python get_data.py vlan 10
 
 $ python get_data.py ip 10.1.10.2
 
-Информация об устройствах с такими параметрами: ip 10.1.10.2
+Information about devices with the following parameters: ip 10.1.10.2
 -----------------  ---------  --  ---------------  ---
 00:09:BB:3D:D6:58  10.1.10.2  10  FastEthernet0/1  sw1
 -----------------  ---------  --  ---------------  ---
 
 $ python get_data.py vln 10
-Данный параметр не поддерживается.
-Допустимые значения параметров: mac, ip, vlan, interface, switch
+This parameter is not supported.
+Valid parameter values: mac, ip, vlan, interface, switch
 
 $ python get_data.py ip vlan 10
-Пожалуйста, введите два или ноль аргументов
+Please enter two or zero arguments
 
 '''
