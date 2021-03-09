@@ -5,7 +5,7 @@ Task 9.2
 Create generate_trunk_config function that generates configuration
 for access ports.
 
-The function expects such arguments:
+The function expects arguments:
 
 - intf_vlan_mapping: expects a dictionary with interface-VLAN mapping:
     {'FastEthernet0/1': [10, 20],

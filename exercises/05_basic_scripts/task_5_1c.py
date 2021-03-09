@@ -2,8 +2,9 @@
 """
 Task 5.1c
 
-which is not in the device dictionary, the message 'There is no such parameter' was displayed.
-The assignment applies only to the device parameters, not to the devices themselves.
+Copy and modify the script from task 5.1b so that when you request a parameter
+that is not in the device dictionary, the message 'There is no such parameter' is displayed.
+The assignment applies only to the parameters of the devices, not to the devices themselves.
 
 > Try typing a non-existent parameter, to see what the result will be. And then complete the task.
 

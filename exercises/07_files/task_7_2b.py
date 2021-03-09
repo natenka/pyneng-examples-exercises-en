@@ -8,7 +8,7 @@ the script should write the resulting lines to a file.
 
 File names must be passed as arguments to the script:
   1. name of the source configuration file
-  2. name of the final configuration file
+  2. name of the destination configuration file
 
 In this case, the lines that are contained in the ignore list and lines
 that start with ! must be filtered.

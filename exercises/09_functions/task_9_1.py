@@ -5,7 +5,7 @@ Task 9.1
 Create generate_access_config function that generates configuration
 for access ports.
 
-The function expects such arguments:
+The function expects arguments:
 
 - a dictionary with interface as a key and VLAN as a value:
      {'FastEthernet0/12': 10,
