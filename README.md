@@ -7,6 +7,11 @@ All examples and exercises have been tested in Python 3.7 and 3.8.
 > The assignments will be useful even if you are reading another Python book.
 > All tasks are focused on network topics.
 
+## Links
+
+* [Working environment](https://pyneng.readthedocs.io/en/latest/book/01_intro/work_env.html)
+* [How to work with git and Github](https://pyneng.readthedocs.io/en/latest/book/02_git_github/index.html)
+* [Testing tasks with the pyneng utility](https://pyneng.readthedocs.io/en/latest/book/additional_info/pyneng.html)
 
 ## How to create your own repository for tasks
 
