@@ -7,23 +7,23 @@ import re
 
 
 stdout_incorrect_warning = """
-Сообщение отличается от указанного в задании.
-Должно быть: {}
-А выведено: {}
+The message is different from the one specified in the task.
+Should be: {}
+And output: {}
 """
 
 
 def check_attr_or_method(obj, attr=None, method=None):
     if attr:
-        assert getattr(obj, attr, None) != None, "Переменная не найдена"
+        assert getattr(obj, attr, None) != None, "Variable not found"
         assert not inspect.ismethod(
             getattr(obj, attr)
-        ), f"{attr} должен быть переменной, а не методом"
+        ), f"{attr} must be a variable, not a method"
     if method:
-        assert getattr(obj, method, None) != None, "Метод не найден"
+        assert getattr(obj, method, None) != None, "Method not found"
         assert inspect.ismethod(
             getattr(obj, method)
-        ), f"{method} должен быть методом, а не переменной"
+        ), f"{method} must be a method, not a variable"
 
 
 def strip_empty_lines(output):
@@ -38,24 +38,24 @@ def strip_empty_lines(output):
 def check_class_exists(module, class_name):
     assert hasattr(module, class_name) and inspect.isclass(
         getattr(module, class_name)
-    ), f"Надо создать класс с именем {class_name}"
+    ), f"You need to create a class named {class_name}"
 
 
 def check_function_exists(module, function_name):
     assert hasattr(module, function_name) and inspect.isfunction(
         getattr(module, function_name)
-    ), f"Надо создать функцию с именем {function_name}"
+    ), f"You need to create a function named {function_name}"
 
 
 def check_function_params(function, param_count, param_names=None):
     arg_info = inspect.getfullargspec(function)
     assert (
         len(arg_info.args) == param_count
-    ), f"У функции {function.__name__} должно быть {param_count} параметров"
+    ), f"The {function.__name__} function must have {param_count} parameters"
     if param_names:
         assert set(arg_info.args) == set(
             param_names
-        ), f"У функции должны быть такие параметры: {','.join(param_names)}"
+        ), f"The function must have the following parameters: {','.join(param_names)}"
 
 
 def get_func_params_default_value(function):
@@ -70,7 +70,7 @@ def get_func_params_default_value(function):
 def ping(host):
     param = "-n" if system_name().lower() == "windows" else "-c"
     command = ["ping", param, "1", host]
-    reply = run(command, stdout=PIPE, stderr=PIPE, encoding="utf-8")
+    reply = run(command, stdout=PIPE, encoding="utf-8")
     return reply.returncode == 0
 
 
