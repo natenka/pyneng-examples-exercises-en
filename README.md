@@ -56,7 +56,7 @@ a directory with the name of the repository will appear, in my case -
 ## Tasks (exercises)
 
 The exercises directory contains tasks with numbers corresponding to the sections of the book.
-In addition, there are all auxiliary files (configurations, etc.) that are used in tasks.
+In addition, there are all additional files (configurations, etc.) that are used in tasks.
 
 ## Tests
 
