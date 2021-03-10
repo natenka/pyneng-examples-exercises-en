@@ -62,7 +62,7 @@ In addition, there are all additional files (configurations, etc.) that are used
 
 Starting from section “4. Data types in Python ”there are automated tests for testing tasks.
 They help to check whether everything matches the task, and also give feedback on what does not correspond to the task.
-As a rule, after the first period of adaptation to tests, it becomes easier to do tasks with tests. Checking jobs is done using the pyneng utility.
+As a rule, after the first period of adaptation to tests, it becomes easier to do tasks with tests. Testing is done using the pyneng utility.
 
 [Learn more about how to work with the pyneng utility](https://pyneng.readthedocs.io/en/latest/book/additional_info/pyneng.html).
 
