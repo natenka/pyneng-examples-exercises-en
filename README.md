@@ -14,7 +14,7 @@ All examples and exercises have been tested in Python 3.7 and 3.8.
 
 ## How to create your own repository for tasks
 
-> [Git/Github basics](https://pyneng.readthedocs.io/ru/latest/book/02_git_github/index.html)
+> [Git/Github basics](https://pyneng.readthedocs.io/en/latest/book/02_git_github/index.html)
 
 ### Creating a repository on GitHub
 
@@ -34,8 +34,8 @@ To work locally with the repository, you need to clone it.
 To do this, use the git clone command:
 
 ```
-$ git clone git@github.com:natenka/pyneng-examples-exercises-en.git
-Cloning into 'pyneng-examples-exercises-en'...
+$ git clone git@github.com:natenka/my_tasks.git
+Cloning into 'my_tasks'...
 remote: Counting objects: 241, done.
 remote: Compressing objects: 100% (191/191), done.
 remote: Total 241 (delta 43), reused 239 (delta 41), pack-reused 0
@@ -44,38 +44,25 @@ Resolving deltas: 100% (43/43), done.
 Checking connectivity... done.
 ```
 
-Compared to the command shown in this listing, you need to change:
+In the command output above, you need to change:
 
-- username natenka to your username on GitHub;
-- repository name pyneng-examples-exercises-en to its name
-    repository on GitHub.
+- username natenka to your username on GitHub
+- repository name my_tasks to the name of your repository
 
 As a result, in the current directory where the git clone command was executed,
 a directory with the name of the repository will appear, in my case -
-"pyneng-examples-exercises-en". This directory now contains
-local copy of the repository on GitHub.
-
-## Virtual machine
-
-Two versions of virtual machines are prepared for the course: vmware and Vagrant.
-The link contains instructions for each option, as well as instructions for completing tasks on Windows:
-
-* https://pyneng.github.io/docs/course-vm/
-
+"my_tasks". This directory now contains local copy of the repository with tasks.
 
 ## Tasks (exercises)
 
 The exercises directory contains tasks with numbers corresponding to the sections of the book.
 In addition, there are all auxiliary files (configurations, etc.) that are used in tasks.
 
-> If you have tasks with letters (for example, 5.2a) in a section, it is better to do tasks without letters and then with letters. Tasks with letter tend to be slightly more complex than letter-free tasks and they develop or complicate the idea in the respective task without letter.
-> For example, in the section there are tasks 5.1, 5.2, 5.2a, 5.2b, 5.3, 5.3a. First it is better to complete 5.1, 5.2, 5.3 and then 5.2a, 5.2b, 5.3a
-> If you can do a task with letters right away, it is better to do it in order.
-
-
 ## Tests
 
-Starting from section "9. Functions" there are automatic tests for checking tasks. They help to check whether is everything done according to the task and also give feedback on what does not match the task. As a rule, after first period of adaptation to tests, it becomes easier to do tasks with tests.
+Starting from section “4. Data types in Python ”there are automated tests for testing tasks.
+They help to check whether everything matches the task, and also give feedback on what does not correspond to the task.
+As a rule, after the first period of adaptation to tests, it becomes easier to do tasks with tests. Checking jobs is done using the pyneng utility.
 
-[How to work with tests (pytest basics)](https://pyneng.readthedocs.io/ru/latest/book/additional_info/pytest.html)
+[Learn more about how to work with the pyneng utility](https://pyneng.readthedocs.io/en/latest/book/additional_info/pyneng.html).
 
