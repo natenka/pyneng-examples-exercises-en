@@ -18,7 +18,7 @@ def test_task_stdout(capsys):
     correct_stdout = "['aabb.cc80.7000', 'aabb.dd80.7340', 'aabb.ee80.7000', 'aabb.ff80.7000']"
     assert (
         out
-    ), "Nothing is printed to stdout. It is necessary not only to get the correct result, but also to print it to the stdout using printprint"
+    ), "Nothing is printed to stdout. It is necessary not only to get the correct result, but also to print it to the stdout using print"
     assert (
         correct_stdout in out.strip()
     ), "Wrong line is printed to stdout"

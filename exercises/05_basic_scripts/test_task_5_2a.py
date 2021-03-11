@@ -39,7 +39,7 @@ def test_task_10_5_5_1_24(capsys, monkeypatch):
 
     assert (
         out
-    ), "Nothing is printed to stdout. It is necessary not only to get the correct result, but also to print it to the stdout using printprint"
+    ), "Nothing is printed to stdout. It is necessary not only to get the correct result, but also to print it to the stdout using print"
     assert (
         correct_stdout_network in stdout
     ), "Wrong network value printed"
@@ -72,7 +72,7 @@ def test_task_10_1_1_193_28(capsys, monkeypatch):
 
     assert (
         out
-    ), "Nothing is printed to stdout. It is necessary not only to get the correct result, but also to print it to the stdout using printprint"
+    ), "Nothing is printed to stdout. It is necessary not only to get the correct result, but also to print it to the stdout using print"
     assert (
         correct_stdout_network in stdout
     ), "Wrong network value printed"

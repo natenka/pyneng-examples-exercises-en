@@ -52,7 +52,7 @@ def test_task_r2(capsys, monkeypatch):
 
     assert (
         out
-    ), "Nothing is printed to stdout. It is necessary not only to get the correct result, but also to print it to the stdout using printprint"
+    ), "Nothing is printed to stdout. It is necessary not only to get the correct result, but also to print it to the stdout using print"
     assert (
         correct_stdout in out.strip()
     ), "Wrong output is printed to stdout"
@@ -71,7 +71,7 @@ def test_task_sw1(capsys, monkeypatch):
     correct_stdout = "3.6.XE"
     assert (
         out
-    ), "Nothing is printed to stdout. It is necessary not only to get the correct result, but also to print it to the stdout using printprint"
+    ), "Nothing is printed to stdout. It is necessary not only to get the correct result, but also to print it to the stdout using print"
     assert (
         correct_stdout in out.strip()
     ), "Wrong output is printed to stdout"
