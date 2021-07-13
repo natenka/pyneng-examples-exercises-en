@@ -107,7 +107,7 @@ class CustomTasksType(click.ParamType):
         return test_files
 
 
-def call_command(command, verbose=True, return_stdout=False):
+def call_command(command, verbose=True, return_stdout=False, return_stderr=False):
     """
     The function calls the specified command via subprocess and prints stdout
     and stderr if verbose=True.
@@ -117,14 +117,20 @@ def call_command(command, verbose=True, return_stdout=False):
         shell=True,
         encoding="utf-8",
         stdout=subprocess.PIPE,
+        stderr=subprocess.PIPE,
     )
     std = result.stdout
+    stderr = result.stderr
     if return_stdout:
         return std
+    if return_stderr:
+        return result.returncode, stderr
     if verbose:
         print("#" * 20, command)
         if std:
             print(std)
+        if stderr:
+            print(stderr)
     return result.returncode
 
 
@@ -177,9 +183,12 @@ def copy_answers(passed_tasks):
 
     homedir = pathlib.Path.home()
     os.chdir(homedir)
-    returncode = call_command(
-        "git clone --depth=1 https://github.com/natenka/pyneng-answers-en",
+    if os.path.exists("pyneng-answers"):
+        shutil.rmtree("pyneng-answers", onerror=remove_readonly)
+    returncode, stderr = call_command(
+        "git clone --depth=1 https://github.com/natenka/pyneng-answers",
         verbose=False,
+        return_stderr=True,
     )
     if returncode == 0:
         os.chdir(f"pyneng-answers-en/answers/{current_chapter_name}")
@@ -193,7 +202,14 @@ def copy_answers(passed_tasks):
         os.chdir(homedir)
         shutil.rmtree("pyneng-answers-en", onerror=remove_readonly)
     else:
-        raise PynengError(red("Failed to copy answers."))
+        if "could not resolve host" in stderr.lower():
+            raise PynengError(
+                red(
+                    "Failed to copy answers. Perhaps there is no internet access?"
+                )
+            )
+        else:
+            raise PynengError(red("Failed to copy answers."))
     os.chdir(pth)
 
 
@@ -212,12 +228,11 @@ def copy_answer_files(passed_tasks, pth):
     """
     for test_file in passed_tasks:
         task_name = test_file.replace("test_", "")
+        task_name = re.search(r"task_\w+\.py", task_name).group()
         answer_name = test_file.replace("test_", "answer_")
+        answer_name = re.search(r"answer_task_\w+\.py", answer_name).group()
         if not os.path.exists(f"{pth}/{answer_name}"):
-            call_command(
-                f"cp {task_name} {pth}/{answer_name}",
-                verbose=False,
-            )
+            shutil.copy2(task_name, f"{pth}/{answer_name}")
 
 
 @click.command(
@@ -260,7 +275,7 @@ def cli(tasks, disable_verbose, answer, debug):
         sys.excepthook = exception_handler
 
     json_plugin = JSONReport()
-    pytest_args_common = ["--json-report-file=none", "--disable-warnings", "--no-hints"]
+    pytest_args_common = ["--json-report-file=none", "--disable-warnings"]
 
     if disable_verbose:
         pytest_args = [*pytest_args_common, "--tb=short"]
