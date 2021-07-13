@@ -22,5 +22,5 @@ def test_task_stdout(capsys):
         out
     ), "Nothing is printed to stdout. It is necessary not only to get the correct result, but also to print it to the stdout using print"
     assert (
-        out.strip() == correct_stdout
+        correct_stdout == out.strip()
     ), "Wrong line is printed to stdout"

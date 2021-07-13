@@ -20,7 +20,7 @@ def test_task_stdout(capsys):
         out
     ), "Nothing is printed to stdout. It is necessary not only to get the correct result, but also to print it to the stdout using print"
     assert (
-        out.strip() == correct_stdout
+        correct_stdout == out.strip()
     ), "Wrong line is printed to stdout"
 
 
@@ -42,7 +42,7 @@ def test_task_variables():
         type(task_4_4.result) == list
     ), f"The result variable must contain a list, not a {type(task_4_4.result).__name__}"
     assert (
-        task_4_4.result == correct_result
+        correct_stdout == task_4_4.result
     ), f"The result variable must be a list {correct_result}"
 
 
