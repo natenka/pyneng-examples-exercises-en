@@ -2,6 +2,11 @@ import os
 import pytest
 import task_20_1
 import task_20_2
+import sys
+
+sys.path.append("..")
+
+from pyneng_common_functions import render_jinja_template
 
 
 # Checking that the test is called via pytest ... and not python ...
@@ -42,7 +47,7 @@ def test_function_return_value():
 
     template = "templates/cisco_router_base.txt"
     data = {"hostname": "R1"}
-    return_value = task_20_1.generate_config(template, data)
+    return_value = render_jinja_template(template, data)
     assert service_section in return_value, "There is no service commands in the configuration"
     assert alias_section in return_value, "There is no alias commands in the configuration"
     assert (

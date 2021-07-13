@@ -5,7 +5,11 @@ import sys
 
 sys.path.append("..")
 
-from pyneng_common_functions import check_function_exists, strip_empty_lines
+from pyneng_common_functions import (
+    check_function_exists,
+    strip_empty_lines,
+    render_jinja_template,
+)
 
 # Checking that the test is called via pytest ... and not python ...
 from _pytest.assertion.rewrite import AssertionRewritingHook
@@ -21,7 +25,7 @@ def test_templates_exists():
 
 
 def test_function_return_value():
-    correct_return_value_router = (
+    correct_return_value = (
         "router ospf 10\n"
         "router-id 10.0.0.1\n"
         "auto-cost reference-bandwidth 20000\n"
@@ -32,8 +36,6 @@ def test_function_return_value():
         "network 10.0.20.1 0.0.0.0 area 2\n"
         "passive-interface Fa0/0.10\n"
         "passive-interface Fa0/0.20\n"
-    )
-    correct_return_value_intf = (
         "interface Fa0/1\n"
         "ip ospf hello-interval 1\n"
         "interface Fa0/1.100\n"
@@ -56,16 +58,46 @@ def test_function_return_value():
         "router_id": "10.0.0.1",
     }
 
-    return_value = task_20_1.generate_config(template, data)
-    correct_lines_router = set(correct_return_value_router.splitlines())
-    correct_lines_interface = set(correct_return_value_intf.splitlines())
-
+    return_value = render_jinja_template(template, data)
+    correct_lines = set(correct_return_value.splitlines())
     return_value = strip_empty_lines(return_value)
     return_lines = set(return_value.splitlines())
 
-    assert correct_lines_router.issubset(
-        return_lines
+    assert (
+        correct_lines == return_lines
     ), "Not all lines are present in the router ospf configuration"
-    assert correct_lines_interface.issubset(
-        return_lines
-    ), "Not all lines are present in the final interface configuration"
+
+
+def test_function_different_input():
+    correct_return_value = (
+        "router ospf 1\n"
+        "router-id 10.0.0.1\n"
+        "auto-cost reference-bandwidth 30000\n"
+        "network 10.55.1.1 0.0.0.0 area 0\n"
+        "network 10.55.2.1 0.0.0.0 area 5\n"
+        "network 10.55.3.1 0.0.0.0 area 5\n"
+        "passive-interface Fa0/1.100\n"
+        "passive-interface Fa0/1.200\n"
+        "passive-interface Fa0/1.300\n"
+    )
+
+    template = "templates/ospf.txt"
+    data = {
+        "ospf_intf": [
+            {"area": 0, "ip": "10.55.1.1", "name": "Fa0/1.100", "passive": True},
+            {"area": 5, "ip": "10.55.2.1", "name": "Fa0/1.200", "passive": True},
+            {"area": 5, "ip": "10.55.3.1", "name": "Fa0/1.300", "passive": True},
+        ],
+        "process": 1,
+        "ref_bw": 30000,
+        "router_id": "10.0.0.1",
+    }
+
+    return_value = render_jinja_template(template, data)
+    correct_lines = set(correct_return_value.splitlines())
+    return_value = strip_empty_lines(return_value)
+    return_lines = set(return_value.splitlines())
+
+    assert (
+        correct_lines == return_lines
+    ), "Not all lines are present in the router ospf configuration"
