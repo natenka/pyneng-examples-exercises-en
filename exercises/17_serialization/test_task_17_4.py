@@ -42,7 +42,6 @@ def test_return_value(tmpdir):
     dest_filename = tmpdir.mkdir("test_tasks").join("output.csv")
     return_value = task_17_4.write_last_log_to_csv(source_filename, dest_filename)
     csv_content = read_all_csv_content_as_list(dest_filename)
-    correct_return_value = sorted(unique_data)
 
     assert (
         None == return_value

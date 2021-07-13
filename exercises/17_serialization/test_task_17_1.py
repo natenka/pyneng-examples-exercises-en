@@ -50,7 +50,6 @@ def test_return_value(tmpdir):
         sh_dhcp_snoop_files, dest_filename
     )
     csv_content = read_all_csv_content_as_list(dest_filename)
-    correct_return_value = sorted(snooping_data)
 
     assert (
         None == return_value
@@ -83,7 +82,6 @@ def test_function_return_value_different_args(tmpdir):
         sh_dhcp_snoop_files, dest_filename
     )
     csv_content = read_all_csv_content_as_list(dest_filename)
-    correct_return_value = sorted(snooping_data)
 
     assert (
         None == return_value
