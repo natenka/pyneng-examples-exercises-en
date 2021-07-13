@@ -10,6 +10,6 @@ Changes in tests and tasks:
 * Updated pyneng_common_functions.py file in exercises directory
 
 
-[More about the changes]()
+[More about the changes](https://github.com/natenka/pyneng-examples-exercises-en/blob/main/CHANGELOG/2021_07_13.md)
 
 
