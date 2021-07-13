@@ -3,7 +3,7 @@
 """
 Task 23.2
 
-Copy the CiscoTelnet class from any 22.2x task and add context manager
+Copy the CiscoTelnet class from task 22.2 and add context manager
 support to the class. When exiting the context manager block, the connection
 should be closed.
 

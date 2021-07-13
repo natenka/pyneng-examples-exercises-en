@@ -18,22 +18,22 @@ def test_class_created():
 
 
 def test_attr_ipaddress():
-    ip1 = task_23_1a.IPAddress("10.1.1.1/24")
-    check_attr_or_method(ip1, attr="ip")
-    check_attr_or_method(ip1, attr="mask")
-    assert ip1.ip == "10.1.1.1", "ip1.ip attribute must be equal to 10.1.1.1"
-    assert ip1.mask == 24, "ip1.mask attribute must be equal to 24"
+    return_ip = task_23_1a.IPAddress("10.1.1.1/24")
+    check_attr_or_method(return_ip, attr="ip")
+    check_attr_or_method(return_ip, attr="mask")
+    assert "10.1.1.1" == return_ip.ip, "return_ip.ip attribute must be equal to 10.1.1.1"
+    assert 24 == return_ip.mask, "return_ip.mask attribute must be equal to 24"
 
 
 def test_str_method():
-    ip1 = task_23_1a.IPAddress("10.5.5.5/24")
+    return_ip = task_23_1a.IPAddress("10.5.5.5/24")
     assert (
-        str(ip1) == "IP address 10.5.5.5/24"
+        "IP address 10.5.5.5/24" == str(return_ip)
     ), "The __str__ method should return 'IP address 10.5.5.5/24'"
 
 
 def test_repr_method():
-    ip1 = task_23_1a.IPAddress("10.5.5.5/24")
+    return_ip = task_23_1a.IPAddress("10.5.5.5/24")
     assert (
-        repr(ip1) == "IPAddress('10.5.5.5/24')"
+        "IPAddress('10.5.5.5/24')" == repr(return_ip).replace('"', "'")
     ), "The __str__ method should return IPAddress('10.5.5.5/24')"

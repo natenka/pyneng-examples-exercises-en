@@ -26,7 +26,7 @@ def test_attr_topology(topology_with_dupl_links):
 def test_topology_normalization(topology_with_dupl_links, normalized_topology_example):
     """Checking the removal of duplicates in a topology"""
     top_with_data = task_23_3a.Topology(topology_with_dupl_links)
-    assert len(top_with_data.topology) == len(normalized_topology_example)
+    assert len(normalized_topology_example) == len(top_with_data.topology)
 
 
 def test_iterable(normalized_topology_example):
@@ -37,4 +37,4 @@ def test_iterable(normalized_topology_example):
         pytest.fail("An instance of the Topology class is a non-iterable object\n", error)
     else:
         item = next(iterator)
-        assert item == (("R1", "Eth0/0"), ("SW1", "Eth0/1"))
+        assert (("R1", "Eth0/0"), ("SW1", "Eth0/1")) == item
