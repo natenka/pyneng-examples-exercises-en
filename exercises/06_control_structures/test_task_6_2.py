@@ -32,5 +32,5 @@ def test_task_ip(capsys, monkeypatch, ip_add, ip_type):
         out
     ), "Nothing is printed to stdout. It is necessary not only to get the correct result, but also to print it to the stdout using print"
     assert (
-        correct_stdout in out.strip()
+        correct_stdout == out.strip()
     ), "Wrong output is printed to stdout"

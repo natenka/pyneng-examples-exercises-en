@@ -17,7 +17,7 @@ Dict value and corresponding command:
 * ['del', '17'] - switchport trunk allowed vlan remove 17
 * ['only', '11', '30'] - switchport trunk allowed vlan 11,30
 
-Task for ports 0/1, 0/2, 0/4:
+Task for ports 0/1, 0/2, 0/4, 0/5, 0/7:
 - generate a configuration based on the trunk_template template
 - taking into account the keywords add, del, only
 
@@ -26,18 +26,26 @@ if there are other interface numbers in the trunk dictionary, the code should wo
 
 For data in the trunk_template dictionary, output to
 the standard output should be like this:
-interface FastEthernet 0/1
+interface FastEthernet0/1
  switchport trunk encapsulation dot1q
  switchport mode trunk
  switchport trunk allowed vlan add 10,20
-interface FastEthernet 0/2
+interface FastEthernet0/2
  switchport trunk encapsulation dot1q
  switchport mode trunk
  switchport trunk allowed vlan 11,30
-interface FastEthernet 0/4
+interface FastEthernet0/4
  switchport trunk encapsulation dot1q
  switchport mode trunk
  switchport trunk allowed vlan remove 17
+interface FastEthernet0/5
+ switchport trunk encapsulation dot1q
+ switchport mode trunk
+ switchport trunk allowed vlan add 10,21
+interface FastEthernet0/7
+ switchport trunk encapsulation dot1q
+ switchport mode trunk
+ switchport trunk allowed vlan 30
 
 Restriction: All tasks must be done using the topics covered in this and previous chapters.
 """
@@ -56,12 +64,19 @@ trunk_template = [
 ]
 
 access = {"0/12": "10", "0/14": "11", "0/16": "17", "0/17": "150"}
-trunk = {"0/1": ["add", "10", "20"], "0/2": ["only", "11", "30"], "0/4": ["del", "17"]}
+trunk = {
+    "0/1": ["add", "10", "20"],
+    "0/2": ["only", "11", "30"],
+    "0/4": ["del", "17"],
+    "0/5": ["add", "10", "21"],
+    "0/7": ["only", "30"],
+}
 
-for intf, vlan in access.items():
-    print("interface FastEthernet" + intf)
-    for command in access_template:
-        if command.endswith("access vlan"):
-            print(f" {command} {vlan}")
-        else:
-            print(f" {command}")
+# for intf, vlan in access.items():
+#     print("interface FastEthernet" + intf)
+#     for command in access_template:
+#         if command.endswith("access vlan"):
+#             print(f" {command} {vlan}")
+#         else:
+#             print(f" {command}")
+
