@@ -71,15 +71,17 @@ def test_function_return_value(capsys, first_router_from_devices_yaml):
 
     assert return_value != None, "The function returns None"
     assert type(return_value) == tuple, "The function must return a tuple"
-    assert len(return_value) == 2 and all(
+    assert 2 == len(return_value) and all(
         type(item) == dict for item in return_value
     ), "The function must return a tuple with two dicts"
     correct_good, correct_bad = correct_return_value
     return_good, return_bad = return_value
     assert (
-        return_good.keys() == correct_good.keys()
-        and return_bad.keys() == correct_bad.keys()
-    ), "Function returns wrong value"
+        correct_good.keys() == return_good.keys()
+    ), "Function returns wrong value for a dictionary with no errors"
+    assert (
+        correct_bad.keys() == return_bad.keys()
+    ), "Function returns wrong value for a dictionary with commands with errors"
 
 
 @pytest.mark.parametrize(
@@ -95,8 +97,8 @@ def test_function_stdout(error, command, capsys, first_router_from_devices_yaml)
         first_router_from_devices_yaml, [command], log=False
     )
 
-    out, err = capsys.readouterr()
+    sydout, err = capsys.readouterr()
     ip = first_router_from_devices_yaml["host"]
-    assert error in out, "The error message does not contain the error itself"
-    assert command in out, "There is no command in the error message"
-    assert ip in out, "The error message does not contain the IP address of the device"
+    assert error in stdout, "The error message does not contain the error itself"
+    assert command in stdout, "There is no command in the error message"
+    assert ip in stdout, "The error message does not contain the IP address of the device"
