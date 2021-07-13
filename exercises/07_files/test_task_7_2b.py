@@ -51,6 +51,6 @@ def test_task(monkeypatch, tmpdir):
     )
 
     assert (
-        dest_file_content == correct_file_content
+        correct_file_content == dest_file_content
     ), "Wrong output is printed to stdout"
 

@@ -4,20 +4,13 @@ import pytest
 import sys
 
 sys.path.append("..")
-from pyneng_common_functions import strip_empty_lines
+from pyneng_common_functions import unified_columns_output
 
 # Checking that the test is called via pytest ... and not python ...
 from _pytest.assertion.rewrite import AssertionRewritingHook
 
 if not isinstance(__loader__, AssertionRewritingHook):
     print(f"Tests should be called using this expression:\npytest {__file__}\n\n")
-
-
-def unified_columns_output(output):
-    output = strip_empty_lines(output)
-    lines = [re.split(r"  +", line.strip()) for line in output.strip().split("\n")]
-    formatted = [("{:25}"*len(line)).format(*line) for line in lines]
-    return "\n".join(formatted)
 
 
 def test_task(capsys):
@@ -61,6 +54,6 @@ def test_task(capsys):
         out
     ), "Nothing is printed to stdout. It is necessary not only to get the correct result, but also to print it to the stdout using print"
     assert (
-        unified_columns_output(out.strip()) == correct_stdout
+        correct_stdout == unified_columns_output(out.strip())
     ), "Wrong output is printed to stdout"
 
