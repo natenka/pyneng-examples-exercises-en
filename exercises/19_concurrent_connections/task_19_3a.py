@@ -44,7 +44,6 @@ Gateway of last resort is not set
 O        10.1.1.1/32 [110/11] via 192.168.100.1, 07:12:03, Ethernet0/0
 O        10.30.0.0/24 [110/20] via 192.168.100.1, 07:12:03, Ethernet0/0
 
-Commands can be written to a file in any order.
 To complete the task, you can create any additional functions,
 as well as use the functions created in previous tasks.
 
