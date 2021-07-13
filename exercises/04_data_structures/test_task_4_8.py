@@ -22,12 +22,11 @@ def test_task_stdout(capsys):
 
     out, err = capsys.readouterr()
     correct_stdout = unified_columns_output(
-        "192       168       3         1\n"
-        "11000000  10101000  00000011  00000001\n"
+        "192       168       3         1\n" "11000000  10101000  00000011  00000001\n"
     )
     assert (
         out
     ), "Nothing is printed to stdout. It is necessary not only to get the correct result, but also to print it to the stdout using print"
-    assert (
-        correct_stdout == unified_columns_output(out.strip())
+    assert correct_stdout == unified_columns_output(
+        out.strip()
     ), "Wrong line is printed to stdout"

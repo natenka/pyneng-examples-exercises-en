@@ -5,7 +5,11 @@ import sys
 
 sys.path.append("..")
 
-from pyneng_common_functions import check_class_exists, check_attr_or_method, strip_empty_lines
+from pyneng_common_functions import (
+    check_class_exists,
+    check_attr_or_method,
+    strip_empty_lines,
+)
 
 # Checking that the test is called via pytest ... and not python ...
 from _pytest.assertion.rewrite import AssertionRewritingHook
@@ -38,9 +42,7 @@ def test_send_config_command_str(first_router_from_devices_yaml):
 
     cfg_comand = "logging 10.1.1.1"
     return_value = r1.send_config_commands(cfg_comand)
-    assert (
-        cfg_comand in return_value
-    ), "send_config_commands method returns wrong value"
+    assert cfg_comand in return_value, "send_config_commands method returns wrong value"
 
 
 def test_send_config_commands_different_command(first_router_from_devices_yaml):
@@ -49,9 +51,7 @@ def test_send_config_commands_different_command(first_router_from_devices_yaml):
 
     cfg_comand = "no ip http server"
     return_value = r1.send_config_commands(cfg_comand)
-    assert (
-        cfg_comand in return_value
-    ), "send_config_commands method returns wrong value"
+    assert cfg_comand in return_value, "send_config_commands method returns wrong value"
 
     cfg_comands = [
         "alias configure sh do sh",

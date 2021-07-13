@@ -46,6 +46,4 @@ def test_function_return_value():
     return_reachable, return_unreachable = sorted(return_reachable), sorted(
         return_unreachable
     )
-    assert correct_return_value == (
-        return_value
-    ), "Function returns wrong value"
+    assert correct_return_value == (return_value), "Function returns wrong value"

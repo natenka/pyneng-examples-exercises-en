@@ -36,6 +36,4 @@ def test_function_return_value():
     assert type(return_value) == tuple and all(
         type(item) == list for item in return_value
     ), "The function must return a tuple with two lists"
-    assert (
-        correct_return_value == return_value
-    ), "Function returns wrong value"
+    assert correct_return_value == return_value, "Function returns wrong value"

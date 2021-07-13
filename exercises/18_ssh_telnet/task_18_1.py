@@ -19,7 +19,6 @@ using the send_show_command function (this part of the code is written).
 import yaml
 
 
-
 if __name__ == "__main__":
     command = "sh ip int br"
     with open("devices.yaml") as f:

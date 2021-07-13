@@ -101,4 +101,6 @@ def test_function_stdout(error, command, capsys, first_router_from_devices_yaml)
     ip = first_router_from_devices_yaml["host"]
     assert error in stdout, "The error message does not contain the error itself"
     assert command in stdout, "There is no command in the error message"
-    assert ip in stdout, "The error message does not contain the IP address of the device"
+    assert (
+        ip in stdout
+    ), "The error message does not contain the IP address of the device"

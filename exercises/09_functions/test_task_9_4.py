@@ -85,6 +85,4 @@ def test_function_return_value():
     assert (
         type(return_value) == dict
     ), f"The function should return a dict, instead it returns a {type(return_value).__name__}"
-    assert (
-        correct_return_value == return_value
-    ), "Function returns wrong value"
+    assert correct_return_value == return_value, "Function returns wrong value"

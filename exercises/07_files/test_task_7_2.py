@@ -38,12 +38,11 @@ def test_task(capsys, monkeypatch):
         " switchport mode trunk\n"
         " spanning-tree portfast edge trunk\n"
     )
-    config_part = re.search(r"(Current configuration.*?)interface Ethernet1/0", out, re.DOTALL).group(1)
+    config_part = re.search(
+        r"(Current configuration.*?)interface Ethernet1/0", out, re.DOTALL
+    ).group(1)
 
     assert (
         out
     ), "Nothing is printed to stdout. It is necessary not only to get the correct result, but also to print it to the stdout using print"
-    assert (
-        correct_stdout == config_part
-    ), "Wrong output is printed to stdout"
-
+    assert correct_stdout == config_part, "Wrong output is printed to stdout"

@@ -56,10 +56,11 @@ def test_method_add_link(normalized_topology_example, capsys):
     assert None == add_link_result, "add_link method must return None"
 
     assert (
-        ("R1", "Eth0/4") in return_value.topology
-    ), "After adding a connection via the add_link method, it must exist in the topology"
-    assert (
-        7 == len(return_value.topology)
+        "R1",
+        "Eth0/4",
+    ) in return_value.topology, "After adding a connection via the add_link method, it must exist in the topology"
+    assert 7 == len(
+        return_value.topology
     ), "After adding a connection, the number of connections should be 7"
 
     return_value.add_link(("R1", "Eth0/4"), ("R7", "Eth0/0"))

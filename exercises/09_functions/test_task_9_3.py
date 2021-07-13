@@ -59,6 +59,4 @@ def test_function_return_value():
     ), "The function must return a tuple with two dicts"
 
     access, trunk = return_value
-    assert (
-        correct_return_value == return_value
-    ), "Function returns wrong value"
+    assert correct_return_value == return_value, "Function returns wrong value"

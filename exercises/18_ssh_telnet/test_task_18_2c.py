@@ -89,7 +89,9 @@ def test_function_stdout(
     ip = first_router_from_devices_yaml["host"]
     assert error in stdout, "The error message does not contain the error itself"
     assert command in stdout, "There is no command in the error message"
-    assert ip in stdout, "The error message does not contain the IP address of the device"
+    assert (
+        ip in stdout
+    ), "The error message does not contain the IP address of the device"
 
 
 def test_function_return_value_continue_yes(
@@ -142,11 +144,11 @@ def test_function_return_value_continue_no(
     return_good, return_bad = return_value
     if c_map[0] == "bad":
         commands_with_errors, correct_commands = commands_1, commands_2
-        assert (
-            [] == list(return_good) and commands_with_errors[:1] == sorted(return_bad)
+        assert [] == list(return_good) and commands_with_errors[:1] == sorted(
+            return_bad
         ), "Function returns wrong value"
     else:
         commands_with_errors, correct_commands = commands_2, commands_1
-        assert (
-            correct_commands == list(return_good) and commands_with_errors[:1] == list(return_bad)
-        ), "Function returns wrong value"
+        assert correct_commands == list(return_good) and commands_with_errors[
+            :1
+        ] == list(return_bad), "Function returns wrong value"

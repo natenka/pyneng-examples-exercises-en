@@ -18,6 +18,7 @@ def count_calls(func):
         wrapper.total_calls += 1
         result = func(*args, **kwargs)
         return result
+
     wrapper.total_calls = 0
     return wrapper
 
@@ -53,9 +54,7 @@ def test_task_r2_ip(capsys, monkeypatch):
     assert (
         out
     ), "Nothing is printed to stdout. It is necessary not only to get the correct result, but also to print it to the stdout using print"
-    assert (
-        correct_stdout in out.strip()
-    ), "Wrong output is printed to stdout"
+    assert correct_stdout in out.strip(), "Wrong output is printed to stdout"
 
 
 def test_task_sw1_IOS(capsys, monkeypatch):
@@ -72,6 +71,4 @@ def test_task_sw1_IOS(capsys, monkeypatch):
     assert (
         out
     ), "Nothing is printed to stdout. It is necessary not only to get the correct result, but also to print it to the stdout using print"
-    assert (
-        correct_stdout in out.strip()
-    ), "Wrong output is printed to stdout"
+    assert correct_stdout in out.strip(), "Wrong output is printed to stdout"

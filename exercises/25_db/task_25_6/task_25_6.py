@@ -1,5 +1,5 @@
 # -*- coding: utf-8 -*-
-'''
+"""
 Task 25.6
 
 There are no tests for the tasks of the 25th chapter!
@@ -132,4 +132,4 @@ usage: parse_dhcp_snooping.py get [-h] [--db DB_FILE]
                                   [-v VALUE] [-a]
 parse_dhcp_snooping.py get: error: argument -k: invalid choice: 'vln' (choose from 'mac', 'ip', 'vlan', 'interface', 'switch')
 
-'''
+"""

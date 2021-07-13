@@ -32,9 +32,7 @@ def test_task_correct_ip(capsys, monkeypatch, ip_add, ip_type):
     assert (
         out
     ), "Nothing is printed to stdout. It is necessary not only to get the correct result, but also to print it to the stdout using print"
-    assert (
-        correct_stdout in out.strip()
-    ), "Wrong output is printed to stdout"
+    assert correct_stdout in out.strip(), "Wrong output is printed to stdout"
 
 
 def count_calls(func):
@@ -44,12 +42,14 @@ def count_calls(func):
         wrapper.total_calls += 1
         result = func(*args, **kwargs)
         return result
+
     wrapper.total_calls = 0
     return wrapper
 
 
 def monkey_input_ip(ip_add):
     __tracebackhide__ = True
+
     @count_calls
     def inner(prompt):
         __tracebackhide__ = True
@@ -57,6 +57,7 @@ def monkey_input_ip(ip_add):
             return ip_add
         elif inner.total_calls == 2:
             return "10.1.1.1"
+
     return inner
 
 
@@ -82,6 +83,4 @@ def test_task_wrong_ip(capsys, monkeypatch, ip_add, ip_type):
     assert (
         out
     ), "Nothing is printed to stdout. It is necessary not only to get the correct result, but also to print it to the stdout using print"
-    assert (
-        correct_stdout == out.strip().lower()
-    ), "Wrong output is printed to stdout"
+    assert correct_stdout == out.strip().lower(), "Wrong output is printed to stdout"

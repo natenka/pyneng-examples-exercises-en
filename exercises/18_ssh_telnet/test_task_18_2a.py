@@ -38,8 +38,8 @@ def test_function_return_value(
     assert (
         type(return_value) == str
     ), f"The function must return string, and it returns a {type(return_value).__name__}"
-    assert (
-        strip_empty_lines(return_value) == strip_empty_lines(correct_return_value)
+    assert strip_empty_lines(return_value) == strip_empty_lines(
+        correct_return_value
     ), "Function returns wrong value"
 
     # by default, log should be True and a message should be printed to stdout

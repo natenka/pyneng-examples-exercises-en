@@ -34,7 +34,10 @@ def test_function_params(first_router_from_devices_yaml, tmpdir):
     with pytest.raises(ValueError) as excinfo:
         # If both show and config are passed, a ValueError exception should be raised
         task_19_4.send_commands_to_devices(
-            [first_router_from_devices_yaml], dest_filename, show=command, config=cfg_commands
+            [first_router_from_devices_yaml],
+            dest_filename,
+            show=command,
+            config=cfg_commands,
         )
 
 

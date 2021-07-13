@@ -1,5 +1,5 @@
 # -*- coding: utf-8 -*-
-'''
+"""
 Task 25.5
 
 There are no tests for the tasks of the 25th chapter!
@@ -38,5 +38,4 @@ After this command, the following entry will appear in the database:
 mac                ip               vlan  interface        switch  active  last_active
 -----------------  ---------------  ----  ---------------  ------  ------  -------------------
 00:09:BC:3F:A6:50  192.168.100.100  1     FastEthernet0/7  sw1     0       2021-03-09 07:46:31
-'''
-
+"""

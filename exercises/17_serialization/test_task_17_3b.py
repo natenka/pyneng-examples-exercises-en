@@ -47,6 +47,6 @@ def test_function_return_value():
     assert len(correct_return_value) == len(
         return_value
     ), "There are duplicate links in the dictionary that describes the topology"
-    assert (
-        correct_return_value == unify_topology_dict(return_value)
+    assert correct_return_value == unify_topology_dict(
+        return_value
     ), "Function returns wrong value"

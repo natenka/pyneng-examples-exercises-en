@@ -60,6 +60,4 @@ def test_function_return_value():
     assert len(return_value) == 2 and all(
         type(item) == dict for item in return_value
     ), "The function must return a tuple with two dicts"
-    assert (
-        correct_return_value == return_value
-    ), "Function returns wrong value"
+    assert correct_return_value == return_value, "Function returns wrong value"

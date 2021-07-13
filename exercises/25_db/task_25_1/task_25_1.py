@@ -1,5 +1,5 @@
 # -*- coding: utf-8 -*-
-'''
+"""
 Task 25.1
 
 There are no tests for the tasks of the 25th chapter!
@@ -85,4 +85,4 @@ At this stage, both scripts are called with no arguments.
 The code in scripts should be broken down into functions.
 It is up to you to decide which functions and how to split the code.
 Some of the code can be global.
-'''
+"""

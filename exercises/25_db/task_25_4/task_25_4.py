@@ -1,5 +1,5 @@
 # -*- coding: utf-8 -*-
-'''
+"""
 Task 25.4
 
 There are no tests for the tasks of the 25th chapter!
@@ -63,4 +63,4 @@ Active entries:
 00:A9:BB:3D:D6:58  10.1.10.20  10  FastEthernet0/7  sw2  1
 00:A9:33:44:A6:50  10.1.10.77  10  FastEthernet0/4  sw2  1
 -----------------  ----------  --  ---------------  ---  -
-'''
+"""

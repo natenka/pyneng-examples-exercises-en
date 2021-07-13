@@ -34,7 +34,9 @@ def test_iterable(normalized_topology_example):
     try:
         iterator = iter(top1)
     except TypeError as error:
-        pytest.fail("An instance of the Topology class is a non-iterable object\n", error)
+        pytest.fail(
+            "An instance of the Topology class is a non-iterable object\n", error
+        )
     else:
         item = next(iterator)
         assert (("R1", "Eth0/0"), ("SW1", "Eth0/1")) == item

@@ -1,5 +1,5 @@
 # -*- coding: utf-8 -*-
-'''
+"""
 Task 25.2
 
 There are no tests for the tasks of the 25th chapter!
@@ -62,4 +62,4 @@ Valid parameter values: mac, ip, vlan, interface, switch
 $ python get_data.py ip vlan 10
 Please enter two or zero arguments
 
-'''
+"""

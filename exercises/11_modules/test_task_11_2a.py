@@ -30,7 +30,9 @@ def test_function_params():
     Checking names and number of parameters
     """
     check_function_params(
-        function=task_11_2a.unique_network_map, param_count=1, param_names=["topology_dict"]
+        function=task_11_2a.unique_network_map,
+        param_count=1,
+        param_names=["topology_dict"],
     )
 
 
@@ -69,9 +71,7 @@ def test_function_return_value():
         return_value
     ), "There are duplicate links in the dictionary that describes the topology"
     unified_return_value = unify_topology_dict(return_value)
-    assert (
-        correct_return_value == unified_return_value
-    ), "Function returns wrong value"
+    assert correct_return_value == unified_return_value, "Function returns wrong value"
 
 
 def test_function_return_value_different_args():
@@ -97,6 +97,4 @@ def test_function_return_value_different_args():
         return_value
     ), "There are duplicate links in the dictionary that describes the topology"
     unified_return_value = unify_topology_dict(return_value)
-    assert (
-        correct_return_value == unified_return_value
-    ), "Function returns wrong value"
+    assert correct_return_value == unified_return_value, "Function returns wrong value"

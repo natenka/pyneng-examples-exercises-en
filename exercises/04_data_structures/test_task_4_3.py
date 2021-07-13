@@ -19,9 +19,7 @@ def test_task_stdout(capsys):
     assert (
         out
     ), "Nothing is printed to stdout. It is necessary not only to get the correct result, but also to print it to the stdout using print"
-    assert (
-        correct_stdout == out.strip()
-    ), "Wrong line is printed to stdout"
+    assert correct_stdout == out.strip(), "Wrong line is printed to stdout"
 
 
 def test_task_variables():
@@ -35,9 +33,7 @@ def test_task_variables():
     task_vars = [var for var in dir(task_4_3) if not var.startswith("_")]
 
     correct_result = ["1", "3", "10", "20", "30", "100"]
-    assert (
-        "result" in task_vars
-    ), "List should be written to the result variable"
+    assert "result" in task_vars, "List should be written to the result variable"
     assert (
         type(task_4_3.result) == list
     ), f"The result variable must contain a list, not a {type(task_4_3.result).__name__}"

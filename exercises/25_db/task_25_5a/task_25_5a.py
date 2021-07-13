@@ -1,5 +1,5 @@
 # -*- coding: utf-8 -*-
-'''
+"""
 Task 25.5a
 
 There are no tests for the tasks of the 25th chapter!
@@ -18,14 +18,14 @@ the last_active time with this date.
 Please note that date strings that are written to the database can be compared
 with each other.
 
-'''
+"""
 
 from datetime import timedelta, datetime
 
 now = datetime.today().replace(microsecond=0)
 week_ago = now - timedelta(days=7)
 
-#print(now)
-#print(week_ago)
-#print(now > week_ago)
-#print(str(now) > str(week_ago))
+# print(now)
+# print(week_ago)
+# print(now > week_ago)
+# print(str(now) > str(week_ago))

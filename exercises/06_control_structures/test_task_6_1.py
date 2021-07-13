@@ -15,13 +15,13 @@ def test_task_stdout(capsys):
     import task_6_1
 
     out, err = capsys.readouterr()
-    correct_stdout = "['aabb.cc80.7000', 'aabb.dd80.7340', 'aabb.ee80.7000', 'aabb.ff80.7000']"
+    correct_stdout = (
+        "['aabb.cc80.7000', 'aabb.dd80.7340', 'aabb.ee80.7000', 'aabb.ff80.7000']"
+    )
     assert (
         out
     ), "Nothing is printed to stdout. It is necessary not only to get the correct result, but also to print it to the stdout using print"
-    assert (
-        correct_stdout == out.strip()
-    ), "Wrong line is printed to stdout"
+    assert correct_stdout == out.strip(), "Wrong line is printed to stdout"
 
 
 def test_task_variables():
@@ -34,16 +34,17 @@ def test_task_variables():
     # variables created in the task:
     task_vars = [var for var in dir(task_6_1) if not var.startswith("_")]
 
-    correct_result = ['aabb.cc80.7000', 'aabb.dd80.7340', 'aabb.ee80.7000', 'aabb.ff80.7000']
+    correct_result = [
+        "aabb.cc80.7000",
+        "aabb.dd80.7340",
+        "aabb.ee80.7000",
+        "aabb.ff80.7000",
+    ]
 
-    assert (
-        "result" in task_vars
-    ), "List should be written to the result variable"
+    assert "result" in task_vars, "List should be written to the result variable"
     assert (
         type(task_6_1.result) == list
     ), f"The result variable must contain a list, not a {type(task_6_1.result).__name__}"
     assert (
         correct_result == task_6_1.result
     ), f"The result variable must be a list {correct_result}"
-
-

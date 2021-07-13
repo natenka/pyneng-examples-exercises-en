@@ -1,5 +1,5 @@
 # -*- coding: utf-8 -*-
-'''
+"""
 Task 25.3
 
 There are no tests for the tasks of the 25th chapter!
@@ -117,4 +117,4 @@ The data should look like this (the lines can be in any order)
 -----------------  ---------------  --  ----------------  ---  -
 
 
-'''
+"""
