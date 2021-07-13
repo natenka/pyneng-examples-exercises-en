@@ -26,16 +26,17 @@ def test_function_return_value():
     """
     Function check
     """
-    sh_cdp_topology_tuples = {
-        ("R1", "Eth 0/0"): ("SW1", "Eth 0/1"),
-        ("R2", "Eth 0/0"): ("SW1", "Eth 0/2"),
-        ("R2", "Eth 0/1"): ("R5", "Eth 0/0"),
-        ("R2", "Eth 0/2"): ("R6", "Eth 0/1"),
-        ("R3", "Eth 0/0"): ("SW1", "Eth 0/3"),
-        ("R4", "Eth 0/0"): ("SW1", "Eth 0/4"),
-        ("R4", "Eth 0/1"): ("R5", "Eth 0/1"),
-    }
-    correct_return_value = unify_topology_dict(sh_cdp_topology_tuples)
+    correct_return_value = unify_topology_dict(
+        {
+            ("R1", "Eth 0/0"): ("SW1", "Eth 0/1"),
+            ("R2", "Eth 0/0"): ("SW1", "Eth 0/2"),
+            ("R2", "Eth 0/1"): ("R5", "Eth 0/0"),
+            ("R2", "Eth 0/2"): ("R6", "Eth 0/1"),
+            ("R3", "Eth 0/0"): ("SW1", "Eth 0/3"),
+            ("R4", "Eth 0/0"): ("SW1", "Eth 0/4"),
+            ("R4", "Eth 0/1"): ("R5", "Eth 0/1"),
+        }
+    )
 
     assert os.path.exists("topology.yaml"), "topology.yaml file does not exist"
     return_value = task_17_3b.transform_topology("topology.yaml")
@@ -43,6 +44,9 @@ def test_function_return_value():
     assert (
         type(return_value) == dict
     ), f"The function should return a dict, instead it returns a {type(return_value).__name__}"
+    assert len(correct_return_value) == len(
+        return_value
+    ), "There are duplicate links in the dictionary that describes the topology"
     assert (
-        unify_topology_dict(return_value) == correct_return_value
+        correct_return_value == unify_topology_dict(return_value)
     ), "Function returns wrong value"

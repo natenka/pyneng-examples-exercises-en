@@ -47,11 +47,11 @@ def test_parse_sh_version_return_value():
         type(return_value_r1) == tuple
     ), f"The function should return a tuple, instead it returns a {type(return_value_r1).__name__}"
     assert (
-        return_value_r1 == correct_return_value_r1
+        correct_return_value_r1 == return_value_r1
     ), "Function returns wrong value for r1"
     return_value_r2 = task_17_2.parse_sh_version(sh_version_r2)
     assert (
-        return_value_r2 == correct_return_value_r2
+        correct_return_value_r2 == return_value_r2
     ), "Function returns wrong value for r2"
 
 
@@ -59,26 +59,35 @@ def test_write_to_csv_return_value(tmpdir):
     """
     Function check
     """
-    routers_inventory = [
-        ["hostname", "ios", "image", "uptime"],
+    correct_return_value = sorted(
         [
-            "r1",
-            "12.4(15)T1",
-            "flash:c1841-advipservicesk9-mz.124-15.T1.bin",
-            "15 days, 8 hours, 32 minutes",
-        ],
-        ["r2", "12.4(4)T", "disk0:c7200-js-mz.124-4.T", "45 days, 8 hours, 22 minutes"],
-        ["r3", "12.4(4)T", "disk0:c7200-js-mz.124-4.T", "5 days, 18 hours, 2 minutes"],
-    ]
+            ["hostname", "ios", "image", "uptime"],
+            [
+                "r1",
+                "12.4(15)T1",
+                "flash:c1841-advipservicesk9-mz.124-15.T1.bin",
+                "15 days, 8 hours, 32 minutes",
+            ],
+            [
+                "r2",
+                "12.4(4)T",
+                "disk0:c7200-js-mz.124-4.T",
+                "45 days, 8 hours, 22 minutes",
+            ],
+            [
+                "r3",
+                "12.4(4)T",
+                "disk0:c7200-js-mz.124-4.T",
+                "5 days, 18 hours, 2 minutes",
+            ],
+        ]
+    )
     sh_version_files = ["sh_version_r1.txt", "sh_version_r2.txt", "sh_version_r3.txt"]
     dest_filename = tmpdir.mkdir("test_tasks").join("routers_inventory.csv")
     return_value = task_17_2.write_inventory_to_csv(sh_version_files, dest_filename)
     csv_content = read_all_csv_content_as_list(dest_filename)
-    correct_return_value = sorted(routers_inventory)
 
     assert (
-        return_value == None
+        None == return_value
     ), f"The function must return None, and it returns a {type(return_value).__name__}"
-    assert (
-        sorted(csv_content) == correct_return_value
-    ), "Function returns wrong value"
+    assert correct_return_value == sorted(csv_content), "Function returns wrong value"
