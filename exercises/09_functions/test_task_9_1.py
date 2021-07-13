@@ -76,7 +76,7 @@ def test_function_return_value():
         type(return_value) == list
     ), f"The function should return a list, instead it returns a {type(return_value).__name__}"
     assert (
-        return_value == correct_return_value
+        correct_return_value == return_value
     ), "Function returns wrong value"
 
 
@@ -109,5 +109,5 @@ def test_function_return_value_different_args():
         type(return_value) == list
     ), f"The function should return a list, instead it returns a {type(return_value).__name__}"
     assert (
-        return_value == correct_return_value
+        correct_return_value == return_value
     ), "Function returns wrong value"

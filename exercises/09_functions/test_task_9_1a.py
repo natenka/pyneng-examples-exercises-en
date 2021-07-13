@@ -110,11 +110,11 @@ def test_function_return_value():
         type(return_value) == list
     ), f"The function should return a list, instead it returns a {type(return_value).__name__}"
     assert (
-        return_value == correct_return_value_without_psecurity
+        correct_return_value_without_psecurity == return_value
     ), "The function returns an incorrect value when called with psecurity == None"
     return_value_with_psecurity = task_9_1a.generate_access_config(
         access_vlans_mapping, template_access_mode, template_psecurity
     )
     assert (
-        return_value_with_psecurity == correct_return_value_with_psecurity
+        correct_return_value_with_psecurity == return_value_with_psecurity
     ), "The function returns an incorrect value when called with psecurity"
