@@ -41,8 +41,8 @@ def test_function_return_value():
     # The lists are sorted so that there is no error if the addresses are written
     # in the list in a different order. In this task, the order of the tuples
     # in the list is not important.
-    assert sorted(return_value) == sorted(
-        correct_return_value
+    assert sorted(correct_return_value) == sorted(
+        return_value
     ), "Function returns wrong value"
 
 
@@ -66,6 +66,6 @@ def test_function_return_value_different_args():
     # The lists are sorted so that there is no error if the addresses are written
     # in the list in a different order. In this task, the order of the tuples
     # in the list is not important.
-    assert sorted(return_value) == sorted(
-        correct_return_value
+    assert sorted(correct_return_value) == sorted(
+        return_value
     ), "Function returns wrong value"

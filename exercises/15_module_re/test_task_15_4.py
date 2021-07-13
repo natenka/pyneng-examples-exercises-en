@@ -36,6 +36,6 @@ def test_function_return_value():
     assert (
         type(return_value) == list
     ), f"The function should return a list, instead it returns a {type(return_value).__name__}"
-    assert sorted(return_value) == sorted(
-        correct_return_value
+    assert sorted(correct_return_value) == sorted(
+        return_value
     ), "Function returns wrong value"
