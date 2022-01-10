@@ -13,6 +13,10 @@ The function should return the generated configuration string.
 Check the operation of the function on the templates/for.txt template
 and data from the data_files/for.yml file.
 
+An important nuance: you need to get the directory from the template parameter,
+you cannot specify the current directory in the FileSystemLoader - that is,
+DO NOT do this: FileSystemLoader(".").
+Specifying the current directory will break the work of other tasks/tests.
 """
 import yaml
 

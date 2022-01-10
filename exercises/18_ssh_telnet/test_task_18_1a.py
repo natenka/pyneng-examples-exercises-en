@@ -25,7 +25,7 @@ def test_function_return_value(capsys, first_router_wrong_pass):
     Function check
     """
     return_value = task_18_1a.send_show_command(first_router_wrong_pass, "sh ip int br")
-    correct_stdout = "Authentication fail"
+    correct_stdout = "authentication"
     out, err = capsys.readouterr()
     assert out != "", "Error message not printed to stdout"
-    assert correct_stdout in out, "Wrong error message printed"
+    assert correct_stdout in out.lower(), "Wrong error message printed"

@@ -24,4 +24,6 @@ sh clock
 *19:17:20.244 UTC Sat Apr 6 2019
 R1#
 
+The test checks the connection with parameters from the devices.yaml file.
+The file must contain the parameters of the available devices.
 """
