@@ -79,7 +79,7 @@ def test_task_wrong_ip(capsys, monkeypatch, ip_add, ip_type):
     import task_6_2b
 
     out, err = capsys.readouterr()
-    correct_stdout = ip_type + "\nunicast"
+    correct_stdout = ip_type
     assert (
         out
     ), "Nothing is printed to stdout. It is necessary not only to get the correct result, but also to print it to the stdout using print"
