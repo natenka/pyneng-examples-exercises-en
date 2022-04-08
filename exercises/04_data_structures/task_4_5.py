@@ -19,6 +19,6 @@ correct output without getting results from initial data using Python.
 This does not mean that the task was done correctly, it is just that at
 this stage it is difficult otherwise test the result.
 """
-
+"test"
 command1 = "switchport trunk allowed vlan 1,2,3,5,8"
 command2 = "switchport trunk allowed vlan 1,3,8,9"
