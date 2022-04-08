@@ -13,5 +13,6 @@ correct output without getting results from initial data using Python.
 This does not mean that the task was done correctly, it is just that at
 this stage it is difficult otherwise test the result.
 """
+""" test de pull y fetch """
 
 mac = "AAAA:BBBB:CCCC"
